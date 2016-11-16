@@ -1,12 +1,12 @@
 //Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
-public class Pokemon extends Stats {
-    public void wildPokemon(int chance, Player user){
+public abstract class Pokemon extends Stats {
+    public void wildPokemon(Player user){
         int id, pokeNum;
 
         if (chance <= 70){
             id = idGenerator();
             switch (id){
-                case 1:
+                /*case 1:
                     name = "Bulbasaur";
                     lev = levelGenerator(user);
                     iv = ivGenerator(); //will need seperate generators for each stats IVs
@@ -67,7 +67,7 @@ public class Pokemon extends Stats {
                     attPower[3] = 90;
                     attType1 [3] = "Fire";
                     attType2 [3] = "Special";
-                    break;
+                    break; */
                 case 3:
                     name = "Squirtle";
                     lev = levelGenerator(user);
@@ -714,7 +714,7 @@ public class Pokemon extends Stats {
         attType2 [3] = "";
     }
 
-    private int levelGenerator(Player user){
+    protected int levelGenerator(Player user){
         double l;
         int e;
 
@@ -729,7 +729,7 @@ public class Pokemon extends Stats {
         return e;
     }
 
-    private int ivGenerator(){
+    protected int ivGenerator(){
         double i;
         int v;
 

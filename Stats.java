@@ -1,5 +1,4 @@
-
-public class Stats {
+public abstract class Stats {
     public String name, itemName;
     public double atk, def, spAtk, spDef, spd, hp, lev, exp, ballBonus;
     public int iv, level = 1, id, healthRestore, itemID;
@@ -68,4 +67,3 @@ public class Stats {
     }
 
 }
-
