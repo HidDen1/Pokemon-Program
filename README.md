@@ -2,7 +2,7 @@
 ##Goals: 
 ####Separate all pokemon into their own classes
 ######Starters:
-Up to 1st Evolution
+All Done
 ######Non-Starters:
 Up to 1st Evolution
 ####Make attacks their own concept-class to hold types, power, name, etc
