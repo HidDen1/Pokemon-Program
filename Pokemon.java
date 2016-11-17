@@ -8,7 +8,7 @@ public abstract class Pokemon extends Stats {
         } else if (chance <= 90 && chance > 70){
             id = idGenerator();
             switch (id){
-                case 1:
+               /* case 1:
                     name = "Ivysaur";
                     lev = levelGenerator(user);
                     iv = ivGenerator();
@@ -70,7 +70,6 @@ public abstract class Pokemon extends Stats {
                     attType1 [3] = "Fire";
                     attType2 [3] = "Special";
                     break;
-
                 case 3:
                     name = "Wartortle";
                     lev = levelGenerator(user);
@@ -101,7 +100,7 @@ public abstract class Pokemon extends Stats {
                     attPower[3] = 65;
                     attType1 [3] = "Water";
                     attType2 [3] = "Special";
-                    break;
+                    break; */
                 case 4:
                     name = "Metapod";
                     lev = levelGenerator(user);
