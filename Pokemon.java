@@ -100,7 +100,7 @@ public abstract class Pokemon extends Stats {
                     attPower[3] = 65;
                     attType1 [3] = "Water";
                     attType2 [3] = "Special";
-                    break; */
+                    break;
                 case 4:
                     name = "Metapod";
                     lev = levelGenerator(user);
@@ -162,7 +162,7 @@ public abstract class Pokemon extends Stats {
                     attPower[3] = 0;
                     attType1 [3] = "";
                     attType2 [3] = "";
-                    break;
+                    break; */
                 case 6:
                     name = "Pidgeotto";
                     lev = levelGenerator(user);
