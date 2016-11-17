@@ -14,21 +14,9 @@ public class PokemonCharmander extends Pokemon{
         spDef = (50 * 2 + iv) * lev / 100 + 5;
         spd = (65 * 2 + iv) * lev / 100 + 5;
         hp = (39 * 2 + iv) * lev / 100 + 10;
-        att[0] = "Ember";
-        attPower[0] = 40;
-        attType1 [0] = "Fire";
-        attType2 [0] = "Special";
-        att[1] = "Dragon Rage";
-        attPower[1] = 40;
-        attType1 [1] = "Dragon";
-        attType2 [1] = "Special";
-        att[2] = "Fire Fang";
-        attPower[2] = 65;
-        attType1 [2] = "Fire";
-        attType2 [2] = "Physical";
-        att[3] = "Flamethrower";
-        attPower[3] = 90;
-        attType1 [3] = "Fire";
-        attType2 [3] = "Special";
+        att = new String[]{"Ember", "Dragon Rage", "Fire Fang", "Flamethrower"};
+        attPower = new int[]{40, 40, 65, 90};
+        attType1 = new String[]{"Fire", "Dragon", "Fire", "Fire"};
+        attType2 = new String[]{"Special", "Special", "Physical", "Special"};
     }
 }

@@ -17,21 +17,9 @@ public class PokemonBulbasaur extends Pokemon{
         spDef = (65 * 2 + iv) * lev / 100 + 5;
         spd = (45 * 2 + iv) * lev / 100 + 5;
         hp = (45 * 2 + iv) * lev / 100 + 10;
-        att[0] = "Vine Whip";
-        attPower[0] = 45;
-        attType1 [0] = "Grass";
-        attType2 [0] = "Physical";
-        att[1] = "Razorleaf";
-        attPower[1] = 55;
-        attType1 [1] = "Grass";
-        attType2 [1] = "Physical";
-        att[2] = "Seed Bomb";
-        attPower[2] = 80;
-        attType1 [2] = "Grass";
-        attType2 [2] = "Physical";
-        att[3] = "Solarbeam";
-        attPower[3] = 120;
-        attType1 [3] = "Grass";
-        attType2 [3] = "Special";
+        att = new String[]{"Vine Whip", "Razorleaf", "Seed Bomb", "Solarbeam"};
+        attPower = new int[]{45, 55, 80, 120};
+        attType1 = new String[]{"Grass", "Grass", "Grass", "Grass"};
+        attType2 = new String[]{"Physical", "Physical", "Physical", "Special"};
     }
 }
