@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Game {
@@ -6,6 +7,9 @@ public class Game {
         Scanner scan = new Scanner(System.in);
         int typ;
         String trainerName;
+
+        //javax.swing.SwingUtilities.invokeLater(Game::startGUI);
+
 
         System.out.println("Welcome to Patrick's Pokemon Game!");
         System.out.println("Enter your name.");
@@ -20,6 +24,10 @@ public class Game {
         option.optionsMenu(user, option, inventory, bat);
     }
 
+    public static void startGUI(){
+        JFrame.setDefaultLookAndFeelDecorated(false);
+        Game g = new Game();
+    }
 }
 
 /*

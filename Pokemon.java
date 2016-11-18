@@ -1,396 +1,16 @@
 //Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
-public class Pokemon extends Stats {
-    public void wildPokemon(int chance, Player user){
+public abstract class Pokemon extends Stats {
+    public void wildPokemon(Player user){
         int id, pokeNum;
 
         if (chance <= 70){
-            id = idGenerator();
-            switch (id){
-                case 1:
-                    name = "Bulbasaur";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator(); //will need seperate generators for each stats IVs
-                    //id = 1;
-                    //pokeNum = 1; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Grass";
-                    atk = (49 * 2 + iv) * lev / 100 + 5;
-                    def = (49 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (65 * 2 + iv) * lev / 100 + 5;
-                    spDef = (65 * 2 + iv) * lev / 100 + 5;
-                    spd = (45 * 2 + iv) * lev / 100 + 5;
-                    hp = (45 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Vine Whip";
-                    attPower[0] = 45;
-                    attType1 [0] = "Grass";
-                    attType2 [0] = "Physical";
-                    att[1] = "Razorleaf";
-                    attPower[1] = 55;
-                    attType1 [1] = "Grass";
-                    attType2 [1] = "Physical";
-                    att[2] = "Seed Bomb";
-                    attPower[2] = 80;
-                    attType1 [2] = "Grass";
-                    attType2 [2] = "Physical";
-                    att[3] = "Solarbeam";
-                    attPower[3] = 120;
-                    attType1 [3] = "Grass";
-                    attType2 [3] = "Special";
-                    break;
-                case 2:
-                    name = "Charmander";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 2;
-                    //pokeNum = 4;
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Fire";
-                    atk = (52 * 2 + iv) * lev / 100 + 5;
-                    def = (43 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (60 * 2 + iv) * lev / 100 + 5;
-                    spDef = (50 * 2 + iv) * lev / 100 + 5;
-                    spd = (65 * 2 + iv) * lev / 100 + 5;
-                    hp = (39 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Ember";
-                    attPower[0] = 40;
-                    attType1 [0] = "Fire";
-                    attType2 [0] = "Special";
-                    att[1] = "Dragon Rage";
-                    attPower[1] = 40;
-                    attType1 [1] = "Dragon";
-                    attType2 [1] = "Special";
-                    att[2] = "Fire Fang";
-                    attPower[2] = 65;
-                    attType1 [2] = "Fire";
-                    attType2 [2] = "Physical";
-                    att[3] = "Flamethrower";
-                    attPower[3] = 90;
-                    attType1 [3] = "Fire";
-                    attType2 [3] = "Special";
-                    break;
-                case 3:
-                    name = "Squirtle";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 3;
-                    //pokeNum = 7;
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Water";
-                    atk = (48 * 2 + iv) * lev / 100 + 5;
-                    def = (65 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (50 * 2 + iv) * lev / 100 + 5;
-                    spDef = (64 * 2 + iv) * lev / 100 + 5;
-                    spd = (43 * 2 + iv) * lev / 100 + 5;
-                    hp = (44 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Water Gun";
-                    attPower[0] = 40;
-                    attType1 [0] = "Water";
-                    attType2 [0] = "Special";
-                    att[1] = "Water Pulse";
-                    attPower[1] = 60;
-                    attType1 [1] = "Water";
-                    attType2 [1] = "Special";
-                    att[2] = "Bite";
-                    attPower[2] = 60;
-                    attType1 [2] = "Dark";
-                    attType2 [2] = "Physical";
-                    att[3] = "Brine";
-                    attPower[3] = 65;
-                    attType1 [3] = "Water";
-                    attType2 [3] = "Special";
-                    break;
-                case 4:
-                    name = "Caterpie";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 4;
-                    //pokeNum = 10; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Bug";
-                    atk = (30 * 2 + iv) * lev / 100 + 5;
-                    def = (35 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (20 * 2 + iv) * lev / 100 + 5;
-                    spDef = (20 * 2 + iv) * lev / 100 + 5;
-                    spd = (45 * 2 + iv) * lev / 100 + 5;
-                    hp = (45 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Tackle";
-                    attPower[0] = 50;
-                    attType1 [0] = "Normal";
-                    attType2 [0] = "Physical";
-                    att[1] = "Bug Bite";
-                    attPower[1] = 60;
-                    attType1 [1] = "Bug";
-                    attType2 [1] = "Physical";
-                    att[2] = "-----";
-                    attPower[2] = 0;
-                    attType1 [2] = "";
-                    attType2 [2] = "";
-                    att[3] = "-----";
-                    attPower[3] = 0;
-                    attType1 [3] = "";
-                    attType2 [3] = "";
-                    break;
-                case 5:
-                    name = "Weedle";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 4;
-                    //pokeNum = 13; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Bug/Poison";
-                    atk = (35 * 2 + iv) * lev / 100 + 5;
-                    def = (30 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (20 * 2 + iv) * lev / 100 + 5;
-                    spDef = (20 * 2 + iv) * lev / 100 + 5;
-                    spd = (50 * 2 + iv) * lev / 100 + 5;
-                    hp = (40 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Poison String";
-                    attPower[0] = 15;
-                    attType1 [0] = "Poison";
-                    attType2 [0] = "Physical";
-                    att[1] = "Bug Bite";
-                    attPower[1] = 60;
-                    attType1 [1] = "Bug";
-                    attType2 [1] = "Physical";
-                    att[2] = "-----";
-                    attPower[2] = 0;
-                    attType1 [2] = "";
-                    attType2 [2] = "";
-                    att[3] = "-----";
-                    attPower[3] = 0;
-                    attType1 [3] = "";
-                    attType2 [3] = "";
-                    break;
-                case 6:
-                    name = "Pidgey";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 1;
-                    //pokeNum = 16; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Normal/Flying";
-                    atk = (45 * 2 + iv) * lev / 100 + 5;
-                    def = (40 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (35 * 2 + iv) * lev / 100 + 5;
-                    spDef = (35 * 2 + iv) * lev / 100 + 5;
-                    spd = (56 * 2 + iv) * lev / 100 + 5;
-                    hp = (40 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Gust";
-                    attPower[0] = 40;
-                    attType1 [0] = "Flying";
-                    attType2 [0] = "Special";
-                    att[1] = "Quick Attack";
-                    attPower[1] = 40;
-                    attType1 [1] = "Normal";
-                    attType2 [1] = "Physical";
-                    att[2] = "Twister";
-                    attPower[2] = 40;
-                    attType1 [2] = "Dragon";
-                    attType2 [2] = "Special";
-                    att[3] = "Wing Attack";
-                    attPower[3] = 60;
-                    attType1 [3] = "Flying";
-                    attType2 [3] = "Physical";
-                    break;
-            }
-
 
         } else if (chance <= 90 && chance > 70){
-            id = idGenerator();
-            switch (id){
-                case 1:
-                    name = "Ivysaur";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 1;
-                    //pokeNum = 2;
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Grass / Posion";
-                    atk = (62 * 2 + iv) * lev / 100 + 5;
-                    def = (63 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (80 * 2 + iv) * lev / 100 + 5;
-                    spDef = (80 * 2 + iv) * lev / 100 + 5;
-                    spd = (60 * 2 + iv) * lev / 100 + 5;
-                    hp = (60 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Vine Whip";
-                    attPower[0] = 45;
-                    attType1 [0] = "Grass";
-                    attType2 [0] = "Physical";
-                    att[1] = "Razorleaf";
-                    attPower[1] = 55;
-                    attType1 [1] = "Grass";
-                    attType2 [1] = "Physical";
-                    att[2] = "Double Edge";
-                    attPower[2] = 120;
-                    attType1 [2] = "Normal";
-                    attType2 [2] = "Physical";
-                    att[3] = "Solarbeam";
-                    attPower[3] = 120;
-                    attType1 [3] = "Grass";
-                    attType2 [3] = "Special";
-                    break;
-                case 2:
-                    name = "Charmeleon";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 2;
-                    //pokeNum = 5;
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Fire";
-                    atk = (64 * 2 + iv) * lev / 100 + 5;
-                    def = (58 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (80 * 2 + iv) * lev / 100 + 5;
-                    spDef = (65 * 2 + iv) * lev / 100 + 5;
-                    spd = (80 * 2 + iv) * lev / 100 + 5;
-                    hp = (58 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Slash";
-                    attPower[0] = 70;
-                    attType1 [0] = "Normal";
-                    attType2 [0] = "Physical";
-                    att[1] = "Dragon Rage";
-                    attPower[1] = 40;
-                    attType1 [2] = "Dragon";
-                    attType2 [1] = "Special";
-                    att[2] = "Flame Burst";
-                    attPower[2] = 70;
-                    attType1 [2] = "Fire";
-                    attType2 [2] = "Special";
-                    att[3] = "Flamethrower";
-                    attPower[3] = 90;
-                    attType1 [3] = "Fire";
-                    attType2 [3] = "Special";
-                    break;
-
-                case 3:
-                    name = "Wartortle";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 3;
-                    //pokeNum = 8;
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Water";
-                    atk = (63 * 2 + iv) * lev / 100 + 5;
-                    def = (80 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (65 * 2 + iv) * lev / 100 + 5;
-                    spDef = (80 * 2 + iv) * lev / 100 + 5;
-                    spd = (58 * 2 + iv) * lev / 100 + 5;
-                    hp = (59 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Aqua Tail";
-                    attPower[0] = 90;
-                    attType1 [0] = "Water";
-                    attType2 [0] = "Physical";
-                    att[1] = "Ice Beam";
-                    attPower[1] = 90;
-                    attType1 [1] = "Ice";
-                    attType2 [1] = "Special";
-                    att[2] = "Bite";
-                    attPower[2] = 60;
-                    attType1 [2] = "Dark";
-                    attType2 [2] = "Physical";
-                    att[3] = "Brine";
-                    attPower[3] = 65;
-                    attType1 [3] = "Water";
-                    attType2 [3] = "Special";
-                    break;
-                case 4:
-                    name = "Metapod";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 11;
-                    //pokeNum = 10; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Bug";
-                    atk = (20 * 2 + iv) * lev / 100 + 5;
-                    def = (55 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (25 * 2 + iv) * lev / 100 + 5;
-                    spDef = (25 * 2 + iv) * lev / 100 + 5;
-                    spd = (30 * 2 + iv) * lev / 100 + 5;
-                    hp = (50 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Tackle";
-                    attPower[0] = 50;
-                    attType1 [0] = "Normal";
-                    attType2 [0] = "Physical";
-                    att[1] = "Bug Bite";
-                    attPower[1] = 60;
-                    attType1 [1] = "Bug";
-                    attType2 [1] = "Physical";
-                    att[2] = "-----";
-                    attPower[2] = 0;
-                    attType1 [2] = "";
-                    attType2 [2] = "";
-                    att[3] = "-----";
-                    attPower[3] = 0;
-                    attType1 [3] = "";
-                    attType2 [3] = "";
-                    break;
-                case 5:
-                    name = "Kakuna";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 4;
-                    //pokeNum = 15; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Bug/Poison";
-                    atk = (25 * 2 + iv) * lev / 100 + 5;
-                    def = (50 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (25 * 2 + iv) * lev / 100 + 5;
-                    spDef = (25 * 2 + iv) * lev / 100 + 5;
-                    spd = (35 * 2 + iv) * lev / 100 + 5;
-                    hp = (45 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Poison String";
-                    attPower[0] = 15;
-                    attType1 [0] = "Poison";
-                    attType2 [0] = "Physical";
-                    att[1] = "Bug Bite";
-                    attPower[1] = 60;
-                    attType1 [1] = "Bug";
-                    attType2 [1] = "Physical";
-                    att[2] = "-----";
-                    attPower[2] = 0;
-                    attType1 [2] = "";
-                    attType2 [2] = "";
-                    att[3] = "-----";
-                    attPower[3] = 0;
-                    attType1 [3] = "";
-                    attType2 [3] = "";
-                    break;
-                case 6:
-                    name = "Pidgeotto";
-                    lev = levelGenerator(user);
-                    iv = ivGenerator();
-                    //id = 1;
-                    //pokeNum = 17; //for the pokedex
-                    exp = Math.pow(lev * 10 , 2);
-                    type = "Normal/Flying";
-                    atk = (60 * 2 + iv) * lev / 100 + 5;
-                    def = (55 * 2 + iv) * lev / 100 + 5;
-                    spAtk = (50 * 2 + iv) * lev / 100 + 5;
-                    spDef = (50 * 2 + iv) * lev / 100 + 5;
-                    spd = (71 * 2 + iv) * lev / 100 + 5;
-                    hp = (63 * 2 + iv) * lev / 100 + 10;
-                    att[0] = "Air Slash";
-                    attPower[0] = 75;
-                    attType1 [0] = "Flying";
-                    attType2 [0] = "Special";
-                    att[1] = "Quick Attack";
-                    attPower[1] = 40;
-                    attType1 [1] = "Normal";
-                    attType2 [1] = "Physical";
-                    att[2] = "Twister";
-                    attPower[2] = 40;
-                    attType1 [2] = "Dragon";
-                    attType2 [2] = "Special";
-                    att[3] = "Wing Attack";
-                    attPower[3] = 60;
-                    attType1 [3] = "Flying";
-                    attType2 [3] = "Physical";
-                    break;
-            }
 
         } else if (chance <= 100 && chance > 90){
             id = idGenerator();
             switch (id){
-                case 1:
+                /*case 1:
                     name = "Venusaur";
                     lev = levelGenerator(user);
                     iv = ivGenerator();
@@ -452,7 +72,6 @@ public class Pokemon extends Stats {
                     attType1 [3] = "Fire";
                     attType2[3] = "Special";
                     break;
-
                 case 3:
                     name = "Blastoise";
                     lev = levelGenerator(user);
@@ -545,7 +164,7 @@ public class Pokemon extends Stats {
                     attPower[3] = 30;
                     attType1 [3] = "Bug";
                     attType2 [3] = "Physical";
-                    break;
+                    break; */
                 case 6:
                     name = "Pidgeot";
                     lev = levelGenerator(user);
@@ -714,7 +333,7 @@ public class Pokemon extends Stats {
         attType2 [3] = "";
     }
 
-    private int levelGenerator(Player user){
+    protected int levelGenerator(Player user){
         double l;
         int e;
 
@@ -729,7 +348,7 @@ public class Pokemon extends Stats {
         return e;
     }
 
-    private int ivGenerator(){
+    protected int ivGenerator(){
         double i;
         int v;
 
