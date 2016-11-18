@@ -449,7 +449,7 @@ public class Pokemon extends Stats {
                     attType2[2] = "Special";
                     att[3] = "Flamethrower";
                     attPower[3] = 90;
-                    attType1 [3] = "Grass";
+                    attType1 [3] = "Fire";
                     attType2[3] = "Special";
                     break;
 
@@ -509,7 +509,7 @@ public class Pokemon extends Stats {
                     att[2] = "Silver Wind";
                     attPower[2] = 60;
                     attType1 [2] = "Bug";
-                    attType2 [2] = "60";
+                    attType2 [2] = "Special";
                     att[3] = "Bug Buzz";
                     attPower[3] = 90;
                     attType1 [3] = "Bug";

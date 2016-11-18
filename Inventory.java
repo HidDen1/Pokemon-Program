@@ -23,19 +23,17 @@ public class Inventory extends Item {
         }
     }
 
-
-
-    //@SuppressWarnings("resource")
     public void useItem(Player user, Battle bat, Pokemon wild, Options option, Pokemon battling, Inventory inventory){ //need methods during and not during battle
         Scanner scan = new Scanner(System.in);
         int position = 0;
+        int caught;
         if (itemList.size() == 0){
             System.out.println("No items in Inventory");
             position = -1;
         }
         while(position != -1){
             System.out.println("What item do you want to use?");
-            listItems();
+            listItems(option, user, inventory, bat);
             System.out.println("Enter -1 to go back");
             position = scan.nextInt();
             switch(position){
@@ -48,23 +46,44 @@ public class Inventory extends Item {
                 default:
                     position--;
                     try{
-                        itemList.get(position).use(user); //something around here is broken
+                        caught = itemList.get(position).use(user); //something around here is broken
                     } catch (IndexOutOfBoundsException blarg){
                         System.out.println("No item in that slot");
                         break;
                     }
                     itemList.remove(position);
                     position = -1;
-                    bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+                    if (caught == 1){
+                        System.out.println("The wild " + wild.getName() + " was caught!");
+                        int id = user.getNextID();
+                        user.party[id] = wild;
+                        user.pokemonLevel[id] = wild.getLevel();
+                        user.pokemonExp[id] = 0;
+                        user.storage[id] = wild;
+                        bat.wildLose(wild, user, option, inventory, bat);
+                        break;
+                    } else if (caught == -1) {
+                        System.out.println(wild.getName() + " escaped the ball!");
+                        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+                    } else {
+                        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+                    }
             }
+        }
+        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+    }
+
+    public void listItemsOutside(Options option, Player user, Inventory inventory, Battle bat){
+        int back = 0;
+        Scanner scan = new Scanner(System.in);
+        listItems(option, user, inventory, bat);
+        while (back != -1){
+        System.out.println("Enter -1 to go back");
+        back = scan.nextInt();
         }
     }
 
-    //public String getItemName(int placement){
-        //return(itemList.get(placement).getName());
-    //}
-
-    public void listItems(){
+    public void listItems(Options option, Player user, Inventory inventory, Battle bat){
         int size;
         if (itemList.size() == 0){
             empty = 1;
@@ -76,8 +95,6 @@ public class Inventory extends Item {
         for(int i = 0; i <= size; i++){
             System.out.println(i + 1 + ". " + itemList.get(i).getItemName());
         }
-        //go back method
-
     }
 
     /*@SuppressWarnings("resource")

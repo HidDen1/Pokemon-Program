@@ -26,10 +26,43 @@ public class Game {
     Bug List:
     -Wild pokemon using non existent moves
 
+    Battle mechanics that still need to be added:
+    -Switching Pokemon in battle
+    -Not losing till all available pokemon faint
+    -Switching pokemon into the party from the pc
+    -Checking stats
+    -Evolution
+    -Typing
+    -EVs
+    -Proper IVs
+    -Natures
+    -Proper Exp calculations
+    -Abilities
+    -Switching pokemon around in the party
+    -Proper movesets
+    -Proper id assigning when catching pokemon and in all of the methods that currently have party[0] as placeholders
+
 
     Version History:
 
+    Version 0.16.00 11/17/2016
+    -Added ability to have all pokemon healed when finding a pokemon center
+    -Added ability to find items at random locations
+    -Added message when Pokemon is captured
+    -Added ability to go back when just checking items
+    -Changed the catching of a pokemon to be determined by an int rather than a boolean
+    -Fixed potion messages saying health points instead of battle points
+    -Fixed the battle not being ended after a Pokemon is caught
+    -Fixed Charizard's flamethrower typing
+    -Fixed Butterfree's silverwind attack type
+
+    Version 0.15.00 11/16/2016
+    -Added method for catching Pokemon
+    -Removed the evolution class
+
     Version 0.14.00 11/15/2016
+    -Added exception to player attack phase to make sure an appropriate action is chosen
+    -Added exception to player attack phase to make sure an appropriate attack is chosen
     -Fixed crash when using potions and health going over max
     -Fixed the issue of using an item ending the battle
     -Fixed items taking a users turn when not used

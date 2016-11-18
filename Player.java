@@ -16,7 +16,7 @@ public class Player extends Stats {
         remainingHealth [0] = beginner.getHealthPoints();
         party [0] = beginner;
         storage [0] = beginner;
-        nextID = getID() + 1;
+        nextID = 0;
         Pokemon empty = new Pokemon();
         empty.emptySlot();
         party [1] = empty;
@@ -102,7 +102,7 @@ public class Player extends Stats {
     }
 
     public void expToLevelUpPokemon(){ //caluclates exp needed to level up beginner pokemon, needs updated for all pokemon, actual exp calculation needed
-        toLevelUpPokemon = Math.pow(pokemonLevel[0] * 10 , 2);
+        toLevelUpPokemon = Math.pow(pokemonLevel[0] * 2 , 2);
     }
 
     public void getPartyPokemon(){ //will have an option to check their stats
@@ -114,8 +114,9 @@ public class Player extends Stats {
         System.out.println("6. " + party [5].getName());
     }
 
-    public void getNextID(){
-        currentID++;
+    public int getNextID(){
+        nextID++;
+        return nextID;
     } //will be used to assign IDs to each Pokemon once caught
 
     public Pokemon getPokemonBattling(){
@@ -145,5 +146,9 @@ public class Player extends Stats {
             this.remainingHealth[0] = party[0].getHealthPoints();
         }
         return healthGain;
+    }
+
+    public void healAll(){
+        this.remainingHealth[0] = party[0].getHealthPoints();
     }
 }

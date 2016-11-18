@@ -72,6 +72,9 @@ public class Battle extends Stats{
                 System.out.println("Could not escape");
                 wildAttackPhase(user, wild, option, battling, inventory, bat);
             }
+        } else {
+            System.out.print("Please enter an applicable number! ");
+            playerAttackPhase(user, wild, option, battling, inventory, bat);
         }
     }
 
@@ -139,9 +142,13 @@ public class Battle extends Stats{
 
         System.out.println("1. " + battling.att[0] + "  2. " + battling.att[1]);
         System.out.println("3. " + battling.att[2] + "  4. " + battling.att[3]);
+        //System.out.println("Enter -1 to go back");
         int attack = scan.nextInt();
         if (attack == -1){
             playerAttackPhase(user, wild, option, battling, inventory, bat);
+        } else if (attack != 1 && attack != 2 && attack != 3 && attack != 4){
+            System.out.print("Please enter an applicable number!");
+            actionFightUser(user, wild, option, battling, inventory, bat);
         }
         damage = damageCalculatorUser(attack, wild, battling, option, user, inventory, bat);
         damage = Math.round(damage);
