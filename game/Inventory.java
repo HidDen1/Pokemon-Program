@@ -1,3 +1,7 @@
+package game;
+
+import pokemon.Pokemon;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,7 +34,7 @@ public class Inventory extends Item {
         Scanner scan = new Scanner(System.in);
         int position = 0;
         if (itemList.size() == 0){
-            System.out.println("No items in Inventory");
+            System.out.println("No items in game.Inventory");
             position = -1;
         }
         while(position != -1){
@@ -81,7 +85,7 @@ public class Inventory extends Item {
     }
 
     /*@SuppressWarnings("resource")
-    public void shop(Player user){
+    public void shop(game.Player user){
         String choiceString;
         int choice = 0;
         Scanner input = new Scanner(System.in);

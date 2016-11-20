@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonMetapod extends Pokemon{
 
     public PokemonMetapod(Player user){

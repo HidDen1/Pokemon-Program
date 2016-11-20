@@ -1,3 +1,7 @@
+package pokemon;
+
+import game.Player;
+
 public class PokemonBlastoise extends Pokemon{
 
     public PokemonBlastoise(Player user){

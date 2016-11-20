@@ -1,6 +1,8 @@
-import java.util.ArrayList;
+package game;
 
-public class Item extends Stats{
+import pokemon.Stats;
+
+public class Item extends Stats {
 
     public void itemNew(){
         itemID = idGenerator();

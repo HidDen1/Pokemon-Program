@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonBeedrill extends Pokemon{
 
     public PokemonBeedrill(Player user){

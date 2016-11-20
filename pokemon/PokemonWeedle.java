@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonWeedle extends Pokemon{
 
     public PokemonWeedle(Player user){

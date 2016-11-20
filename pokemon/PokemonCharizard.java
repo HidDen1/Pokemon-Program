@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonCharizard extends Pokemon{
 
     public PokemonCharizard(Player user){

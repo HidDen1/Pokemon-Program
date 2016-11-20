@@ -1,3 +1,7 @@
+package pokemon;
+
+import pokemon.Pokemon;
+
 public abstract class Stats {
     public String name, itemName;
     public double atk, def, spAtk, spDef, spd, hp, lev, exp, ballBonus;

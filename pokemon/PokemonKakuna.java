@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonKakuna extends Pokemon{
 
     public PokemonKakuna(Player user){

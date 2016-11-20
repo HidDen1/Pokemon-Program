@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonVenusaur extends Pokemon{
 
     public PokemonVenusaur(Player user){

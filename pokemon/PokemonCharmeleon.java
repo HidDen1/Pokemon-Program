@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonCharmeleon extends Pokemon{
 
     public PokemonCharmeleon(Player user){

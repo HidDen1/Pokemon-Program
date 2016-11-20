@@ -1,4 +1,4 @@
-# Pokemon-Program
+# pokemon.pokemon-Program
 ##Goals: 
 ####Separate all pokemon into their own classes
 All Done

@@ -1,3 +1,7 @@
+package game;
+
+import pokemon.Pokemon;
+import pokemon.Stats;
 
 public class Player extends Stats {
     public double expTrainer, toLevelUp, toLevelUpPokemon;
@@ -116,7 +120,7 @@ public class Player extends Stats {
 
     public void getNextID(){
         currentID++;
-    } //will be used to assign IDs to each Pokemon once caught
+    } //will be used to assign IDs to each pokemon.pokemon once caught
 
     public Pokemon getPokemonBattling(){
         return(party[0]);

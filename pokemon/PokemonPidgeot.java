@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonPidgeot extends Pokemon{
 
     public PokemonPidgeot(Player user){

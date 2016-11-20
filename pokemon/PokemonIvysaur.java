@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonIvysaur extends Pokemon{
 
     public PokemonIvysaur(Player user){

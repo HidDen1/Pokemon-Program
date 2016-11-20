@@ -1,6 +1,11 @@
+package game;
+
+import pokemon.Pokemon;
+import pokemon.Stats;
+
 import java.util.Scanner;
 
-public class Battle extends Stats{
+public class Battle extends Stats {
     public double userBattleSpeed, wildBattleSpeed, wildremainingHealth;
 
     public void startBattle(Player user, Options option, Inventory inventory, Battle bat) {
@@ -41,7 +46,7 @@ public class Battle extends Stats{
 
         System.out.println("What should " + battling.getName() + " do?");
         System.out.println("1. Fight   2. Bag");
-        System.out.println("3. Pokemon 4. Run");
+        System.out.println("3. pokemon.pokemon 4. Run");
         action = scan.nextLine();
 
         if (action.equalsIgnoreCase("1")){

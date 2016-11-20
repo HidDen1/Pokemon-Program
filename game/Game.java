@@ -1,3 +1,5 @@
+package game;
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -8,13 +10,13 @@ public class Game {
         int typ;
         String trainerName;
 
-        //javax.swing.SwingUtilities.invokeLater(Game::startGUI);
+        //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
 
 
-        System.out.println("Welcome to Patrick's Pokemon Game!");
+        System.out.println("Welcome to Patrick's pokemon.pokemon game.Game!");
         System.out.println("Enter your name.");
         trainerName = scan.nextLine();
-        System.out.println("Choose your beginner Pokemon.");
+        System.out.println("Choose your beginner pokemon.pokemon.");
         System.out.println("1. Bulbasaur, 2. Charmander, 3. Squirtle");
         typ = scan.nextInt();
         Inventory inventory = new Inventory();
@@ -60,18 +62,18 @@ public class Game {
     -Removed comments about what each method does
 
     Version 0.10.00 11/7/2016
-    -Fixed Pokemon's stats not increasing upon level up
+    -Fixed pokemon.pokemon's stats not increasing upon level up
 
     Version 0.09.00 11/6/2016
     -Added ability to find loot after battle
     -Added arrays for remaining health, level, and exp for each pokemon and updated each class for them to function
     -Added the Pokedex, Evolution, and Typing classes
-    -Added Weedle, Kakuna, Beedrill, Pidgey, Pidgeotto, and Pidgeot to the Pokemon class
+    -Added Weedle, Kakuna, Beedrill, Pidgey, Pidgeotto, and Pidgeot to the pokemon.pokemon class
     -Added comments in player explaining the purpose of methods and any changes needed done to them
     -Changed the item array to an arraylist due to issues
     -Changed wild pokemon level range to be up to 5 levels higher than beginner pokemon
     -Fixed ability to check items
-    -Fixed Pokemon not retaining their health after battle
+    -Fixed pokemon.pokemon not retaining their health after battle
     -Fixed exp not functioning correctly
     -Misc cleaning of code
 
@@ -84,28 +86,28 @@ public class Game {
 
     Version 0.07.00 11/3/2016
     -Added Pokeball, Greatball, Ultraball, Potion, Super Potion, and Hyper Potion to item class
-    -Added the Inventory class
-    -Began adding Pokemon keeping health after a battle
+    -Added the game.Inventory class
+    -Began adding pokemon.pokemon keeping health after a battle
     -Began working on player inventory
     -Fixed Charizard's only spawning at level 50
     -Misc cleaning up of code
 
     Version 0.06.00 11/2/2016
-    -Added ability to check party Pokemon during battle
+    -Added ability to check party pokemon.pokemon during battle
     -Added display of health and level during battle
     -Added rounding for HP and battle damage
-    -Added if statements to prevent a Pokemon's current health from going below 0
-    -Added Caterpie, Metapod, and Butterfree to Pokemon class
+    -Added if statements to prevent a pokemon.pokemon's current health from going below 0
+    -Added Caterpie, Metapod, and Butterfree to pokemon.pokemon class
     -Added if statement to make sure player does not use non existent moves
-    -Added method to make sure wild Pokemon do not use non existent moves
+    -Added method to make sure wild pokemon.pokemon do not use non existent moves
     -Changed Spawn rates. Common 60 to 70, Rare 71 to 90, Super Rare 91 to
-    -Changed Spawn levels. Wild Pokemon cannot be higher than 5 levels above the beginner's level
-    -Fixed beginner Pokemon not getting the proper stats for battle
+    -Changed Spawn levels. Wild pokemon.pokemon cannot be higher than 5 levels above the beginner's level
+    -Fixed beginner pokemon.pokemon not getting the proper stats for battle
     -Fixed program not quitting after losing a battle or manually quitting the program
 
     Version 0.05.00 11/1/2016
     -Added temporary way to check beginner stats for testing if the methods work when in arrays
-    -Added ability to check party Pokemon
+    -Added ability to check party pokemon.pokemon
     -Added ability to go back from checking party pokemon and getting trainer info
     -Removed Adventure class
 
@@ -113,28 +115,28 @@ public class Game {
     -Added ability to gain trainer experience
     -Added ability to gain pokedollars
     -Added ability to view your name (though currently shows Charizard), level, current exp and exp for next level, and Pokedollars
-    -Added typing for each Pokemon
+    -Added typing for each pokemon.pokemon
     -Added typing for moves
     -Added Critical Hit chance to damage
     -Added random to damage
-    -Added ability to choose a beginner Pokemon
+    -Added ability to choose a beginner pokemon.pokemon
     -Misc cleaning up of code
 
     Version 0.03.00 10/30/2016:
     -Misc bug fixes for battling
-    -Added the ability to run from a wild Pokemon
+    -Added the ability to run from a wild pokemon.pokemon
     -Added option to go back from fighting in battle
-    -Fixed Battle damage
-    -Fixed Pokemon not fainting
+    -Fixed game.Battle damage
+    -Fixed pokemon.pokemon not fainting
 
     Version 0.02.00 10/26/2016:
-    -Added the Adventure, Item, Pokemon, Option, Player, Stats,  and Battle Classes
-    -Added a temporary Charizard to be used by the player until beginner Pokemon and catching are added
-    -Added methods in the player class for gaining experience after a wild Pokemon is beaten
+    -Added the Adventure, game.Item, pokemon.pokemon, Option, game.Player, pokemon.Stats,  and game.Battle Classes
+    -Added a temporary Charizard to be used by the player until beginner pokemon.pokemon and catching are added
+    -Added methods in the player class for gaining experience after a wild pokemon.pokemon is beaten
     -Added methods to the battle class for initializing the battle and the turns for players and wild pokemon
     -Added damage calculations in battle
-    -Added Bulbasuar, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard, Squirtle, Wartortle, and Blastoise to Pokemon class
-    -Added random generators to the pokemon class for levels, ivs, and Pokemon selection
+    -Added Bulbasuar, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard, Squirtle, Wartortle, and Blastoise to pokemon.pokemon class
+    -Added random generators to the pokemon class for levels, ivs, and pokemon.pokemon selection
     -Added variables for all stats in the stats class and methods for getting those variables
     -Moved all contents of the Adventure class into the options class
     -Changed the if statement in options to a switch case

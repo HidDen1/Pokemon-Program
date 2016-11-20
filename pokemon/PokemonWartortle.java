@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonWartortle extends Pokemon{
 
     public PokemonWartortle(Player user){

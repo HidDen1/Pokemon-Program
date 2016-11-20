@@ -1,3 +1,5 @@
+package pokemon;
+
 /**
  * Created by hidden on 11/16/16.
  */

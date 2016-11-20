@@ -1,3 +1,5 @@
+package pokemon;
+
 public class PokemonCaterpie extends Pokemon{
 
     public PokemonCaterpie(Player user){
