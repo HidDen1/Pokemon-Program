@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonCharmander extends Pokemon{
 
     public PokemonCharmander(Player user){

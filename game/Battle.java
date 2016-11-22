@@ -11,8 +11,8 @@ public class Battle extends Stats {
     public void startBattle(Player user, Options option, Inventory inventory, Battle bat) {
         int chance;
         chance = (int) getChance();
-        Pokemon wild = new Pokemon();
-        wild.wildPokemon(chance, user);
+        Pokemon wild = null;
+        //wild.wildPokemon(chance, user);
         System.out.println("A wild " + wild.getName() + " has appeared!");
         Pokemon battling = user.getPokemonBattling();
 

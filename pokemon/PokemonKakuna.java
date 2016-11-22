@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonKakuna extends Pokemon{
 
     public PokemonKakuna(Player user){

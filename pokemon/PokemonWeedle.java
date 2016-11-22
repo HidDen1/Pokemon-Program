@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonWeedle extends Pokemon{
 
     public PokemonWeedle(Player user){

@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonCharizard extends Pokemon{
 
     public PokemonCharizard(Player user){

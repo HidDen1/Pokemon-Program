@@ -4,6 +4,6 @@ public class TypeWater extends Type{
 
     public TypeWater(){
         name = "Water";
-        typeDisadvantages = new Type[]{new TypeGrass()};
+        typeAdvantages = new String[][]{{new TypeFire().getName()}, {new TypeFire().getName(), this.getName()}};
     }
 }

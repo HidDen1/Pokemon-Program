@@ -1,5 +1,9 @@
 package game;
 
+import type.Type;
+import type.TypeFire;
+import type.TypeGrass;
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -11,7 +15,6 @@ public class Game {
         String trainerName;
 
         //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
-
 
         System.out.println("Welcome to Patrick's pokemon.pokemon game.Game!");
         System.out.println("Enter your name.");

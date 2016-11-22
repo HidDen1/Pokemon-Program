@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonWartortle extends Pokemon{
 
     public PokemonWartortle(Player user){

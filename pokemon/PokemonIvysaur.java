@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonIvysaur extends Pokemon{
 
     public PokemonIvysaur(Player user){

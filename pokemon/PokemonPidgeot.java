@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonPidgeot extends Pokemon{
 
     public PokemonPidgeot(Player user){

@@ -1,8 +1,7 @@
 package pokemon;
 
-/**
- * Created by hidden on 11/16/16.
- */
+import game.Player;
+
 public class PokemonBulbasaur extends Pokemon{
 
     public PokemonBulbasaur(Player user){

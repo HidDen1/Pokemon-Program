@@ -1,5 +1,7 @@
 package pokemon;
 
+import game.Player;
+
 public class PokemonSquirtle extends Pokemon{
     public PokemonSquirtle(Player user){
         name = "Squirtle";

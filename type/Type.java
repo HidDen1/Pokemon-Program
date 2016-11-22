@@ -1,36 +1,38 @@
 package type;
 
 public abstract class Type {
+    //TODO ADD INEFFECTIVE (NULL DAMAGE) TYPES
     protected String name;
-    protected Type[] typeAdvantages, typeDisadvantages;
+    //0 = offense, 1 = defense
+    protected String[][] typeAdvantages;
     static final double TYPE_ADVANTAGE_MULT = 2, TYPE_DISADVANTAGE_MULT = 0.5;
 
     String getName(){
         return name;
     }
 
-    Type getTypeAdvantage(int num){
-        return typeAdvantages[num];
+    public String getTypeAdvantageOffensive(int num){
+        return typeAdvantages[0][num];
     }
 
-    Type[] getTypeAdvantages(){
-        return typeAdvantages ;
+    String[] getTypeAdvantagesOffensive(){
+        return typeAdvantages[0];
     }
 
-    int getTypeAdvantageNum(){
-        return typeAdvantages.length;
+    int getTypeAdvantageOffensiveNum(){
+        return typeAdvantages[0].length;
     }
 
-    Type getTypeDisadvantage(int num){
-        return typeDisadvantages[num];
+    public String getTypeAdvantagesDefensive(int num){
+        return typeAdvantages[1][num];
     }
 
-    Type[] getTypeDisadvantages(){
-        return typeDisadvantages;
+    String[] getTypeAdvantagesDefensive(){
+        return typeAdvantages[1];
     }
 
-    int getTypeDisadvantageNum(){
-        return typeDisadvantages.length;
+    int getTypeAdvantageDefensiveNum(){
+        return typeAdvantages[1].length;
     }
 
 
