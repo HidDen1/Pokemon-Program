@@ -9,16 +9,15 @@ public class Player extends Stats {
 
     public Player(String trainerName, int typ, Inventory inventory){
         name = trainerName;
-        Pokemon beginner = new Pokemon();
-        beginner.beginnerPokemon(typ);
+        Pokemon beginner = new PokemonEmpty();
+        beginner = beginner.beginnerPokemon(typ);
         pokemonLevel[0] = beginner.getLevel();
         pokemonExp [0] = 0;
         remainingHealth [0] = beginner.getHealthPoints();
         party [0] = beginner;
         storage [0] = beginner;
         nextID = 0;
-        Pokemon empty = new Pokemon();
-        empty.emptySlot();
+        Pokemon empty = new PokemonEmpty();
         party [1] = empty;
         party [2] = empty;
         party [3] = empty;
@@ -43,6 +42,10 @@ public class Player extends Stats {
         System.out.println("Speed: " + party[0].getSpeed());
         System.out.println("HP: " + remainingHealth[0] + "/" + party[0].getHealthPoints());
         System.out.println("EXP: " + pokemonExp[0] + " / " + toLevelUpPokemon);
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void gainExperience(){
@@ -73,8 +76,12 @@ public class Player extends Stats {
         return expTrainer;
     }
 
-    private int getPokedollars(){
+    public int getPokedollars(){
         return pokedollars;
+    }
+
+    public void spendPokedollars(int a){
+        pokedollars = pokedollars - a;
     }
 
     private double getToLevelUp(){

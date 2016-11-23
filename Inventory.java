@@ -13,7 +13,8 @@ public class Inventory extends Item {
         if (currentSlot < 60) {
             empty = -1;
             Item item = new Item();
-            item.itemNew();
+            itemID = idGenerator();
+            item.itemNew(itemID);
             System.out.println("You found a " + item.getItemName());
             int space;
             space = itemList.size();
@@ -23,7 +24,7 @@ public class Inventory extends Item {
         }
     }
 
-    public void useItem(Player user, Battle bat, Pokemon wild, Options option, Pokemon battling, Inventory inventory){ //need methods during and not during battle
+    public void useItem(Player user, Battle bat, Pokemon wild, Options option, Inventory inventory){ //need methods during and not during battle
         Scanner scan = new Scanner(System.in);
         int position = 0;
         int caught;
@@ -38,7 +39,7 @@ public class Inventory extends Item {
             position = scan.nextInt();
             switch(position){
                 case -1:
-                    bat.playerAttackPhase(user, wild, option, battling, inventory, bat);
+                    bat.playerAttackPhase(user, wild, option, inventory, bat);
                     break;
                 case -2:
                     System.out.println("Enter the item number, not the item name!");
@@ -64,13 +65,13 @@ public class Inventory extends Item {
                         break;
                     } else if (caught == -1) {
                         System.out.println(wild.getName() + " escaped the ball!");
-                        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+                        bat.wildAttackPhase(user, wild, option, inventory, bat);
                     } else {
-                        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+                        bat.wildAttackPhase(user, wild, option, inventory, bat);
                     }
             }
         }
-        bat.wildAttackPhase(user, wild, option, battling, inventory, bat);
+        bat.wildAttackPhase(user, wild, option, inventory, bat);
     }
 
     public void listItemsOutside(Options option, Player user, Inventory inventory, Battle bat){
@@ -97,15 +98,15 @@ public class Inventory extends Item {
         }
     }
 
-    /*@SuppressWarnings("resource")
     public void shop(Player user){
         String choiceString;
         int choice = 0;
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Welcome to the Risky Lunge shop, " + user.getName());
+        System.out.println("Welcome to the mart, " + user.getName());
         while(choice != -1){
-            System.out.println("What would you like to Risky Lunge? \n 0. Check Risky Lunge amount \n 1. Risky Lunge Health Potion (15 Gold) \n-1. Leave the Risky Lunge shop");
+            System.out.println("What would you like to buy? \n 1. Pokeball (200 Pokedolars) \n 2. Greatball (500 Pokedollars) \n 3. Ultraball (1500 Pokedollars) \n 4. Potion (100 Pokedollars) \n 5. Super Potion (300 Pokedollars) \n 6. Hyper Potion (1000 Pokedollars) \n-1. Leave the Risky Lunge shop");
+            System.out.println("You have: " + user.getPokedollars());
             choiceString = input.nextLine();
             try{
                 choice = Integer.parseInt(choiceString);
@@ -114,22 +115,87 @@ public class Inventory extends Item {
             }
             switch(choice){
                 case 0:
-                    System.out.println("You have " + user.getGold() + " Risky Lunge.");
+                    System.out.println("You have " + user.getPokedollars() + " Risky Lunge.");
                     break;
                 case 1:
-                    if (user.getGold() >= 15){
-                        user.spendGold(15);
-                        System.out.println("You got a Risky Lunge health potion!");
-                        addNewItem(choice);
+                    if (user.getPokedollars() >= 200){
+                        user.spendPokedollars(200);
+                        System.out.println("You got a Pokeball!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
+                    }
+                    break;
+                case 2:
+                    if (user.getPokedollars() >= 500){
+                        user.spendPokedollars(500);
+                        System.out.println("You got a Greatball!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
+                    }
+                    break;
+                case 3:
+                    if (user.getPokedollars() >= 1500){
+                        user.spendPokedollars(1500);
+                        System.out.println("You got an Ultraball!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
+                    }
+                    break;
+                case 4:
+                    if (user.getPokedollars() >= 100){
+                        user.spendPokedollars(100);
+                        System.out.println("You got a Potion!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
+                    }
+                    break;
+                case 5:
+                    if (user.getPokedollars() >= 300){
+                        user.spendPokedollars(300);
+                        System.out.println("You got a Super Potion!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
+                    }
+                    break;
+                case 6:
+                    if (user.getPokedollars() >= 1000){
+                        user.spendPokedollars(1000);
+                        System.out.println("You got a Hyper Potion!");
+                        addNewItemShop(choice);
+                    } else {
+                        System.out.println("Not enough Pokedollars for that.");
                     }
                     break;
                 case -1:
-                    System.out.println("Come Risky Lunge again soon!");
+                    System.out.println("Come again soon!");
                     break;
                 default:
-                    System.out.println("Enter an applicable Risky Lunge.");
+                    System.out.println("Enter an applicable amount.");
             }
         }
     }
-}*/
+
+    public void addNewItemShop(int choice){
+        empty = -1;
+        Item item = new Item();
+        item.itemNew(choice);
+        int space;
+        space = itemList.size();
+        itemList.add(space, item);
+    }
+
+    private int idGenerator(){
+        double a;
+        int b;
+
+        a = 1 + Math.random() * (6 - 1);
+        b = (int) Math.round(a);
+
+        return b;
+    }
 }

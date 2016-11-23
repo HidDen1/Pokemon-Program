@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Item extends Stats{
 
-    public void itemNew(){
-        itemID = idGenerator();
+    public void itemNew(int a){
+        itemID = a;
         switch(itemID){
             case 1:
                 itemName = "Pokeball";
@@ -87,16 +87,6 @@ public class Item extends Stats{
             caught = -1;
         }
         return caught;
-    }
-
-    private int idGenerator(){
-        double a;
-        int b;
-
-        a = 1 + Math.random() * (6 - 1);
-        b = (int) Math.round(a);
-
-        return b;
     }
 
     public String getItemName(){

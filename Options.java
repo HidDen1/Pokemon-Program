@@ -111,6 +111,7 @@ public class Options{
                 break;
             case 4:
                 System.out.println("You found a mart!");
+                inventory.shop(user);
                 break;
             case 5:
                 System.out.println("You found a pokemon center!");
