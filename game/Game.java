@@ -15,7 +15,6 @@ public class Game {
         String trainerName;
 
         //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
-        /*
 
         System.out.println("Welcome to Patrick's pokemon.pokemon game.Game!");
         System.out.println("Enter your name.");
@@ -27,7 +26,7 @@ public class Game {
         Player user = new Player(trainerName, typ, inventory);
         Options option = new Options();
         Battle bat = new Battle();
-        option.optionsMenu(user, option, inventory, bat); */
+        option.optionsMenu(user, option, inventory, bat);
     }
 
     public static void startGUI(){

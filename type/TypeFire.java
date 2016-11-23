@@ -1,9 +1,9 @@
 package type;
 
 public class TypeFire extends Type{
-    public static final String NAME = "Fire";
+    static final byte SPOT = 2;
     public TypeFire(){
-        name = NAME;
-        typeAdvantages = new String[][]{{new TypeGrass().getName(), new TypeBug().getName()}, {new TypeBug().getName(), this.getName(), new TypeGrass().getName()}};
+        name = "Fire";
+        typeAdvantages = new byte[][]{{TypeGrass.SPOT, TypeBug.SPOT},{TypeGrass.SPOT, SPOT, TypeBug.SPOT}};
     }
 }
