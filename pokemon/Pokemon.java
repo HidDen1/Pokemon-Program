@@ -14,35 +14,9 @@ public abstract class Pokemon extends Stats {
 
     }
 
+    @Deprecated
     public void emptySlot(){
-        name = "Empty";
-        lev = 0;
-        iv = 0;
-        id = 1;
-        exp = Math.pow(lev * 10 , 2);
-        type = "null";
-        atk = 0;
-        def = 0;
-        spAtk = 0;
-        spDef = 0;
-        spd = 0;
-        hp = 0;
-        att[0] = "";
-        attPower[0] = 0;
-        attType1 [0] = "";
-        attType2 [0] = "";
-        att[1] = "";
-        attPower[1] = 0;
-        attType1 [1] = "";
-        attType2 [1] = "";
-        att[2] = "";
-        attPower[2] = 0;
-        attType1 [2] = "";
-        attType2 [2] = "";
-        att[3] = "";
-        attPower[3] = 0;
-        attType1 [3] = "";
-        attType2 [3] = "";
+
     }
 
     protected int levelGenerator(Player user){

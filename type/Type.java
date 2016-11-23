@@ -1,10 +1,11 @@
 package type;
 
 public abstract class Type {
-    //TODO ADD INEFFECTIVE (NULL DAMAGE) TYPES
+    //TODO CHRIST FIX THE GODDAMN NAMES
     protected String name;
     //0 = offense, 1 = defense
     protected String[][] typeAdvantages;
+    protected String[] typeNulls;
     static final double TYPE_ADVANTAGE_MULT = 2, TYPE_DISADVANTAGE_MULT = 0.5;
 
     String getName(){
