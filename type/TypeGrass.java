@@ -5,6 +5,7 @@ public class TypeGrass extends Type{
 
     public TypeGrass(){
         name = "Grass";
-        typeAdvantages = new byte[][]{{TypeWater.SPOT}, {TypeWater.SPOT, SPOT}};
+        typeAdvantages = new byte[][]{{TypeWater.SPOT, TypeGround.SPOT, TypeRock.SPOT}, {TypeWater.SPOT, SPOT, TypeElectric.SPOT, TypeGround.SPOT}};
     }
+
 }

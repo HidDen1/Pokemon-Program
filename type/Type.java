@@ -3,7 +3,6 @@ package type;
 import java.util.ArrayList;
 
 public abstract class Type {
-    //TODO CHRIST FIX THE GODDAMN NAMES
     protected String name;
     //0 = offense, 1 = defense
     protected byte[][] typeAdvantages;
@@ -15,7 +14,8 @@ public abstract class Type {
     }
 
     public Type[] getTypes(){
-        return new Type[]{new TypeGrass(), new TypeWater(), new TypeFire(), new TypeBug(), new TypeDragon(), new TypeDark(), new TypeNormal(), new TypeFlying()};
+        return new Type[]{new TypeGrass(), new TypeWater(), new TypeFire(), new TypeBug(), new TypeDragon(), new TypeDark(), new TypeNormal(), new TypeFlying(), new TypePoison(), new TypeIce(), new TypePsychic(), new TypeSteel(), new TypeFighting(),
+        new TypeGhost(), new TypeGround(), new TypeRock(), new TypeElectric(), new TypeFairy()};
     }
 
 
