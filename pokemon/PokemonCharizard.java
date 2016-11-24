@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonCharizard extends Pokemon{
 
-    public PokemonCharizard(Player user){
+    public PokemonCharizard(){
         name = "Charizard";
-        lev = levelGenerator(user);
         iv = 31;
         //id = 2;
         //pokeNum = 6;

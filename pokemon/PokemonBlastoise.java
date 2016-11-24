@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonBlastoise extends Pokemon{
 
-    public PokemonBlastoise(Player user){
+    public PokemonBlastoise(){
         name = "Blastoise";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 9;

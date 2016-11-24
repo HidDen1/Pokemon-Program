@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonKakuna extends Pokemon{
 
-    public PokemonKakuna(Player user){
+    public PokemonKakuna(){
         name = "Kakuna";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 15; //for the pokedex

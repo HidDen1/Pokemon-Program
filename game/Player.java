@@ -1,6 +1,7 @@
 package game;
 
 import pokemon.Pokemon;
+import pokemon.PokemonEmpty;
 import pokemon.Stats;
 
 public class Player extends Stats {
@@ -128,7 +129,7 @@ public class Player extends Stats {
     public int getNextID(){
         nextID++;
         return nextID;
-    } //will be used to assign IDs to each Pokemon once caught
+    } //will be used to assign IDs to each pokemon.Pokemon once caught
 
     public Pokemon getPokemonBattling(){
         return(party[0]);

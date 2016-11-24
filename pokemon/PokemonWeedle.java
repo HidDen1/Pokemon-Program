@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonWeedle extends Pokemon{
 
-    public PokemonWeedle(Player user){
+    public PokemonWeedle(){
         name = "Weedle";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 13; //for the pokedex

@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonIvysaur extends Pokemon{
 
-    public PokemonIvysaur(Player user){
+    public PokemonIvysaur(){
         name = "Ivysaur";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 2;

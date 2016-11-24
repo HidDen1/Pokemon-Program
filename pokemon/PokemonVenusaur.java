@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonVenusaur extends Pokemon{
 
-    public PokemonVenusaur(Player user){
+    public PokemonVenusaur(){
         name = "Venusaur";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 2;

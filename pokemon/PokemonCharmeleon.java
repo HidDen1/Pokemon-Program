@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonCharmeleon extends Pokemon{
 
-    public PokemonCharmeleon(Player user){
+    public PokemonCharmeleon(){
         name = "Charmeleon";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 2;
         //pokeNum = 5;

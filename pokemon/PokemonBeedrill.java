@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonBeedrill extends Pokemon{
 
-    public PokemonBeedrill(Player user){
+    public PokemonBeedrill(){
         name = "Beedrill";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 10; //for the pokedex

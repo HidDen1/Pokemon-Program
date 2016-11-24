@@ -1,100 +1,50 @@
+package pokemon;
+
 import game.Player;
-import pokemon.*;
 
 
-//Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
+//pokemon.Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
 public abstract class Pokemon extends Stats {
+
+    Pokemon[] getRarityLev1(){
+        return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander(), new PokemonCaterpie(), new PokemonWeedle(), new PokemonPidgey()};
+    }
+
+    Pokemon[] getRarityLev2(){
+        return new Pokemon[]{new PokemonIvysaur(), new PokemonWartortle(), new PokemonCharmeleon(), new PokemonMetapod(), new PokemonKakuna(), new PokemonPidgeotto()};
+    }
+
+    Pokemon[] getRarityLev3(){
+        return new Pokemon[]{new PokemonVenusaur(), new PokemonBlastoise(), new PokemonCharizard(), new PokemonButterfree(), new PokemonBeedrill(), new PokemonPidgeot()};
+    }
+
+    Pokemon[] getStarters(){
+        return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander()};
+    }
+
+
     public Pokemon wildPokemon(Player user){
-        int id, pokeNum;
+        int id = idGenerator();
         double chance;
         chance = getChance();
-        id = idGenerator();
-        Pokemon x = new PokemonEmpty();
+        Pokemon p = null;
 
         if (chance <= 70){ //put into an array by rarity later
-            switch(id){
-                case 1:
-                    x = new PokemonBulbasaur(user);
-                    break;
-                case 2:
-                    x = new PokemonSquirtle(user);
-                    break;
-                case 3:
-                    x = new PokemonCharmander(user);
-                    break;
-                case 4:
-                    x = new PokemonCaterpie(user);
-                    break;
-                case 5:
-                    x = new PokemonWeedle(user);
-                    break;
-                case 6:
-                    x = new PokemonPidgey(user);
-                    break;
-            }
-        } else if (chance <= 90 && chance > 70){
-            switch(id){
-                case 1:
-                    x = new PokemonIvysaur(user);
-                    break;
-                case 2:
-                    x = new PokemonWartortle(user);
-                    break;
-                case 3:
-                    x = new PokemonCharmeleon(user);
-                    break;
-                case 4:
-                    x = new PokemonMetapod(user);
-                    break;
-                case 5:
-                    x = new PokemonKakuna(user);
-                    break;
-                case 6:
-                    x = new PokemonPidgeotto(user);
-                    break;
-            }
-        } else if (chance <= 100 && chance > 90) {
-            switch(id){
-                case 1:
-                    x = new PokemonVenusaur(user);
-                    break;
-                case 2:
-                    x = new PokemonBlastoise(user);
-                    break;
-                case 3:
-                    x = new PokemonCharizard(user);
-                    break;
-                case 4:
-                    x = new PokemonButterfree(user);
-                    break;
-                case 5:
-                    x = new PokemonBeedrill(user);
-                    break;
-                case 6:
-                    x = new PokemonPidgeot(user);
-                    break;
-            }
+            p = getRarityLev1()[id];
+        } else if (chance <= 90){
+            p = getRarityLev2()[id];
+        } else if (chance <= 100) {
+            p = getRarityLev3()[id];
         }
-        return x;
+        assert p != null;
+            p.changeLevel(levelGenerator(user));
+        return p;
     }
 
     public Pokemon beginnerPokemon(int typ){
-        int id;
-        int pokeNum;
-        id = typ;
-        Pokemon x = new PokemonEmpty();
-        switch(id){
-            case 1:
-                x = new PokemonBulbasaur();
-                break;
-            case 2:
-                x = new PokemonCharmander();
-                break;
-            case 3:
-                x = new PokemonSquirtle();
-                break;
-        }
-        return x;
+        Pokemon p = getStarters()[typ];
+        p.changeLevel(5);
+        return p;
     }
 
     protected int levelGenerator(Player user){
@@ -138,6 +88,10 @@ public abstract class Pokemon extends Stats {
         b = (int) Math.round(a);
 
         return b;
+    }
+
+    void changeLevel(int l){
+        lev = l;
     }
 }
 

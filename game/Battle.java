@@ -11,7 +11,7 @@ public class Battle extends Stats{
     public void startBattle(Player user, Options option, Inventory inventory, Battle bat) {
         int chance;
         chance = (int) getChance();
-        Pokemon wild = new PokemonEmpty();
+        Pokemon wild = null;
         wild = wild.wildPokemon(user);
         System.out.println("A wild " + wild.getName() + " has appeared!");
 
@@ -45,7 +45,7 @@ public class Battle extends Stats{
 
         System.out.println("What should " + user.party[0].getName() + " do?");
         System.out.println("1. Fight   2. Bag");
-        System.out.println("3. Pokemon 4. Run");
+        System.out.println("3. pokemon.Pokemon 4. Run");
         action = scan.nextLine();
 
         if (action.equalsIgnoreCase("1")){

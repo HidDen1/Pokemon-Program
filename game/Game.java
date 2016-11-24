@@ -40,7 +40,7 @@ public class Game {
     -Wild pokemon using non existent moves
 
     Battle mechanics that still need to be added:
-    -Switching Pokemon in battle
+    -Switching pokemon.Pokemon in battle
     -Not losing till all available pokemon faint
     -Switching pokemon into the party from the pc
     -Checking stats
@@ -63,24 +63,24 @@ public class Game {
 
     Version 0.17.00 11/21/2016
     -Added the EmptyPokemon to act as a default
-    -Fixed Pokemon wild not being created correctly
-    -Fixed beginner Pokemon classes so that proper beginners are made
-    -Removed Pokemon battling and other unnecessary code from battle
+    -Fixed pokemon.Pokemon wild not being created correctly
+    -Fixed beginner pokemon.Pokemon classes so that proper beginners are made
+    -Removed pokemon.Pokemon battling and other unnecessary code from battle
 
     Version 0.16.00 11/17/2016
     -Added ability to have all pokemon healed when finding a pokemon center
     -Added ability to find items at random locations
-    -Added message when Pokemon is captured
+    -Added message when pokemon.Pokemon is captured
     -Added ability to go back when just checking items
     -Added classes for each pokemon
     -Changed the catching of a pokemon to be determined by an int rather than a boolean
     -Fixed potion messages saying health points instead of battle points
-    -Fixed the battle not being ended after a Pokemon is caught
+    -Fixed the battle not being ended after a pokemon.Pokemon is caught
     -Fixed Charizard's flamethrower typing
     -Fixed Butterfree's silverwind attack type
 
     Version 0.15.00 11/16/2016
-    -Added method for catching Pokemon
+    -Added method for catching pokemon.Pokemon
     -Removed the evolution class
 
     Version 0.14.00 11/15/2016

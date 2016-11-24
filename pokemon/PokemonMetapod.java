@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonMetapod extends Pokemon{
 
-    public PokemonMetapod(Player user){
+    public PokemonMetapod(){
         name = "Metapod";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 11;
         //pokeNum = 10; //for the pokedex

@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonCaterpie extends Pokemon{
 
-    public PokemonCaterpie(Player user){
+    public PokemonCaterpie(){
         name = "Caterpie";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 10; //for the pokedex

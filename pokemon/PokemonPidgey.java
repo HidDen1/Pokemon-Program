@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonPidgey extends Pokemon{
 
-    public PokemonPidgey(Player user){
+    public PokemonPidgey(){
         name = "Pidgey";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 16; //for the pokedex

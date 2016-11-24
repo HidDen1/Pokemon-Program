@@ -4,9 +4,8 @@ import game.Player;
 
 public class PokemonWartortle extends Pokemon{
 
-    public PokemonWartortle(Player user){
+    public PokemonWartortle(){
         name = "Wartortle";
-        lev = levelGenerator(user);
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 8;
