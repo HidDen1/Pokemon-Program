@@ -2,8 +2,6 @@ package pokemon;
 
 import game.Player;
 
-
-//pokemon.Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
 public abstract class Pokemon extends Stats {
 
     static Pokemon[] getRarityLev1(){
@@ -29,11 +27,11 @@ public abstract class Pokemon extends Stats {
         chance = getChance();
         Pokemon p = null;
 
-        if (chance <= 70){ //put into an array by rarity later
+        if (chance <= 60){
             p = getRarityLev1()[id];
-        } else if (chance <= 90){
+        } else if (chance >= 61 && chance <= 89){
             p = getRarityLev2()[id];
-        } else if (chance <= 100) {
+        } else if (chance < 101 && chance >= 90) {
             p = getRarityLev3()[id];
         }
         assert p != null;

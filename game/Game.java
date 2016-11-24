@@ -16,10 +16,10 @@ public class Game {
 
         //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
 
-        System.out.println("Welcome to Patrick's pokemon.pokemon game.Game!");
+        System.out.println("Welcome to Patrick's pokemon game!");
         System.out.println("Enter your name.");
         trainerName = scan.nextLine();
-        System.out.println("Choose your beginner pokemon.pokemon.");
+        System.out.println("Choose your beginner pokemon.");
         System.out.println("1. Bulbasaur, 2. Charmander, 3. Squirtle");
         typ = scan.nextInt();
         Inventory inventory = new Inventory();
@@ -57,6 +57,13 @@ public class Game {
 
 
     Version History:
+
+    Version 0.19.00 11/23/2016
+    -Added change level method
+    -Added a few nonfunctioning types
+    -Changed Pokemon by putting them into rarity methods
+    -Changed how new wild Pokemon are found
+    -Removed parameters from Pokemon class
 
     Version 0.18.00 11/22/2016
     -Added ability to shop at marts when found

@@ -13,7 +13,8 @@ public class Player extends Stats {
 
     public Player(String trainerName, int typ, Inventory inventory){
         name = trainerName;
-        Pokemon beginner = Pokemon.beginnerPokemon(typ);
+        Pokemon beginner = null;
+        beginner = beginner.beginnerPokemon(typ);
         pokemonLevel[0] = beginner.getLevel();
         pokemonExp [0] = 0;
         remainingHealth [0] = beginner.getHealthPoints();

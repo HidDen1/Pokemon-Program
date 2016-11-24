@@ -10,7 +10,7 @@ public class Options{
 
         System.out.println("What would you like to do? (Enter number to select option)");
         System.out.println("1. Go Exploring");
-        System.out.println("2. Check Party pokemon.pokemon");
+        System.out.println("2. Check Party pokemon");
         System.out.println("3. Trainer Information");
         System.out.println("4. Bag");
         System.out.println("5. Pokedex");
