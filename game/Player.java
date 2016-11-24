@@ -1,7 +1,6 @@
 package game;
 
 import pokemon.Pokemon;
-import pokemon.PokemonEmpty;
 import pokemon.Stats;
 
 public class Player extends Stats {
@@ -14,15 +13,14 @@ public class Player extends Stats {
 
     public Player(String trainerName, int typ, Inventory inventory){
         name = trainerName;
-        Pokemon beginner = new PokemonEmpty();
-        beginner = beginner.beginnerPokemon(typ);
+        Pokemon beginner = Pokemon.beginnerPokemon(typ);
         pokemonLevel[0] = beginner.getLevel();
         pokemonExp [0] = 0;
         remainingHealth [0] = beginner.getHealthPoints();
         party [0] = beginner;
         storage [0] = beginner;
         nextID = 0;
-        Pokemon empty = new PokemonEmpty();
+        Pokemon empty = null;
         party [1] = empty;
         party [2] = empty;
         party [3] = empty;
