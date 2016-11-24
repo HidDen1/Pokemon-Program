@@ -2,7 +2,7 @@ package game;
 
 import java.util.Scanner;
 
-public class Options {
+public class Options{
 
     public void optionsMenu(Player user, Options option, Inventory inventory, Battle bat){
         int options;
@@ -37,7 +37,7 @@ public class Options {
                 getGoBack(user, option, inventory, bat);
                 break;
             case 4:
-                inventory.listItems();
+                inventory.listItemsOutside(option, user, inventory, bat);
                 optionsMenu(user, option, inventory, bat);
                 break;
             case 5:
@@ -74,7 +74,7 @@ public class Options {
         if (event <= 75){
             bat.startBattle(user, option, inventory, bat);
         } else if (event >= 76 && event <= 100){
-            getLocation();
+            getLocation(user, inventory);
         }
     }
 
@@ -94,28 +94,36 @@ public class Options {
         }
     }
 
-    private void getLocation(){
+    private void getLocation(Player user, Inventory inventory){
         double l = 1 + Math.random() * (5 - 1);
         int j = (int) l;
 
         switch (j){
             case 1:
                 System.out.println("You found a town!");
+                inventory.addNewItem();
                 break;
             case 2:
                 System.out.println("You found a forest!");
+                inventory.addNewItem();
                 break;
             case 3:
                 System.out.println("You found a cave!");
+                inventory.addNewItem();
                 break;
             case 4:
                 System.out.println("You found a mart!");
+                inventory.shop(user);
                 break;
             case 5:
                 System.out.println("You found a pokemon center!");
+                System.out.println("Your party was fully healed");
+                user.healAll();
                 break;
             case 6:
                 System.out.println("You found a lake!");
+                inventory.addNewItem();
+                break;
         }
     }
 }
