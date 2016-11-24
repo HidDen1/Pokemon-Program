@@ -6,24 +6,24 @@ import game.Player;
 //pokemon.Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
 public abstract class Pokemon extends Stats {
 
-    Pokemon[] getRarityLev1(){
+    static Pokemon[] getRarityLev1(){
         return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander(), new PokemonCaterpie(), new PokemonWeedle(), new PokemonPidgey()};
     }
 
-    Pokemon[] getRarityLev2(){
+    static Pokemon[] getRarityLev2(){
         return new Pokemon[]{new PokemonIvysaur(), new PokemonWartortle(), new PokemonCharmeleon(), new PokemonMetapod(), new PokemonKakuna(), new PokemonPidgeotto()};
     }
 
-    Pokemon[] getRarityLev3(){
+    static Pokemon[] getRarityLev3(){
         return new Pokemon[]{new PokemonVenusaur(), new PokemonBlastoise(), new PokemonCharizard(), new PokemonButterfree(), new PokemonBeedrill(), new PokemonPidgeot()};
     }
 
-    Pokemon[] getStarters(){
+    static Pokemon[] getStarters(){
         return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander()};
     }
 
 
-    public Pokemon wildPokemon(Player user){
+    static public Pokemon wildPokemon(Player user){
         int id = idGenerator();
         double chance;
         chance = getChance();
@@ -41,13 +41,13 @@ public abstract class Pokemon extends Stats {
         return p;
     }
 
-    public Pokemon beginnerPokemon(int typ){
+    static public Pokemon beginnerPokemon(int typ){
         Pokemon p = getStarters()[typ];
         p.changeLevel(5);
         return p;
     }
 
-    protected int levelGenerator(Player user){
+    protected static int levelGenerator(Player user){
         double l;
         int e;
 
@@ -72,7 +72,7 @@ public abstract class Pokemon extends Stats {
         return v;
     }
 
-    private double getChance(){
+    private static double getChance(){
         double chance;
         chance = Math.random() * 100;
         chance = Math.round(chance);
@@ -80,7 +80,7 @@ public abstract class Pokemon extends Stats {
         return chance;
     }
 
-    private int idGenerator(){
+    private static int idGenerator(){
         double a;
         int b;
 
