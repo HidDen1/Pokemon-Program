@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
+import type.TypePoison;
 
 public class PokemonBeedrill extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonBeedrill extends Pokemon{
         //id = 4;
         //pokeNum = 10; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug/Poison";
+        type = new Type[]{new TypeBug(), new TypePoison()};
         atk = (90 * 2 + iv) * lev / 100 + 5;
         def = (40 * 2 + iv) * lev / 100 + 5;
         spAtk = (45 * 2 + iv) * lev / 100 + 5;

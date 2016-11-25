@@ -1,5 +1,8 @@
 package pokemon;
 
+import type.Type;
+import type.TypeGrass;
+
 public class PokemonBulbasaur extends Pokemon{
 
     public PokemonBulbasaur(){
@@ -8,7 +11,7 @@ public class PokemonBulbasaur extends Pokemon{
         //id = 1;
         //pokeNum = 1; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Grass";
+        type = new Type[]{new TypeGrass()};
         atk = (49 * 2 + iv) * lev / 100 + 5;
         def = (49 * 2 + iv) * lev / 100 + 5;
         spAtk = (65 * 2 + iv) * lev / 100 + 5;

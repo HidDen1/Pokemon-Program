@@ -13,11 +13,10 @@ public abstract class Type {
         return name;
     }
 
-    public Type[] getTypes(){
+    public static Type[] getTypes(){
         return new Type[]{new TypeGrass(), new TypeWater(), new TypeFire(), new TypeBug(), new TypeDragon(), new TypeDark(), new TypeNormal(), new TypeFlying(), new TypePoison(), new TypeIce(), new TypePsychic(), new TypeSteel(), new TypeFighting(),
         new TypeGhost(), new TypeGround(), new TypeRock(), new TypeElectric(), new TypeFairy()};
     }
-
 
     Type[] getTypeAdvantagesOffensive(){
         ArrayList<Type> hold = new ArrayList<>();
@@ -42,10 +41,5 @@ public abstract class Type {
     int getTypeAdvantageDefensiveNum(){
         return typeAdvantages[1].length;
     }
-
-    public void method(){
-
-    }
-
 
 }

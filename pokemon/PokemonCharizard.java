@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeFire;
+import type.TypeFlying;
 
 public class PokemonCharizard extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonCharizard extends Pokemon{
         //id = 2;
         //pokeNum = 6;
         exp = Math.pow(lev * 10 , 2);
-        type = "Fire / Flying";
+        type = new Type[]{new TypeFire(), new TypeFlying()};
         atk = (84 * 2 + iv) * lev / 100 + 5;
         def = (78 * 2 + iv) * lev / 100 + 5;
         spAtk = (109 * 2 + iv) * lev / 100 + 5;

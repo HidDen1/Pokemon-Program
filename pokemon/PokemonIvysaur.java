@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeGrass;
+import type.TypePoison;
 
 public class PokemonIvysaur extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonIvysaur extends Pokemon{
         //id = 1;
         //pokeNum = 2;
         exp = Math.pow(lev * 10 , 2);
-        type = "Grass / Posion";
+        type = new Type[]{new TypeGrass(), new TypePoison()};
         atk = (62 * 2 + iv) * lev / 100 + 5;
         def = (63 * 2 + iv) * lev / 100 + 5;
         spAtk = (80 * 2 + iv) * lev / 100 + 5;

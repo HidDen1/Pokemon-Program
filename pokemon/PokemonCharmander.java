@@ -1,6 +1,7 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeFire;
 
 public class PokemonCharmander extends Pokemon{
 
@@ -10,7 +11,7 @@ public class PokemonCharmander extends Pokemon{
         //id = 2;
         //pokeNum = 4;
         exp = Math.pow(lev * 10 , 2);
-        type = "Fire";
+        type = new Type[]{new TypeFire()};
         atk = (52 * 2 + iv) * lev / 100 + 5;
         def = (43 * 2 + iv) * lev / 100 + 5;
         spAtk = (60 * 2 + iv) * lev / 100 + 5;

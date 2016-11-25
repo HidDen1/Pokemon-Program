@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
+import type.TypePoison;
 
 public class PokemonKakuna extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonKakuna extends Pokemon{
         //id = 4;
         //pokeNum = 15; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug/Poison";
+        type = new Type[]{new TypeBug(), new TypePoison()};
         atk = (25 * 2 + iv) * lev / 100 + 5;
         def = (50 * 2 + iv) * lev / 100 + 5;
         spAtk = (25 * 2 + iv) * lev / 100 + 5;

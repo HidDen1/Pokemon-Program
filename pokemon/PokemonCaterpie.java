@@ -1,6 +1,7 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
 
 public class PokemonCaterpie extends Pokemon{
 
@@ -10,7 +11,7 @@ public class PokemonCaterpie extends Pokemon{
         //id = 4;
         //pokeNum = 10; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug";
+        type = new Type[]{new TypeBug()};
         atk = (30 * 2 + iv) * lev / 100 + 5;
         def = (35 * 2 + iv) * lev / 100 + 5;
         spAtk = (20 * 2 + iv) * lev / 100 + 5;

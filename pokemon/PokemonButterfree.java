@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
+import type.TypeFlying;
 
 public class PokemonButterfree extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonButterfree extends Pokemon{
         //id = 4;
         //pokeNum = 12; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug/Flying";
+        type = new Type[]{new TypeBug(), new TypeFlying()};
         atk = (45 * 2 + iv) * lev / 100 + 5;
         def = (50 * 2 + iv) * lev / 100 + 5;
         spAtk = (90 * 2 + iv) * lev / 100 + 5;

@@ -1,6 +1,7 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
 
 public class PokemonMetapod extends Pokemon{
 
@@ -10,7 +11,7 @@ public class PokemonMetapod extends Pokemon{
         //id = 11;
         //pokeNum = 10; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug";
+        type = new Type[]{new TypeBug()};
         atk = (20 * 2 + iv) * lev / 100 + 5;
         def = (55 * 2 + iv) * lev / 100 + 5;
         spAtk = (25 * 2 + iv) * lev / 100 + 5;

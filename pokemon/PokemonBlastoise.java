@@ -1,6 +1,7 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeWater;
 
 public class PokemonBlastoise extends Pokemon{
 
@@ -10,7 +11,7 @@ public class PokemonBlastoise extends Pokemon{
         //id = 3;
         //pokeNum = 9;
         exp = Math.pow(lev * 10 , 2);
-        type = "Water";
+        type = new Type[]{new TypeWater()};
         atk = (83 * 2 + iv) * lev / 100 + 5;
         def = (100 * 2 + iv) * lev / 100 + 5;
         spAtk = (85 * 2 + iv) * lev / 100 + 5;
