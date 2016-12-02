@@ -1,7 +1,7 @@
 package type;
 
 public class TypeDragon extends Type{
-    static final byte SPOT = 4;
+    public static final byte SPOT = 4;
 
     public TypeDragon(){
         name = "Dragon";

@@ -1,7 +1,7 @@
 package type;
 
 public class TypePsychic extends Type{
-    final static byte SPOT = 10;
+    public final static byte SPOT = 10;
 
     public TypePsychic(){
         name = "Psychic";

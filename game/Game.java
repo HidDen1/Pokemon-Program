@@ -14,6 +14,7 @@ public class Game {
         int typ;
         String trainerName;
 
+        Type.initializeTypes();
         //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
 
         System.out.println("Welcome to Patrick's pokemon.pokemon game.Game!");

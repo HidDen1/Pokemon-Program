@@ -1,7 +1,7 @@
 package type;
 
 public class TypeDark extends Type{
-    static final byte SPOT = 5;
+    public static final byte SPOT = 5;
 
     public TypeDark(){
         name = "Dark";

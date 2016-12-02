@@ -1,7 +1,7 @@
 package type;
 
 public class TypePoison extends Type{
-    final static byte SPOT = 8;
+    public final static byte SPOT = 8;
 
     public TypePoison(){
         name = "Poison";

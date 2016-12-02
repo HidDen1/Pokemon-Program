@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeFire;
 import type.TypeFlying;
@@ -12,17 +13,14 @@ public class PokemonCharizard extends Pokemon{
         //id = 2;
         //pokeNum = 6;
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeFire(), new TypeFlying()};
+        type = new Type[]{Type.getType(TypeFire.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (84 * 2 + iv) * lev / 100 + 5;
         def = (78 * 2 + iv) * lev / 100 + 5;
         spAtk = (109 * 2 + iv) * lev / 100 + 5;
         spDef = (85 * 2 + iv) * lev / 100 + 5;
         spd = (100 * 2 + iv) * lev / 100 + 5;
         hp = (78 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Flare Blitz", "Fire Blast", "Heat Wave", "Flamethrower"};
-        attPower = new int[]{120, 120, 90 ,90};
-        attType1 = new String[]{"Fire", "Fire", "Fire", "Fire"};
-        attType2 = new String[]{"Physical", "Special", "Special", "Special"};
+        att = new Attack[]{new AttackFireBlitz(), new AttackFireBlast(), new AttackHeatWave(), new AttackFlamethrower()};
     }
 
 }

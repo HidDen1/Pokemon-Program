@@ -12,7 +12,7 @@ public class PokemonPidgeotto extends Pokemon{
         //id = 1;
         //pokeNum = 17; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeNormal(), new TypeFlying()};
+        type = new Type[]{Type.getType(TypeNormal.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (60 * 2 + iv) * lev / 100 + 5;
         def = (55 * 2 + iv) * lev / 100 + 5;
         spAtk = (50 * 2 + iv) * lev / 100 + 5;

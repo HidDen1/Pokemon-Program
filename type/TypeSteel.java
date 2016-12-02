@@ -1,7 +1,7 @@
 package type;
 
 public class TypeSteel extends Type{
-    static final byte SPOT = 11;
+    public static final byte SPOT = 11;
 
     public TypeSteel(){
         name = "Steel";

@@ -12,7 +12,7 @@ public class PokemonPidgey extends Pokemon{
         //id = 1;
         //pokeNum = 16; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeNormal(), new TypeFlying()};
+        type = new Type[]{Type.getType(TypeNormal.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (45 * 2 + iv) * lev / 100 + 5;
         def = (40 * 2 + iv) * lev / 100 + 5;
         spAtk = (35 * 2 + iv) * lev / 100 + 5;

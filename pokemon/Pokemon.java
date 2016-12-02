@@ -1,19 +1,16 @@
 package pokemon;
 
+import attack.Attack;
 import game.Player;
 import type.Type;
-
 
 //pokemon.Pokemon should be an object with those 25 attributes.  You should have an arraylist full of them.
 public abstract class Pokemon{
     protected String name, itemName;
     protected double atk, def, spAtk, spDef, spd, hp, lev, exp, ballBonus;
     protected int iv, id, healthRestore, itemID;
-    public String att [] = new String[4];
-    public String attType1 [] = new String [4];
-    public String attType2 [] = new String [4];
+    public Attack att [] = new Attack[4];
     public Type[] type;
-    public int attPower [] = new int[4];
 
     public String getName(){
         return(name);

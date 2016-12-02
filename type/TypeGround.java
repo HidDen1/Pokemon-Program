@@ -1,7 +1,7 @@
 package type;
 
 public class TypeGround extends Type{
-    static final byte SPOT = 14;
+    public static final byte SPOT = 14;
 
     public TypeGround(){
         name = "Ground";

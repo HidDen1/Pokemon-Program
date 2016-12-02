@@ -1,7 +1,7 @@
 package type;
 
 public class TypeElectric extends Type{
-    static final byte SPOT = 16;
+    public static final byte SPOT = 16;
 
     public TypeElectric(){
         name = "Electric";

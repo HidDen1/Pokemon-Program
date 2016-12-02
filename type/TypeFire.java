@@ -1,7 +1,7 @@
 package type;
 
 public class TypeFire extends Type{
-    static final byte SPOT = 2;
+    public static final byte SPOT = 2;
 
     public TypeFire(){
         name = "Fire";

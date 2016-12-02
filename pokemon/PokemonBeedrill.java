@@ -12,7 +12,7 @@ public class PokemonBeedrill extends Pokemon{
         //id = 4;
         //pokeNum = 10; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeBug(), new TypePoison()};
+        type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (90 * 2 + iv) * lev / 100 + 5;
         def = (40 * 2 + iv) * lev / 100 + 5;
         spAtk = (45 * 2 + iv) * lev / 100 + 5;

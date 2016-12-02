@@ -11,7 +11,7 @@ public class PokemonCaterpie extends Pokemon{
         //id = 4;
         //pokeNum = 10; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeBug()};
+        type = new Type[]{Type.getType(TypeBug.SPOT)};
         atk = (30 * 2 + iv) * lev / 100 + 5;
         def = (35 * 2 + iv) * lev / 100 + 5;
         spAtk = (20 * 2 + iv) * lev / 100 + 5;

@@ -12,7 +12,7 @@ public class PokemonKakuna extends Pokemon{
         //id = 4;
         //pokeNum = 15; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeBug(), new TypePoison()};
+        type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (25 * 2 + iv) * lev / 100 + 5;
         def = (50 * 2 + iv) * lev / 100 + 5;
         spAtk = (25 * 2 + iv) * lev / 100 + 5;

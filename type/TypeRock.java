@@ -1,7 +1,7 @@
 package type;
 
 public class TypeRock extends Type{
-    static final byte SPOT = 15;
+    public static final byte SPOT = 15;
 
     public TypeRock(){
         name = "Rock";

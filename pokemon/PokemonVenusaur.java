@@ -12,7 +12,7 @@ public class PokemonVenusaur extends Pokemon{
         //id = 1;
         //pokeNum = 2;
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeGrass(), new TypePoison()};
+        type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (82 * 2 + iv) * lev / 100 + 5;
         def = (83 * 2 + iv) * lev / 100 + 5;
         spAtk = (100 * 2 + iv) * lev / 100 + 5;

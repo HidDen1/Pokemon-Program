@@ -1,7 +1,7 @@
 package type;
 
 public class TypeFighting extends Type{
-    static final byte SPOT = 12;
+    public static final byte SPOT = 12;
 
     public TypeFighting(){
         name = "Fighting";

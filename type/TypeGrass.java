@@ -1,7 +1,7 @@
 package type;
 
 public class TypeGrass extends Type{
-    static final byte SPOT = 0;
+    public static final byte SPOT = 0;
 
     public TypeGrass(){
         name = "Grass";

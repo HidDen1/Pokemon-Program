@@ -1,7 +1,7 @@
 package type;
 
 public class TypeFairy extends Type{
-    static final byte SPOT = 17;
+    public static final byte SPOT = 17;
 
     public TypeFairy(){
         name = "Fairy";

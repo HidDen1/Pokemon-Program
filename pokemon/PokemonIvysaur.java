@@ -12,7 +12,7 @@ public class PokemonIvysaur extends Pokemon{
         //id = 1;
         //pokeNum = 2;
         exp = Math.pow(lev * 10 , 2);
-        type = new Type[]{new TypeGrass(), new TypePoison()};
+        type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (62 * 2 + iv) * lev / 100 + 5;
         def = (63 * 2 + iv) * lev / 100 + 5;
         spAtk = (80 * 2 + iv) * lev / 100 + 5;

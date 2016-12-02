@@ -1,7 +1,7 @@
 package type;
 
 public class TypeWater extends Type{
-    static final byte SPOT = 1;
+    public static final byte SPOT = 1;
 
     public TypeWater(){
         name = "Water";

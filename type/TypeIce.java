@@ -1,7 +1,7 @@
 package type;
 
 public class TypeIce extends Type{
-    final static byte SPOT = 9;
+    public final static byte SPOT = 9;
 
     public TypeIce(){
         name = "Ice";
