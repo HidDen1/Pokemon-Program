@@ -1,6 +1,9 @@
 package pokemon;
 
-import game.Player;
+import attack.*;
+import type.Type;
+import type.TypeGrass;
+import type.TypePoison;
 
 public class PokemonVenusaur extends Pokemon{
 
@@ -10,17 +13,14 @@ public class PokemonVenusaur extends Pokemon{
         //id = 1;
         //pokeNum = 2;
         exp = Math.pow(lev * 10 , 2);
-        type = "Grass / Poison";
+        type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (82 * 2 + iv) * lev / 100 + 5;
         def = (83 * 2 + iv) * lev / 100 + 5;
         spAtk = (100 * 2 + iv) * lev / 100 + 5;
         spDef = (100 * 2 + iv) * lev / 100 + 5;
         spd = (80 * 2 + iv) * lev / 100 + 5;
         hp = (80 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Petal Dance", "Petal Blizzard", "Double Edge", "Solarbeam"};
-        attPower = new int[]{120, 90, 120, 120};
-        attType1 = new String[]{"Grass", "Grass", "Normal", "Grass"};
-        attType2 = new String[]{"Special", "Physical", "Physical", "Special"};
+        att = new Attack[]{new AttackPetalDance(), new AttackPetalBlizzard(), new AttackDoubleEdge(), new AttackSolarbeam()};
     }
 
 }

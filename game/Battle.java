@@ -1,11 +1,10 @@
 package game;
 
 import pokemon.Pokemon;
-import pokemon.Stats;
 
 import java.util.Scanner;
 
-public class Battle extends Stats{
+public class Battle{
     public double userBattleSpeed, wildBattleSpeed, wildremainingHealth;
 
     public void startBattle(Player user, Options option, Inventory inventory, Battle bat) {
@@ -99,9 +98,9 @@ public class Battle extends Stats{
         multiplier = getModifier();
 
         if (wild.attType2[att].equalsIgnoreCase("Physical")){
-            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAttack() / user.party[0].getDeffense()) * (wild.attPower[att] + 2) * multiplier;
+            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAttack() / user.party[0].getDefense()) * (wild.attPower[att] + 2) * multiplier;
         } else if (wild.attType2[att].equalsIgnoreCase("Special")){
-            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getSpecialAttack() / user.party[0].getSpecialDeffense()) * (wild.attPower[att] + 2) * multiplier;
+            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getSpecialAttack() / user.party[0].getSpecialDefense()) * (wild.attPower[att] + 2) * multiplier;
         }
         damage = Math.round(damage);
         System.out.println("It did " + damage + " damage");
@@ -174,10 +173,10 @@ public class Battle extends Stats{
         }
 
         if (user.party[0].attType2[att].equalsIgnoreCase("Physical")){
-            damage = (2 * user.party[0].getLevel() + 10) / 250 * (user.party[0].getAttack() / wild.getDeffense()) * (user.party[0].attPower[att] + 2) * multiplier;
+            damage = (2 * user.party[0].getLevel() + 10) / 250 * (user.party[0].getAttack() / wild.getDefense()) * (user.party[0].attPower[att] + 2) * multiplier;
             d = (int) damage;
         } else if (user.party[0].attType2[att].equalsIgnoreCase("Special")){
-            damage = ((2 * user.party[0].getLevel() + 10) / 250) * (user.party[0].getSpecialAttack() / wild.getSpecialDeffense()) * (user.party[0].attPower[att] + 2) * multiplier;
+            damage = ((2 * user.party[0].getLevel() + 10) / 250) * (user.party[0].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[0].attPower[att] + 2) * multiplier;
             d = (int) damage;
         }
 

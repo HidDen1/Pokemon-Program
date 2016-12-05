@@ -1,11 +1,12 @@
 package type;
 
 public class TypePoison extends Type{
-    final static byte SPOT = 8;
+    public final static byte SPOT = 8;
 
     public TypePoison(){
         name = "Poison";
-        typeAdvantages = new byte[][]{{TypeGrass.SPOT},{SPOT, TypeBug.SPOT, TypeGrass.SPOT}};
+        typeAdvantages = new byte[][]{{TypeGrass.SPOT, TypeFairy.SPOT},{SPOT, TypeBug.SPOT, TypeGrass.SPOT, TypeFighting.SPOT, TypeFairy.SPOT}};
+        typeNulls = new byte[]{TypeSteel.SPOT};
     }
 
 }

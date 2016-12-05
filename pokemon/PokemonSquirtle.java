@@ -1,5 +1,8 @@
 package pokemon;
 
+import type.Type;
+import type.TypeWater;
+
 public class PokemonSquirtle extends Pokemon{
 
     public PokemonSquirtle(){
@@ -8,7 +11,7 @@ public class PokemonSquirtle extends Pokemon{
         //id = 3;
         //pokeNum = 7;
         exp = Math.pow(lev * 10 , 2);
-        type = "Water";
+        type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (48 * 2 + iv) * lev / 100 + 5;
         def = (65 * 2 + iv) * lev / 100 + 5;
         spAtk = (50 * 2 + iv) * lev / 100 + 5;

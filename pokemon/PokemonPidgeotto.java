@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeFlying;
+import type.TypeNormal;
 
 public class PokemonPidgeotto extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonPidgeotto extends Pokemon{
         //id = 1;
         //pokeNum = 17; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Normal/Flying";
+        type = new Type[]{Type.getType(TypeNormal.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (60 * 2 + iv) * lev / 100 + 5;
         def = (55 * 2 + iv) * lev / 100 + 5;
         spAtk = (50 * 2 + iv) * lev / 100 + 5;

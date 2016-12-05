@@ -1,6 +1,7 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeWater;
 
 public class PokemonWartortle extends Pokemon{
 
@@ -10,7 +11,7 @@ public class PokemonWartortle extends Pokemon{
         //id = 3;
         //pokeNum = 8;
         exp = Math.pow(lev * 10 , 2);
-        type = "Water";
+        type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (63 * 2 + iv) * lev / 100 + 5;
         def = (80 * 2 + iv) * lev / 100 + 5;
         spAtk = (65 * 2 + iv) * lev / 100 + 5;
