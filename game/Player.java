@@ -1,15 +1,17 @@
 package game;
 
 import pokemon.Pokemon;
-import pokemon.Stats;
 
-public class Player extends Stats {
+public class Player {
     public double expTrainer, toLevelUp, toLevelUpPokemon;
-    public int pokedollars, nextID, currentID;
+    public int pokedollars, nextID, currentID, level = 1;
     public String name;
     public double pokemonLevel [] = new double [1000];
     public int pokemonExp [] = new int [1000];
     public double remainingHealth [] = new double [1000];
+    protected Pokemon party [] = new Pokemon [6];
+
+    protected Pokemon storage [] = new Pokemon[1000];
 
     public Player(String trainerName, int typ, Inventory inventory){
         name = trainerName;
@@ -40,9 +42,9 @@ public class Player extends Stats {
         System.out.println("Name: " + party[0].getName());
         System.out.println("Level: " + party[0].getLevel());
         System.out.println("Attack: " + party[0].getAttack());
-        System.out.println("Deffense: " + party[0].getDeffense());
+        System.out.println("Deffense: " + party[0].getDefense());
         System.out.println("Special Attack: " + party[0].getSpecialAttack());
-        System.out.println("Special Deffence: " + party[0].getSpecialDeffense());
+        System.out.println("Special Deffence: " + party[0].getSpecialDefense());
         System.out.println("Speed: " + party[0].getSpeed());
         System.out.println("HP: " + remainingHealth[0] + "/" + party[0].getHealthPoints());
         System.out.println("EXP: " + pokemonExp[0] + " / " + toLevelUpPokemon);
@@ -97,13 +99,13 @@ public class Player extends Stats {
             pokemonExp[0] = pokemonExp[0] + 100;
             if (pokemonExp[0] >= toLevelUpPokemon){
                 pokemonLevel[0]++;
-                party[0].lev = pokemonLevel[0];
-                party[0].atk =  (100 * (party[0].atk - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5;
-                party[0].def =  (100 * (party[0].def - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5;
-                party[0].spAtk =  (100 * (party[0].spAtk - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5;
-                party[0].spDef =  (100 * (party[0].spDef - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5;
-                party[0].spd =  (100 * (party[0].spd - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5;
-                party[0].hp =  (100 * (party[0].hp - 10) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 10;
+                party[0].setLevel(pokemonLevel[0]);
+                party[0].setAttack((100 * (party[0].getAttack() - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5);
+                party[0].setDefense((100 * (party[0].getDefense() - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5);
+                party[0].setSpecialAttack((100 * (party[0].getSpecialAttack() - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5);
+                party[0].setSpecialDefense((100 * (party[0].getSpecialDefense() - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5);
+                party[0].setSpeed((100 * (party[0].getSpeed() - 5) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 5);
+                party[0].setHP((100 * (party[0].getHealthPoints() - 10) / (pokemonLevel[0] - 1)) * pokemonLevel [0] / 100 + 10);
                 remainingHealth[0] = party[0].getHealthPoints();
                 expToLevelUpPokemon();
                 System.out.println(party[0].getName() + " leveled up to level " + pokemonLevel[0]);
@@ -161,5 +163,12 @@ public class Player extends Stats {
 
     public void healAll(){
         this.remainingHealth[0] = party[0].getHealthPoints();
+    }
+
+    public int getTrainerLevel(){
+        return(level);
+    }
+    public Pokemon getPokemon(){
+        return(party[0]);
     }
 }

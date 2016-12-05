@@ -1,8 +1,8 @@
 package game;
 
-import pokemon.Stats;
-
-public class Item extends Stats {
+public class Item {
+    int itemID;
+    String itemName;
 
     public void itemNew(int a){
         itemID = a;
@@ -47,18 +47,15 @@ public class Item extends Stats {
         switch(itemID){
             case 1:
                 System.out.println("Go Pokeball!");
-                ballBonus = 1;
-                caught = catchPokemon(ballBonus);
+                caught = catchPokemon(1);
                 return caught;
             case 2:
                 System.out.println("Go Greatball!");
-                ballBonus = 1.5;
-                caught = catchPokemon(ballBonus);
+                caught = catchPokemon(1.5);
                 return caught;
             case 3:
                 System.out.println("Go Ultraball!");
-                ballBonus = 2;
-                caught = catchPokemon(ballBonus);
+                caught = catchPokemon(2);
                 return caught;
             case 4:
                 user.remainingHealth [0] = user.remainingHealth[0] + 20;

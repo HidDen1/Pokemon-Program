@@ -1,6 +1,8 @@
 package pokemon;
 
-import game.Player;
+import type.Type;
+import type.TypeBug;
+import type.TypePoison;
 
 public class PokemonWeedle extends Pokemon{
 
@@ -10,7 +12,7 @@ public class PokemonWeedle extends Pokemon{
         //id = 4;
         //pokeNum = 13; //for the pokedex
         exp = Math.pow(lev * 10 , 2);
-        type = "Bug/Poison";
+        type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (35 * 2 + iv) * lev / 100 + 5;
         def = (30 * 2 + iv) * lev / 100 + 5;
         spAtk = (20 * 2 + iv) * lev / 100 + 5;
