@@ -1,5 +1,9 @@
 package pokemon;
 
+import attack.Attack;
+import attack.AttackBugBite;
+import attack.AttackEmpty;
+import attack.AttackPoisonSting;
 import type.Type;
 import type.TypeBug;
 import type.TypePoison;
@@ -19,10 +23,7 @@ public class PokemonKakuna extends Pokemon{
         spDef = (25 * 2 + iv) * lev / 100 + 5;
         spd = (35 * 2 + iv) * lev / 100 + 5;
         hp = (45 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Poison Sting", "Bug Bite", "---", "---"};
-        attPower = new int[]{15, 60, 0, 0};
-        attType1 = new String[]{"Poison", "Bug", "", ""};
-        attType2 = new String[]{"Physical", "Physical", "", ""};
+        att = new Attack[]{new AttackPoisonSting(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 
 }

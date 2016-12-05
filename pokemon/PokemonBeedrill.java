@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeBug;
 import type.TypePoison;
@@ -19,10 +20,7 @@ public class PokemonBeedrill extends Pokemon{
         spDef = (80 * 2 + iv) * lev / 100 + 5;
         spd = (75 * 2 + iv) * lev / 100 + 5;
         hp = (65 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Pursuit", "Bug Bite", "Poison Jab", "Fell Stinger"};
-        attPower = new int[]{40, 60, 80, 30};
-        attType1 = new String[]{"Dark", "Bug", "Poison", "Bug"};
-        attType2 = new String[]{"Physical", "Physical", "Physical", "Physical"};
+        att = new Attack[]{new AttackPursuit(), new AttackBugBite(), new AttackPoisonJab(), new AttackFellStinger()};
     }
 
 }
