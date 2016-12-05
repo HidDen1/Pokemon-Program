@@ -4,6 +4,6 @@
 Finished
 ####Make attacks their own concept-class to hold types, power, name, etc
 Concept done
-Attacks for Charmander evolution tree
+Attacks for Charmander & Venusaur evolution tree done
 ####Make Types their own concept-class to hold what it is strong and weak against
 Finished and implemented

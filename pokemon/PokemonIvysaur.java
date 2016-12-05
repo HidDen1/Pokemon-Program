@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeGrass;
 import type.TypePoison;
@@ -19,10 +20,7 @@ public class PokemonIvysaur extends Pokemon{
         spDef = (80 * 2 + iv) * lev / 100 + 5;
         spd = (60 * 2 + iv) * lev / 100 + 5;
         hp = (60 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Vine Whip", "Razorleaf", "Double Edge", "Solarbeam"};
-        attPower = new int[]{45, 55, 120, 120};
-        attType1 = new String[]{"Grass", "Grass", "Normal", "Grass"};
-        attType2 = new String[]{"Physical", "Physical", "Physical", "Special"};
+        att = new Attack[]{new AttackVineWhip(), new AttackRazorLeaf(), new AttackDoubleEdge(), new AttackSolarbeam()};
     }
 
 }
