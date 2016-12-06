@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeBug;
 import type.TypeFlying;
@@ -19,10 +20,7 @@ public class PokemonButterfree extends Pokemon{
         spDef = (80 * 2 + iv) * lev / 100 + 5;
         spd = (70 * 2 + iv) * lev / 100 + 5;
         hp = (60 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Psybeam", "Bug Bite", "Silver Wind", "Bug Buzz"};
-        attPower = new int[]{65, 60, 60, 90};
-        attType1 = new String[]{"Psychic", "Bug", "Bug", "Bug"};
-        attType2 = new String[]{"Special", "Physical", "Special", "Special"};
+        att = new Attack[]{new AttackPsybeam(), new AttackBugBite(), new AttackSilverWind(), new AttackBugBuzz()};
     }
 
 }

@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeWater;
 
@@ -18,10 +19,7 @@ public class PokemonSquirtle extends Pokemon{
         spDef = (64 * 2 + iv) * lev / 100 + 5;
         spd = (43 * 2 + iv) * lev / 100 + 5;
         hp = (44 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Water Gun", "Water Pulse", "Bite", "Brine"};
-        attPower = new int[]{40, 60, 60, 65};
-        attType1 = new String[]{"Water", "Water", "Dark", "Water"};
-        attType2 = new String[]{"Special", "Special", "Physical", "Special"};
+        att = new Attack[]{new AttackWaterGun(), new AttackWaterPulse(), new AttackBite(), new AttackBrine()};
     }
 
 }
