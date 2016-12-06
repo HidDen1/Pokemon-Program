@@ -1,5 +1,6 @@
 package pokemon;
 
+import attack.*;
 import type.Type;
 import type.TypeFlying;
 import type.TypeNormal;
@@ -19,10 +20,7 @@ public class PokemonPidgeot extends Pokemon{
         spDef = (70 * 2 + iv) * lev / 100 + 5;
         spd = (101 * 2 + iv) * lev / 100 + 5;
         hp = (83 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Air Slash", "Hurricane", "Brave Bird", "Steel Wing"};
-        attPower = new int[]{75, 110, 120, 70};
-        attType1 = new String[]{"Flying", "Flying", "Flying", "Steel"};
-        attType2 = new String[]{"Special", "Special", "Physical", "Physical"};
+        att = new Attack[]{new AttackAirSlash(), new AttackHurricane(), new AttackBraveBird(), new AttackSteelWing()};
     }
 
 }

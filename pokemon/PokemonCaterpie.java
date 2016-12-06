@@ -1,5 +1,9 @@
 package pokemon;
 
+import attack.Attack;
+import attack.AttackBugBite;
+import attack.AttackEmpty;
+import attack.AttackTackle;
 import type.Type;
 import type.TypeBug;
 
@@ -18,10 +22,7 @@ public class PokemonCaterpie extends Pokemon{
         spDef = (20 * 2 + iv) * lev / 100 + 5;
         spd = (45 * 2 + iv) * lev / 100 + 5;
         hp = (45 * 2 + iv) * lev / 100 + 10;
-        att = new String[]{"Tackle", "Bug Bite", "---", "---"};
-        attPower = new int[]{50, 60, 0, 0};
-        attType1 = new String[]{"Normal", "Bug", "", ""};
-        attType2 = new String[]{"Physical", "Physical", "", ""};
+        att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 
 }

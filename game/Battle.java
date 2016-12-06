@@ -93,14 +93,14 @@ public class Battle{
         int att = (int) a;
         checkWildAttack(wild, att);
 
-        System.out.println("The wild " + wild.getName() + " used " + wild.att[att]);
+        System.out.println("The wild " + wild.getName() + " used " + wild.att[att].getName());
         double damage = 0;
         multiplier = getModifier();
 
-        if (wild.attType2[att].equalsIgnoreCase("Physical")){
-            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAttack() / user.party[0].getDefense()) * (wild.attPower[att] + 2) * multiplier;
-        } else if (wild.attType2[att].equalsIgnoreCase("Special")){
-            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getSpecialAttack() / user.party[0].getSpecialDefense()) * (wild.attPower[att] + 2) * multiplier;
+        if (wild.att[att].isPhysical()){
+            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAttack() / user.party[0].getDefense()) * (wild.att[att].getPower() + 2) * multiplier;
+        } else {
+            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getSpecialAttack() / user.party[0].getSpecialDefense()) * (wild.att[att].getPower() + 2) * multiplier;
         }
         damage = Math.round(damage);
         System.out.println("It did " + damage + " damage");
@@ -143,13 +143,13 @@ public class Battle{
         Scanner scan = new Scanner(System.in);
         double damage;
 
-        System.out.println("1. " + user.party[0].att[0] + "  2. " + user.party[0].att[1]);
-        System.out.println("3. " + user.party[0].att[2] + "  4. " + user.party[0].att[3]);
+        System.out.println("1. " + user.party[0].att[0].getName() + "  2. " + user.party[0].att[1].getName());
+        System.out.println("3. " + user.party[0].att[2].getName() + "  4. " + user.party[0].att[3].getName());
         //System.out.println("Enter -1 to go back");
         int attack = scan.nextInt();
         if (attack == -1){
             playerAttackPhase(user, wild, option, inventory, bat);
-        } else if (attack != 1 && attack != 2 && attack != 3 && attack != 4) {
+        } else if (attack > 0 && attack < 5) {
             System.out.print("Please enter an applicable number!");
             actionFightUser(user, wild, option, inventory, bat);
         }
@@ -167,16 +167,16 @@ public class Battle{
 
         multiplier = getModifier();
 
-        if (user.party[0].att[att].equalsIgnoreCase("-----")) {
+        if (user.party[0].att[att].getName().equalsIgnoreCase("-----")) {
             System.out.println("Invalid Move");
             actionFightUser(user, wild, option, inventory, bat);
         }
 
-        if (user.party[0].attType2[att].equalsIgnoreCase("Physical")){
-            damage = (2 * user.party[0].getLevel() + 10) / 250 * (user.party[0].getAttack() / wild.getDefense()) * (user.party[0].attPower[att] + 2) * multiplier;
+        if (user.party[0].att[att].isPhysical()){
+            damage = (2 * user.party[0].getLevel() + 10) / 250 * (user.party[0].getAttack() / wild.getDefense()) * (user.party[0].att[att].getPower() + 2) * multiplier;
             d = (int) damage;
-        } else if (user.party[0].attType2[att].equalsIgnoreCase("Special")){
-            damage = ((2 * user.party[0].getLevel() + 10) / 250) * (user.party[0].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[0].attPower[att] + 2) * multiplier;
+        } else {
+            damage = ((2 * user.party[0].getLevel() + 10) / 250) * (user.party[0].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[0].att[att].getPower() + 2) * multiplier;
             d = (int) damage;
         }
 
