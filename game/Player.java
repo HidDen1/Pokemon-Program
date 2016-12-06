@@ -2,15 +2,16 @@ package game;
 
 import pokemon.Pokemon;
 
-public class Player {
+import java.util.Scanner;
+
+public class Player{
     public double expTrainer, toLevelUp, toLevelUpPokemon;
-    public int pokedollars, nextID, currentID, level = 1;
+    public int pokedollars, nextID, currentID, level = 1, partyAmount = 1; //party amount will need to be altered when part is full or removed from
     public String name;
     public double pokemonLevel [] = new double [1000];
     public int pokemonExp [] = new int [1000];
     public double remainingHealth [] = new double [1000];
     protected Pokemon party [] = new Pokemon [6];
-
     protected Pokemon storage [] = new Pokemon[1000];
 
     public Player(String trainerName, int typ, Inventory inventory){
@@ -23,12 +24,11 @@ public class Player {
         party [0] = beginner;
         storage [0] = beginner;
         nextID = 0;
-        Pokemon empty = null;
-        party [1] = empty;
-        party [2] = empty;
-        party [3] = empty;
-        party [4] = empty;
-        party [5] = empty;
+        party [1] = null;
+        party [2] = null;
+        party [3] = null;
+        party [4] = null;
+        party [5] = null;
         expToLevelUp();
         expToLevelUpPokemon();
     }
@@ -39,15 +39,15 @@ public class Player {
         System.out.println("To next level: " + this.getExp() + "/" + this.getToLevelUp());
         System.out.println("Pokedollars: $" + this.getPokedollars());
         //temp stats for beginner, will be an option to check in party
-        System.out.println("Name: " + party[0].getName());
-        System.out.println("Level: " + party[0].getLevel());
-        System.out.println("Attack: " + party[0].getAttack());
-        System.out.println("Deffense: " + party[0].getDefense());
-        System.out.println("Special Attack: " + party[0].getSpecialAttack());
-        System.out.println("Special Deffence: " + party[0].getSpecialDefense());
-        System.out.println("Speed: " + party[0].getSpeed());
-        System.out.println("HP: " + remainingHealth[0] + "/" + party[0].getHealthPoints());
-        System.out.println("EXP: " + pokemonExp[0] + " / " + toLevelUpPokemon);
+        //System.out.println("Name: " + party[0].getName());
+        //System.out.println("Level: " + party[0].getLevel());
+        //System.out.println("Attack: " + party[0].getAttack());
+        //System.out.println("Deffense: " + party[0].getDeffense());
+        //System.out.println("Special Attack: " + party[0].getSpecialAttack());
+        //System.out.println("Special Deffence: " + party[0].getSpecialDeffense());
+        //System.out.println("Speed: " + party[0].getSpeed());
+        //System.out.println("HP: " + remainingHealth[0] + "/" + party[0].getHealthPoints());
+        //System.out.println("EXP: " + pokemonExp[0] + " / " + toLevelUpPokemon);
     }
 
     public String getName(){
@@ -119,12 +119,42 @@ public class Player {
     }
 
     public void getPartyPokemon(){ //will have an option to check their stats
-        System.out.println("1. " + party [0].getName());
-        System.out.println("2. " + party [1].getName());
-        System.out.println("3. " + party [2].getName());
-        System.out.println("4. " + party [3].getName());
-        System.out.println("5. " + party [4].getName());
-        System.out.println("6. " + party [5].getName());
+        int a = 0;
+        while (a <= partyAmount - 1){
+            a++;
+            System.out.println(a + ". " + party[a - 1].getName());
+        }
+    }
+
+
+    public void viewStats(Player user){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Select a pokemon that you want to view. Enter -1 to go back.");
+        int c = scan.nextInt();
+        while (c > 6 || c == 0 || c < -1){
+            System.out.println("Please enter a valid slot!");
+            c = scan.nextInt();
+        }
+        if (c != -1){
+            c = c - 1;
+            System.out.println("Name: " + party[c].getName());
+            System.out.println("Level: " + party[c].getLevel());
+            System.out.println("Attack: " + party[c].getAttack());
+            System.out.println("Defense: " + party[c].getDefense());
+            System.out.println("Special Attack: " + party[c].getSpecialAttack());
+            System.out.println("Special Deffence: " + party[c].getSpecialDefense());
+            System.out.println("Speed: " + party[c].getSpeed());
+            System.out.println("HP: " + remainingHealth[c] + "/" + party[c].getHealthPoints());
+            System.out.println("EXP: " + pokemonExp[c] + " / " + toLevelUpPokemon);
+            System.out.println("Enter -1 to go back.");
+            int k = scan.nextInt();
+            while (k != -1){
+                System.out.println("Please enter -1 to go back!");
+                k = scan.nextInt();
+            }
+            user.getPartyPokemon();
+            viewStats(user);
+        }
     }
 
     public int getNextID(){

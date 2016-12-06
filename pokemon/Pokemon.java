@@ -1,8 +1,95 @@
 package pokemon;
 
+import attack.Attack;
 import game.Player;
+import type.Type;
 
-public abstract class Pokemon extends Stats {
+public abstract class Pokemon{
+    protected String name, itemName;
+    protected double atk, def, spAtk, spDef, spd, hp, lev, exp, ballBonus;
+    protected int iv, id, healthRestore, itemID;
+    public Attack att [] = new Attack[4];
+    public Type[] type;
+
+    public String getName(){
+        return(name);
+    }
+
+    public double getAttack(){
+        return(atk);
+    }
+
+    public void setAttack(double a){
+        atk = a;
+    }
+
+    public double getDefense(){
+        return(def);
+    }
+
+    public void setDefense(double d /*hehe double D*/){
+        def = d;
+    }
+
+    public double getSpecialAttack(){
+        return(spAtk);
+    }
+
+    public void setSpecialAttack(double a){
+        spAtk = a;
+    }
+
+    public double getSpecialDefense(){
+        return(spDef);
+    }
+
+    public void setSpecialDefense(double d /*hehe double D*/){
+        spDef = d;
+    }
+
+    public double getSpeed(){
+        return(spd);
+    }
+
+    public void setSpeed(double s){
+        spd = s;
+    }
+
+    public double getHealthPoints(){
+        return(hp);
+    }
+
+    public void setHP(double hp){
+        this.hp = hp;
+    }
+
+    public double getLevel(){
+        return(lev);
+    }
+
+    public void setLevel(double l){
+        lev = l;
+    }
+
+    public int getIV(){
+        return(iv);
+    }
+
+
+
+    public Type[] getElementType(){
+        return(type);
+    }
+
+    public int getID(){
+        return (id);
+    }
+
+
+
+    public int getItemID(){
+        return(itemID);
+    }
 
     static Pokemon[] getRarityLev1(){
         return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander(), new PokemonCaterpie(), new PokemonWeedle(), new PokemonPidgey()};
@@ -29,9 +116,9 @@ public abstract class Pokemon extends Stats {
 
         if (chance <= 60){
             p = getRarityLev1()[id];
-        } else if (chance >= 61 && chance <= 89){
+        } else if (chance <= 89){
             p = getRarityLev2()[id];
-        } else if (chance < 101 && chance >= 90) {
+        } else {
             p = getRarityLev3()[id];
         }
         assert p != null;
@@ -82,7 +169,7 @@ public abstract class Pokemon extends Stats {
         double a;
         int b;
 
-        a = 1 + Math.random() * (6 - 1);
+        a = Math.random() * (5);
         b = (int) Math.round(a);
 
         return b;

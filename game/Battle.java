@@ -6,33 +6,39 @@ import java.util.Scanner;
 
 public class Battle{
     public double userBattleSpeed, wildBattleSpeed, wildremainingHealth;
+    public int currentID;
 
     public void startBattle(Player user, Options option, Inventory inventory, Battle bat) {
-        int chance;
-        chance = (int) getChance();
+        //int chance;
+        currentID = 0;
+        //chance = (int) getChance();
         Pokemon wild = null;
         wild = wild.wildPokemon(user);
         System.out.println("A wild " + wild.getName() + " has appeared!");
 
+        while (user.remainingHealth[currentID] == 0){
+            currentID++;
+        }
+        System.out.println("Go " + user.party[currentID].getName() + "!");
         wildremainingHealth = wild.getHealthPoints();
-        userBattleSpeed = user.party[0].getSpeed();
+        userBattleSpeed = user.party[currentID].getSpeed();
         wildBattleSpeed = wild.getSpeed();
         displayHealth(wild, user);
         battle(user, wild, option, inventory, bat);
     }
 
     private void battle(Player user, Pokemon wild, Options option, Inventory inventory, Battle bat){
-        if(wildremainingHealth > 0 && user.remainingHealth [0] > 0){
+        if(wildremainingHealth > 0 && user.remainingHealth [currentID] > 0){
             if (wildBattleSpeed > userBattleSpeed){
-                wildAttackPhase(user, wild, option, inventory, bat);
+                wildAttackPhase(user, wild, option, inventory, bat); //needs to be moved, wild can attack before user selects a move
 
             } else if (userBattleSpeed >= wildBattleSpeed) {
                 playerAttackPhase(user, wild, option, inventory, bat);
             }
-        } else if (wildremainingHealth <= 0){ //this works
+        } else if (wildremainingHealth <= 0){ //currently only for just incase something goes weird
             wildLose(wild, user, option, inventory, bat);
-        } else if (user.remainingHealth [0] <= 0){//needs tobe changed after you can have more than one pokemon
-            System.out.println("You have been defeated!");
+        } else if (user.remainingHealth [currentID] <= 0){ //same with this
+            System.out.println("You have been defeated!"); // needs to check all party pokemon
             System.exit(0);
         }
     }
@@ -44,11 +50,11 @@ public class Battle{
 
         System.out.println("What should " + user.party[0].getName() + " do?");
         System.out.println("1. Fight   2. Bag");
-        System.out.println("3. pokemon.Pokemon 4. Run");
+        System.out.println("3. Pokemon 4. Run");
         action = scan.nextLine();
 
         if (action.equalsIgnoreCase("1")){
-            System.out.println("Select a move by entering the corresponding number. Enter -1 to go back"); //got this far
+            System.out.println("Select a move by entering the corresponding number. Enter -1 to go back");
             wildremainingHealth = actionFightUser(user, wild, option, inventory, bat);
             wildremainingHealth = Math.round(wildremainingHealth);
             if (wildremainingHealth < 0){
@@ -63,11 +69,11 @@ public class Battle{
         } else if (action.equalsIgnoreCase("2")){
             inventory.useItem(user, bat, wild, option, inventory);
         } else if (action.equalsIgnoreCase("3")){
-            user.getPartyPokemon();
-            getGoBack(user, option, wild, inventory, bat);
+            user.getPartyPokemon(); //switching pokemon and selecting stats needs added
+            selectPokemon(user,wild,option,inventory,bat);
             playerAttackPhase(user, wild, option, inventory, bat);
         } else if (action.equalsIgnoreCase("4")){
-            run = getRunChance();
+            run = (int) getChance();
             if (run > 50){
                 System.out.println("Got away safely");
                 option.optionsMenu(user, option, inventory, bat);
@@ -84,8 +90,8 @@ public class Battle{
     private void displayHealth(Pokemon wild, Player user){
         System.out.println("LV: " + wild.getLevel() + " " + wild.getName());
         System.out.println("HP: " + wildremainingHealth + "/" + wild.getHealthPoints());
-        System.out.println("LV: " + user.party[0].getLevel() + " " + user.party[0].getName());
-        System.out.println("HP: " + user.remainingHealth [0] + "/" + user.party[0].getHealthPoints());
+        System.out.println("LV: " + user.party[currentID].getLevel() + " " + user.party[currentID].getName());
+        System.out.println("HP: " + user.remainingHealth [currentID] + "/" + user.party[currentID].getHealthPoints());
     }
 
     public void wildAttackPhase(Player user, Pokemon wild, Options option, Inventory inventory, Battle bat){
@@ -93,7 +99,7 @@ public class Battle{
         int att = (int) a;
         checkWildAttack(wild, att);
 
-        System.out.println("The wild " + wild.getName() + " used " + wild.att[att].getName());
+        System.out.println("The wild " + wild.getName() + " used " + wild.att[att]);
         double damage = 0;
         multiplier = getModifier();
 
@@ -104,13 +110,13 @@ public class Battle{
         }
         damage = Math.round(damage);
         System.out.println("It did " + damage + " damage");
-        user.remainingHealth [0] = user.remainingHealth [0] - damage;
-        user.remainingHealth [0] = Math.round(user.remainingHealth [0]);
-        if (user.remainingHealth [0] < 0){
-            user.remainingHealth [0] = 0;
+        user.remainingHealth [currentID] = user.remainingHealth [currentID] - damage;
+        user.remainingHealth [currentID] = Math.round(user.remainingHealth [currentID]);
+        if (user.remainingHealth [currentID] < 0){
+            user.remainingHealth [currentID] = 0;
         }
         displayHealth(wild, user);
-        if (user.remainingHealth [0] <= 0){
+        if (user.remainingHealth [currentID] <= 0){//needs to account for whole team.
             System.out.println("You have been defeated!");
             System.exit(0);
         } else {
@@ -119,7 +125,7 @@ public class Battle{
     }
 
     public void wildLose(Pokemon wild, Player user, Options option, Inventory inventory, Battle bat){
-        double chance = getRandom();
+        double chance = getChance();
         System.out.println("The " + wild.getName() + " has fainted!");
         System.out.println("You gained 50 exp, 100 pokemon exp, and 100 pokedollars!"); //currently constant,change later to depend of the pokemon
         if (chance < 70){
@@ -127,7 +133,7 @@ public class Battle{
         }
         user.gainExperience();
         user.gainPokedollars();
-        user.gainExperiencePokemon();
+        user.gainExperiencePokemon();//needs to also send current ID to give the correct Pokemon the EXP
         option.optionsMenu(user, option, inventory, bat);
     }
 
@@ -143,13 +149,13 @@ public class Battle{
         Scanner scan = new Scanner(System.in);
         double damage;
 
-        System.out.println("1. " + user.party[0].att[0].getName() + "  2. " + user.party[0].att[1].getName());
-        System.out.println("3. " + user.party[0].att[2].getName() + "  4. " + user.party[0].att[3].getName());
+        System.out.println("1. " + user.party[currentID].att[0] + "  2. " + user.party[currentID].att[1]);
+        System.out.println("3. " + user.party[currentID].att[2] + "  4. " + user.party[currentID].att[3]);
         //System.out.println("Enter -1 to go back");
         int attack = scan.nextInt();
         if (attack == -1){
             playerAttackPhase(user, wild, option, inventory, bat);
-        } else if (attack > 0 && attack < 5) {
+        } else if (attack != 1 && attack != 2 && attack != 3 && attack != 4) {
             System.out.print("Please enter an applicable number!");
             actionFightUser(user, wild, option, inventory, bat);
         }
@@ -167,38 +173,84 @@ public class Battle{
 
         multiplier = getModifier();
 
-        if (user.party[0].att[att].getName().equalsIgnoreCase("-----")) {
+        if (user.party[currentID].att[att].getName().equalsIgnoreCase("-----")) { //not working
             System.out.println("Invalid Move");
             actionFightUser(user, wild, option, inventory, bat);
         }
 
-        if (user.party[0].att[att].isPhysical()){
-            damage = (2 * user.party[0].getLevel() + 10) / 250 * (user.party[0].getAttack() / wild.getDefense()) * (user.party[0].att[att].getPower() + 2) * multiplier;
+        if (user.party[currentID].att[att].isPhysical()){
+            damage = (2 * user.party[currentID].getLevel() + 10) / 250 * (user.party[currentID].getAttack() / wild.getDefense()) * (user.party[currentID].att[att].getPower() + 2) * multiplier;
             d = (int) damage;
         } else {
-            damage = ((2 * user.party[0].getLevel() + 10) / 250) * (user.party[0].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[0].att[att].getPower() + 2) * multiplier;
+            damage = ((2 * user.party[currentID].getLevel() + 10) / 250) * (user.party[currentID].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[currentID].att[att].getPower() + 2) * multiplier;
             d = (int) damage;
         }
 
         return d;
     }
 
+    public void selectPokemon(Player user, Pokemon wild, Options option, Inventory inventory, Battle bat){ //will need exceptions for sending out if fainted
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Select a pokemon by entering its slot number");
+        int s = scan.nextInt();
+        while (s > 6 || s < 1){
+            System.out.println("Please enter a valid slot!");
+            s = scan.nextInt();
+        }
+        optionPokemon(s,user,wild,option,inventory,bat);
+    }
+
+    public void optionPokemon(int s, Player user, Pokemon wild, Options option, Inventory inventory, Battle bat){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What would you like to do with " + user.party[s - 1].getName() + " ?");
+        System.out.println("1. Switch\n2.Summary\n3.Check Moves\n-1. Go Back");
+        int c = scan.nextInt();
+        switch (c){
+            case 1:
+                if (s == currentID + 1){
+                    System.out.println("That Pokemon is already in battle!");
+                    optionPokemon(s,user,wild,option,inventory,bat);
+                } else {
+                    System.out.println("That's enough " + user.party[currentID].getName() + "!");
+                    currentID = s - 1;
+                    System.out.println("Go " + user.party[currentID].getName() + "!");
+                    wildAttackPhase(user,wild,option,inventory,bat);
+                }
+                break;
+            case 2:
+                s = s - 1;
+                System.out.println("Name: " + user.party[s].getName());
+                System.out.println("Level: " + user.party[s].getLevel());
+                System.out.println("Attack: " + user.party[s].getAttack());
+                System.out.println("Deffense: " + user.party[s].getDefense());
+                System.out.println("Special Attack: " + user.party[s].getSpecialAttack());
+                System.out.println("Special Deffence: " + user.party[s].getSpecialDefense());
+                System.out.println("Speed: " + user.party[s].getSpeed());
+                //System.out.println("HP: " + remainingHealth[s] + "/" + party[0].getHealthPoints());
+                //System.out.println("EXP: " + pokemonExp[s] + " / " + toLevelUpPokemon);
+                System.out.println("Enter -1 to go back.");
+                int k = scan.nextInt();
+                while (k != -1){
+                    System.out.println("Please enter -1 to go back!");
+                    k = scan.nextInt();
+                }
+                s++;
+                optionPokemon(s,user,wild,option,inventory,bat);
+                break;
+            case 3:
+                System.out.println("Coming soon!");
+                break;
+            case -1:
+                selectPokemon(user,wild,option,inventory,bat);
+                break;
+        }
+    }
+
     private double getChance(){
-        double chance;
-        chance = Math.random() * 100;
+        double chance = 1 + Math.random() * (100 - 1);
         chance = Math.round(chance);
 
         return chance;
-    }
-
-    private int getRunChance(){
-        int r;
-        double a;
-
-        a = Math.random() * 100;
-        r = (int) Math.round(a);
-
-        return r;
     }
 
     private double getModifier(){
@@ -215,25 +267,21 @@ public class Battle{
 
     //}
 
-    private double getCriticalMultiplier(){
-        double c = Math.random() * 10;
-        if (c == 10){
-            c = 2;
+    private int getCriticalMultiplier(){
+        double c = Math.random() * (10);
+        int a = (int) Math.round(c);
+        if (a == 10){
+            a = 2;
             System.out.println("It was a Critical Hit!");
         } else {
-            c = 1;
+            a = 1;
         }
-        return c;
+        return a;
     }
 
     private double getRandomMultiplier(){
         double r = .85 + Math.random() * (1 - .85);
         return r;
-    }
-
-    private double getRandom(){
-        double t = 1 + Math.random() * (100 - 1);
-        return t;
     }
 
     private void getGoBack(Player user, Options option, Pokemon wild, Inventory inventory, Battle bat){

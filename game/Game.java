@@ -1,8 +1,6 @@
 package game;
 
 import type.Type;
-import type.TypeFire;
-import type.TypeGrass;
 
 import javax.swing.*;
 import java.util.Scanner;
@@ -39,12 +37,11 @@ public class Game {
 /*
     Bug List:
     -Wild pokemon using non existent moves
+    -Attack names are messed up
 
     Battle mechanics that still need to be added:
-    -Switching pokemon.Pokemon in battle
     -Not losing till all available pokemon faint
     -Switching pokemon into the party from the pc
-    -Checking stats
     -Evolution
     -Typing
     -EVs
@@ -55,9 +52,30 @@ public class Game {
     -Switching pokemon around in the party
     -Proper movesets
     -Proper id assigning when catching pokemon and in all of the methods that currently have party[0] as placeholders
+    -Status effects
+    -Having less then 6 pokemon after more then 6 are caught
 
 
     Version History:
+
+    Version 0.22.00 12/5/2016
+    -Added pokemon switching and summaries in battle
+    -Added pokemon summaries out of battle
+    -Added Attack class
+    -Added attacks for all current pokemon
+    -Changed the method for displaying party pokemon
+    -Removed getRunChance and getRandom methods in battle as getChance literally does the same thing
+    -Removed stats class and moved all methods to Pokemon class
+    -Fixed Critical Hits from being nearly impossible
+    -Fixed and updated misc things in battle
+    -Fixed checking stats not working
+
+    Version 0.21.00 12/1/2016
+    -Added loop to make sure you do not send out a Pokemon with no health in battle
+    -Changed the methods in the battle class to use the current selected pokemon rather than just the beginner
+
+    Version 0.20.00 11/30/2016
+    -Added if statement to make sure you do not exceed 6 pokemon when capturing new ones
 
     Version 0.19.00 11/23/2016
     -Added change level method
@@ -65,6 +83,8 @@ public class Game {
     -Changed Pokemon by putting them into rarity methods
     -Changed how new wild Pokemon are found
     -Removed parameters from Pokemon class
+    -Removed the empty pokemon class
+    -Fixed misc issues because of changes
 
     Version 0.18.00 11/22/2016
     -Added ability to shop at marts when found

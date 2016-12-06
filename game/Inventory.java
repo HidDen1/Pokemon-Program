@@ -61,10 +61,15 @@ public class Inventory extends Item {
                     if (caught == 1){
                         System.out.println("The wild " + wild.getName() + " was caught!");
                         int id = user.getNextID();
-                        user.party[id] = wild;
+                        if (id < 6 && id >= 0){
+                            user.party[id] = wild;
+                        } else {
+                            System.out.println("You party is full so " + wild.getName() + " was sent to the PC");
+                        }
                         user.pokemonLevel[id] = wild.getLevel();
                         user.pokemonExp[id] = 0;
                         user.storage[id] = wild;
+                        user.partyAmount++;
                         bat.wildLose(wild, user, option, inventory, bat);
                         break;
                     } else if (caught == -1) {

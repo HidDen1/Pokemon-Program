@@ -10,7 +10,7 @@ public class Options{
 
         System.out.println("What would you like to do? (Enter number to select option)");
         System.out.println("1. Go Exploring");
-        System.out.println("2. Check Party pokemon");
+        System.out.println("2. Check Party Pokemon");
         System.out.println("3. Trainer Information");
         System.out.println("4. Bag");
         System.out.println("5. Pokedex");
@@ -29,8 +29,9 @@ public class Options{
                 optionsMenu(user, option, inventory, bat);
                 break;
             case 2:
-                user.getPartyPokemon();
-                getGoBack(user, option, inventory, bat);
+                user.getPartyPokemon();  //not working
+                user.viewStats(user);
+                optionsMenu(user, option, inventory, bat);
                 break;
             case 3:
                 user.getAllStats();
@@ -49,7 +50,7 @@ public class Options{
                 optionsMenu(user, option, inventory, bat);
                 break;
             case -1:
-                System.out.println("game.Game Over");
+                System.out.println("Game Over");
                 System.exit(0);
                 break;
 
