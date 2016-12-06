@@ -15,6 +15,8 @@ public class PokemonKakuna extends Pokemon{
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 15; //for the pokedex
+        evolution = new PokemonBeedrill();
+        levEv = 10;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (25 * 2 + iv) * lev / 100 + 5;

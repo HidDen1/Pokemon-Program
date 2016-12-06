@@ -11,6 +11,8 @@ public class PokemonSquirtle extends Pokemon{
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 7;
+        evolution = new PokemonWartortle();
+        levEv = 16;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (48 * 2 + iv) * lev / 100 + 5;

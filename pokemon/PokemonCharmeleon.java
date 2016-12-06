@@ -11,6 +11,8 @@ public class PokemonCharmeleon extends Pokemon{
         iv = ivGenerator();
         //id = 2;
         //pokeNum = 5;
+        evolution = new PokemonCharizard();
+        levEv = 36;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT)};
         atk = (64 * 2 + iv) * lev / 100 + 5;

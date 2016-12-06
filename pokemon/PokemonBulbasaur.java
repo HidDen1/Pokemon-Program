@@ -11,6 +11,8 @@ public class PokemonBulbasaur extends Pokemon{
         iv = ivGenerator(); //will need seperate generators for each stats IVs
         //id = 1;
         //pokeNum = 1; //for the pokedex
+        evolution = new PokemonBulbasaur();
+        levEv = 16;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT)};
         atk = (49 * 2 + iv) * lev / 100 + 5;

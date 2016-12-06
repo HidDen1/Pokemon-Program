@@ -12,6 +12,8 @@ public class PokemonBeedrill extends Pokemon{
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 10; //for the pokedex
+        evolution = null;
+        levEv = 101;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (90 * 2 + iv) * lev / 100 + 5;
