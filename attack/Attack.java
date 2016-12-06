@@ -23,4 +23,8 @@ public abstract class Attack {
     public int getPower(){
         return power;
     }
+
+    public String toString(){
+        return(name);
+    }
 }

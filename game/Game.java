@@ -37,7 +37,6 @@ public class Game {
 /*
     Bug List:
     -Wild pokemon using non existent moves
-    -Attack names are messed up
 
     Battle mechanics that still need to be added:
     -Not losing till all available pokemon faint
@@ -69,6 +68,7 @@ public class Game {
     -Fixed Critical Hits from being nearly impossible
     -Fixed and updated misc things in battle
     -Fixed checking stats not working
+    -Fixed attack names being dumb
 
     Version 0.21.00 12/1/2016
     -Added loop to make sure you do not send out a Pokemon with no health in battle
