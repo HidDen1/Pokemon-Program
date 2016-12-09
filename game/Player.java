@@ -16,8 +16,7 @@ public class Player{
 
     public Player(String trainerName, int typ, Inventory inventory){
         name = trainerName;
-        Pokemon beginner = null;
-        beginner = beginner.beginnerPokemon(typ);
+        Pokemon beginner = Pokemon.beginnerPokemon(typ);
         pokemonLevel[0] = beginner.getLevel();
         pokemonExp [0] = 0;
         remainingHealth [0] = beginner.getHealthPoints();

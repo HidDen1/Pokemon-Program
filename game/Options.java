@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Options{
 
-    public void optionsMenu(Player user, Options option, Inventory inventory, Battle bat){
-        int options;
+    public int optionsMenu(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What would you like to do? (Enter number to select option)");
@@ -17,37 +16,37 @@ public class Options{
         System.out.println("6. Save");
         System.out.println("-1. Quit");
 
-        options = scan.nextInt();
+        return scan.nextInt();
 
-        options(options, user, option, inventory, bat);
+
     }
 
-    private void options(int options, Player user, Options option, Inventory inventory, Battle bat){
+    public void options(int options, Player user, Inventory inventory, Battle bat){
         switch (options) {
             case 1:
-                adventure(user, option, inventory, bat);
-                optionsMenu(user, option, inventory, bat);
+                adventure(user, this, inventory);
+                options(optionsMenu(), user, inventory, bat);
                 break;
             case 2:
                 user.getPartyPokemon();  //not working
                 user.viewStats(user);
-                optionsMenu(user, option, inventory, bat);
+                options(optionsMenu(), user, inventory, bat);
                 break;
             case 3:
                 user.getAllStats();
-                getGoBack(user, option, inventory, bat);
+                getGoBack();
                 break;
             case 4:
-                inventory.listItemsOutside(option, user, inventory, bat);
-                optionsMenu(user, option, inventory, bat);
+                inventory.listItemsOutside(this, user, inventory, bat);
+                options(optionsMenu(), user, inventory, bat);
                 break;
             case 5:
                 System.out.println("This feature is coming soon!");
-                optionsMenu(user, option, inventory, bat);
+                options(optionsMenu(), user, inventory, bat);
                 break;
             case 6:
                 System.out.println("This feature is coming soon!");
-                optionsMenu(user, option, inventory, bat);
+                options(optionsMenu(), user, inventory, bat);
                 break;
             case -1:
                 System.out.println("Game Over");
@@ -57,10 +56,10 @@ public class Options{
         }
     }
 
-    public void adventure(Player user, Options option, Inventory inventory, Battle bat){
+    public void adventure(Player user, Options option, Inventory inventory){
         int event;
         event = (int) getChance();
-        eventOption(event, user, option, inventory, bat);
+        eventOption(event, user, option, inventory);
     }
 
     public double getChance(){
@@ -71,26 +70,26 @@ public class Options{
         return chance;
     }
 
-    private void eventOption(int event, Player user, Options option, Inventory inventory, Battle bat){
+    private void eventOption(int event, Player user, Options option, Inventory inventory){
         if (event <= 75){
-            bat.startBattle(user, option, inventory, bat);
+            new Battle().startBattle(user, option, inventory);
         } else if (event >= 76 && event <= 100){
             getLocation(user, inventory);
         }
     }
 
-    private void getGoBack(Player user, Options option, Inventory inventory, Battle bat){
+    private void getGoBack(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter -1 to go back");
         int one = scan.nextInt();
         if (one == -1){
-            optionsMenu(user, option, inventory, bat);
+            optionsMenu();
         }
         while (one != -1){
             System.out.println("Invalid number entered. Please Enter -1 to go back");
             one = scan.nextInt();
             if (one == -1){
-                optionsMenu(user, option, inventory, bat);
+                optionsMenu();
             }
         }
     }
