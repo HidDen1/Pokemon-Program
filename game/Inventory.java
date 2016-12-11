@@ -38,12 +38,12 @@ public class Inventory extends Item {
         }
         while(position != -1){
             System.out.println("What item do you want to use?");
-            listItems(option, user, inventory, bat);
+            listItems();
             System.out.println("Enter -1 to go back");
             position = scan.nextInt();
             switch(position){
                 case -1:
-                    bat.playerAttackPhase(user, wild, option, inventory, bat);
+                    bat.playerAttackPhase(user, wild, option, inventory);
                     break;
                 case -2:
                     System.out.println("Enter the item number, not the item name!");
@@ -70,30 +70,30 @@ public class Inventory extends Item {
                         user.pokemonExp[id] = 0;
                         user.storage[id] = wild;
                         user.partyAmount++;
-                        bat.wildLose(wild, user, option, inventory, bat);
+                        bat.wildLose(wild, user, option, inventory);
                         break;
                     } else if (caught == -1) {
                         System.out.println(wild.getName() + " escaped the ball!");
-                        bat.wildAttackPhase(user, wild, option, inventory, bat);
+                        bat.wildAttackPhase(user, wild, option, inventory);
                     } else {
-                        bat.wildAttackPhase(user, wild, option, inventory, bat);
+                        bat.wildAttackPhase(user, wild, option, inventory);
                     }
             }
         }
-        bat.wildAttackPhase(user, wild, option, inventory, bat);
+        bat.wildAttackPhase(user, wild, option, inventory);
     }
 
-    public void listItemsOutside(Options option, Player user, Inventory inventory, Battle bat){
+    public void listItemsOutside(){
         int back = 0;
         Scanner scan = new Scanner(System.in);
-        listItems(option, user, inventory, bat);
+        listItems();
         while (back != -1){
         System.out.println("Enter -1 to go back");
         back = scan.nextInt();
         }
     }
 
-    public void listItems(Options option, Player user, Inventory inventory, Battle bat){
+    public void listItems(){
         int size;
         if (itemList.size() == 0){
             empty = 1;

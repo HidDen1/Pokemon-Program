@@ -12,6 +12,8 @@ public class PokemonIvysaur extends Pokemon{
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 2;
+        evolution = new PokemonVenusaur();
+        levEv = 32;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (62 * 2 + iv) * lev / 100 + 5;

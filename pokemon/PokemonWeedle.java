@@ -15,6 +15,8 @@ public class PokemonWeedle extends Pokemon{
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 13; //for the pokedex
+        evolution = new PokemonKakuna();
+        levEv = 7;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (35 * 2 + iv) * lev / 100 + 5;

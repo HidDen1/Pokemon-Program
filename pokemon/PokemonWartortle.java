@@ -11,6 +11,8 @@ public class PokemonWartortle extends Pokemon{
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 8;
+        evolution = new PokemonBlastoise();
+        levEv = 36;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (63 * 2 + iv) * lev / 100 + 5;

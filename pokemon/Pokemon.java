@@ -6,13 +6,22 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, itemName;
-    protected double atk, def, spAtk, spDef, spd, hp, lev, exp, ballBonus;
-    protected int iv, id, healthRestore, itemID;
+    protected double atk, def, spAtk, spDef, spd, hp, lev, exp, levEv;
+    protected int iv, id, healthRestore;
     public Attack att [] = new Attack[4];
     public Type[] type;
+    protected Pokemon evolution;
 
     public String getName(){
         return(name);
+    }
+
+    public double getLevEv(){
+        return levEv;
+    }
+
+    public Pokemon getEvolution(){
+        return evolution;
     }
 
     public double getAttack(){
@@ -85,11 +94,6 @@ public abstract class Pokemon{
         return (id);
     }
 
-
-
-    public int getItemID(){
-        return(itemID);
-    }
 
     static Pokemon[] getRarityLev1(){
         return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander(), new PokemonCaterpie(), new PokemonWeedle(), new PokemonPidgey()};

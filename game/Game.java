@@ -25,7 +25,7 @@ public class Game {
         Player user = new Player(trainerName, typ, inventory);
         Options option = new Options();
         Battle bat = new Battle();
-        option.optionsMenu(user, option, inventory, bat);
+        option.options(option.optionsMenu(), user, inventory, bat);
     }
 
     public static void startGUI(){

@@ -12,6 +12,8 @@ public class PokemonPidgeotto extends Pokemon{
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 17; //for the pokedex
+        evolution = new PokemonPidgeot();
+        levEv = 36;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeNormal.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (60 * 2 + iv) * lev / 100 + 5;
