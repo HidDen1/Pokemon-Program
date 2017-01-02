@@ -68,8 +68,8 @@ public class Inventory extends Item {
                         } else {
                             System.out.println("You party is full so " + wild.getName() + " was sent to the PC");
                         }
-                        user.pokemonLevel[id] = wild.getLevel();
-                        user.pokemonExp[id] = 0;
+                        user.party[id].setLevel(wild.getLevel());
+                        user.party[id].setExperience(0);
                         user.storage[id] = wild;
                         //PC.addPokemon(wild);
                         user.partyAmount++;

@@ -17,7 +17,7 @@ public class PokemonWeedle extends Pokemon{
         //pokeNum = 13; //for the pokedex
         evolution = new PokemonKakuna(lev);
         levEv = 7;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
         atk = (35 * 2 + iv) * lev / 100 + 5;
         def = (30 * 2 + iv) * lev / 100 + 5;

@@ -13,7 +13,7 @@ public class PokemonWartortle extends Pokemon{
         //pokeNum = 8;
         evolution = new PokemonBlastoise(lev);
         levEv = 36;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (63 * 2 + iv) * lev / 100 + 5;
         def = (80 * 2 + iv) * lev / 100 + 5;

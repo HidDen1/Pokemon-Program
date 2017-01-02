@@ -6,7 +6,7 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, itemName;
-    protected double atk, def, spAtk, spDef, spd, hp, lev, exp, levEv;
+    protected double atk, def, spAtk, spDef, spd, hp, lev, expMax, exp, levEv;
     protected int iv, id, healthRestore;
     public Attack att [] = new Attack[4];
     public Type[] type;
@@ -15,6 +15,10 @@ public abstract class Pokemon{
     public String getName(){
         return(name);
     }
+
+    public double getExperience(){ return exp; }
+
+    public void setExperience(double exp){ this.exp = exp; }
 
     public double getLevEv(){
         return levEv;

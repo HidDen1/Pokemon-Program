@@ -13,7 +13,7 @@ public class PokemonCharmeleon extends Pokemon{
         //pokeNum = 5;
         evolution = new PokemonCharizard(lev);
         levEv = 36;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT)};
         atk = (64 * 2 + iv) * lev / 100 + 5;
         def = (58 * 2 + iv) * lev / 100 + 5;

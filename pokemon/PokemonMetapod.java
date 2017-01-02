@@ -16,7 +16,7 @@ public class PokemonMetapod extends Pokemon{
         //pokeNum = 10; //for the pokedex
         evolution = new PokemonButterfree(lev);
         levEv = 10;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};
         atk = (20 * 2 + iv) * lev / 100 + 5;
         def = (55 * 2 + iv) * lev / 100 + 5;

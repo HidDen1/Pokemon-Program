@@ -14,7 +14,7 @@ public class PokemonCharizard extends Pokemon{
         //pokeNum = 6;
         evolution = null;
         levEv = 101;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (84 * 2 + iv) * lev / 100 + 5;
         def = (78 * 2 + iv) * lev / 100 + 5;

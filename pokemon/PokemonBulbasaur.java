@@ -13,7 +13,7 @@ public class PokemonBulbasaur extends Pokemon{
         //pokeNum = 1; //for the pokedex
         evolution = new PokemonIvysaur(lev);
         levEv = 16;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT)};
         atk = (49 * 2 + iv) * lev / 100 + 5;
         def = (49 * 2 + iv) * lev / 100 + 5;

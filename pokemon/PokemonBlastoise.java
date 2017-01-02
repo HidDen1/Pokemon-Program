@@ -13,7 +13,7 @@ public class PokemonBlastoise extends Pokemon{
         //pokeNum = 9;
         evolution = null;
         levEv = 101;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
         atk = (83 * 2 + iv) * lev / 100 + 5;
         def = (100 * 2 + iv) * lev / 100 + 5;

@@ -14,7 +14,7 @@ public class PokemonButterfree extends Pokemon{
         //pokeNum = 12; //for the pokedex
         evolution = null;
         levEv = 101;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypeFlying.SPOT)};
         atk = (45 * 2 + iv) * lev / 100 + 5;
         def = (50 * 2 + iv) * lev / 100 + 5;
