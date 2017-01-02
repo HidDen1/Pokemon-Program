@@ -6,7 +6,7 @@ import type.TypeWater;
 
 public class PokemonBlastoise extends Pokemon{
 
-    public PokemonBlastoise(){
+    public PokemonBlastoise(int lev){
         name = "Blastoise";
         iv = ivGenerator();
         //id = 3;

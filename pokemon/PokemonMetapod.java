@@ -9,12 +9,12 @@ import type.TypeBug;
 
 public class PokemonMetapod extends Pokemon{
 
-    public PokemonMetapod(){
+    public PokemonMetapod(int lev){
         name = "Metapod";
         iv = ivGenerator();
         //id = 11;
         //pokeNum = 10; //for the pokedex
-        evolution = new PokemonButterfree();
+        evolution = new PokemonButterfree(lev);
         levEv = 10;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};

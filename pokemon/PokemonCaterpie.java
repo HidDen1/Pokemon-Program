@@ -9,12 +9,12 @@ import type.TypeBug;
 
 public class PokemonCaterpie extends Pokemon{
 
-    public PokemonCaterpie(){
+    public PokemonCaterpie(int lev){
         name = "Caterpie";
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 10; //for the pokedex
-        evolution = new PokemonMetapod();
+        evolution = new PokemonMetapod(lev);
         levEv = 7;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};

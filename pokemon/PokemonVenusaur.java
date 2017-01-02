@@ -7,7 +7,7 @@ import type.TypePoison;
 
 public class PokemonVenusaur extends Pokemon{
 
-    public PokemonVenusaur(){
+    public PokemonVenusaur(int lev){
         name = "Venusaur";
         iv = ivGenerator();
         //id = 1;

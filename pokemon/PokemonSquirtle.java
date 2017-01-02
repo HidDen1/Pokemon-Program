@@ -6,12 +6,12 @@ import type.TypeWater;
 
 public class PokemonSquirtle extends Pokemon{
 
-    public PokemonSquirtle(){
+    public PokemonSquirtle(int lev){
         name = "Squirtle";
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 7;
-        evolution = new PokemonWartortle();
+        evolution = new PokemonWartortle(lev);
         levEv = 16;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};

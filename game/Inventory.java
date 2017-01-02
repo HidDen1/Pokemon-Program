@@ -5,6 +5,8 @@ import pokemon.Pokemon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.sun.javafx.css.SizeUnits.PC;
+
 public class Inventory extends Item {
     ArrayList<Item> itemList = new ArrayList<Item>();
     public int currentSlot = 0, empty = 1;
@@ -69,6 +71,7 @@ public class Inventory extends Item {
                         user.pokemonLevel[id] = wild.getLevel();
                         user.pokemonExp[id] = 0;
                         user.storage[id] = wild;
+                        //PC.addPokemon(wild);
                         user.partyAmount++;
                         bat.wildLose(wild, user, option, inventory);
                         break;

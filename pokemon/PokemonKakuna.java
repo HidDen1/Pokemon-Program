@@ -10,12 +10,12 @@ import type.TypePoison;
 
 public class PokemonKakuna extends Pokemon{
 
-    public PokemonKakuna(){
+    public PokemonKakuna(int lev){
         name = "Kakuna";
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 15; //for the pokedex
-        evolution = new PokemonBeedrill();
+        evolution = new PokemonBeedrill(lev);
         levEv = 10;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};

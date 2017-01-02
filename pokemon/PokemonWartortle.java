@@ -6,12 +6,12 @@ import type.TypeWater;
 
 public class PokemonWartortle extends Pokemon{
 
-    public PokemonWartortle(){
+    public PokemonWartortle(int lev){
         name = "Wartortle";
         iv = ivGenerator();
         //id = 3;
         //pokeNum = 8;
-        evolution = new PokemonBlastoise();
+        evolution = new PokemonBlastoise(lev);
         levEv = 36;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};

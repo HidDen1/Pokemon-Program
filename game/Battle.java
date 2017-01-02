@@ -132,7 +132,7 @@ public class Battle{
         }
         user.gainExperience();
         user.gainPokedollars();
-        user.gainExperiencePokemon();//needs to also send current ID to give the correct Pokemon the EXP
+        user.gainExperiencePokemon(currentID);//needs to also send current ID to give the correct Pokemon the EXP
         option.options(option.optionsMenu(), user, inventory, this);
     }
 

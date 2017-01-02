@@ -28,7 +28,7 @@ public class Options{
                 options(optionsMenu(), user, inventory, bat);
                 break;
             case 2:
-                user.getPartyPokemon();  //not working
+                user.getPartyPokemon();
                 user.viewStats(user);
                 options(optionsMenu(), user, inventory, bat);
                 break;
@@ -37,7 +37,7 @@ public class Options{
                 getGoBack();
                 break;
             case 4:
-                inventory.listItemsOutside(this, user, inventory, bat);
+                inventory.listItemsOutside();
                 options(optionsMenu(), user, inventory, bat);
                 break;
             case 5:
@@ -119,6 +119,16 @@ public class Options{
                 System.out.println("You found a pokemon center!");
                 System.out.println("Your party was fully healed");
                 user.healAll();
+                System.out.println("Would you like to acess the PC? Enter 1 for yes, 2 for no");
+                Scanner scan = new Scanner(System.in);
+                int pc = scan.nextInt();
+                while (pc == 1 || pc == 2){
+                    if (pc == 1){
+
+                    } else {
+
+                    }
+                }
                 break;
             case 6:
                 System.out.println("You found a lake!");

@@ -7,12 +7,12 @@ import type.TypePoison;
 
 public class PokemonIvysaur extends Pokemon{
 
-    public PokemonIvysaur(){
+    public PokemonIvysaur(int lev){
         name = "Ivysaur";
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 2;
-        evolution = new PokemonVenusaur();
+        evolution = new PokemonVenusaur(lev);
         levEv = 32;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};

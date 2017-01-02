@@ -10,12 +10,12 @@ import type.TypePoison;
 
 public class PokemonWeedle extends Pokemon{
 
-    public PokemonWeedle(){
+    public PokemonWeedle(int lev){
         name = "Weedle";
         iv = ivGenerator();
         //id = 4;
         //pokeNum = 13; //for the pokedex
-        evolution = new PokemonKakuna();
+        evolution = new PokemonKakuna(lev);
         levEv = 7;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};

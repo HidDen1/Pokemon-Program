@@ -7,7 +7,7 @@ import type.TypeFlying;
 
 public class PokemonButterfree extends Pokemon{
 
-    public PokemonButterfree(){
+    public PokemonButterfree(int lev){
         name = "Butterfree";
         iv = ivGenerator();
         //id = 4;

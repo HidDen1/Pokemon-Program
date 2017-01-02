@@ -37,6 +37,7 @@ public class Game {
 /*
     Bug List:
     -Wild pokemon using non existent moves
+    -Stats after evolving broken/not correct
 
     Battle mechanics that still need to be added:
     -Not losing till all available pokemon faint
@@ -56,6 +57,17 @@ public class Game {
 
 
     Version History:
+
+    Version 0.25.00 12/14/2016
+    -Began implementing PC System
+
+    Version 0.24.00 12/13/2016
+    -Added the ability to level up, gain experience, and evolve any pokemon in the party
+    -Added the ability for pokemon to evolve
+    -Fixed stats for wild Pokemon and beginner Pokemon
+
+    Version 0.23.00 12/12/2016
+    -Began implementing evolution
 
     Version 0.22.00 12/5/2016
     -Added pokemon switching and summaries in battle
@@ -108,7 +120,7 @@ public class Game {
     -Fixed Butterfree's silverwind attack type
 
     Version 0.15.00 11/16/2016
-    -Added method for catching pokemon.Pokemon
+    -Added method for catching pokemon
     -Removed the evolution class
 
     Version 0.14.00 11/15/2016

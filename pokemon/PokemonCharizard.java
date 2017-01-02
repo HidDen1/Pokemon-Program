@@ -7,7 +7,7 @@ import type.TypeFlying;
 
 public class PokemonCharizard extends Pokemon{
 
-    public PokemonCharizard(){
+    public PokemonCharizard(int lev){
         name = "Charizard";
         iv = 31;
         //id = 2;

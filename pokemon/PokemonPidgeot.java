@@ -7,7 +7,7 @@ import type.TypeNormal;
 
 public class PokemonPidgeot extends Pokemon{
 
-    public PokemonPidgeot(){
+    public PokemonPidgeot(int lev){
         name = "Pidgeot";
         iv = ivGenerator();
         //id = 1;

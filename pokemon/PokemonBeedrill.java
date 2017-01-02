@@ -7,7 +7,7 @@ import type.TypePoison;
 
 public class PokemonBeedrill extends Pokemon{
 
-    public PokemonBeedrill(){
+    public PokemonBeedrill(int lev){
         name = "Beedrill";
         iv = ivGenerator();
         //id = 4;

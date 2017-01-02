@@ -7,12 +7,12 @@ import type.TypeNormal;
 
 public class PokemonPidgeotto extends Pokemon{
 
-    public PokemonPidgeotto(){
+    public PokemonPidgeotto(int lev){
         name = "Pidgeotto";
         iv = ivGenerator();
         //id = 1;
         //pokeNum = 17; //for the pokedex
-        evolution = new PokemonPidgeot();
+        evolution = new PokemonPidgeot(lev);
         levEv = 36;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeNormal.SPOT), Type.getType(TypeFlying.SPOT)};

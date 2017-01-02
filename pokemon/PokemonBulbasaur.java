@@ -6,12 +6,12 @@ import type.TypeGrass;
 
 public class PokemonBulbasaur extends Pokemon{
 
-    public PokemonBulbasaur(){
+    public PokemonBulbasaur(int lev){
         name = "Bulbasaur";
         iv = ivGenerator(); //will need seperate generators for each stats IVs
         //id = 1;
         //pokeNum = 1; //for the pokedex
-        evolution = new PokemonIvysaur();
+        evolution = new PokemonIvysaur(lev);
         levEv = 16;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT)};

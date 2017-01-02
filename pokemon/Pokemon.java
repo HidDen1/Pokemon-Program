@@ -95,20 +95,20 @@ public abstract class Pokemon{
     }
 
 
-    static Pokemon[] getRarityLev1(){
-        return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander(), new PokemonCaterpie(), new PokemonWeedle(), new PokemonPidgey()};
+    static Pokemon[] getRarityLev1(int lev){
+        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev), new PokemonCaterpie(lev), new PokemonWeedle(lev), new PokemonPidgey(lev)};
     }
 
-    static Pokemon[] getRarityLev2(){
-        return new Pokemon[]{new PokemonIvysaur(), new PokemonWartortle(), new PokemonCharmeleon(), new PokemonMetapod(), new PokemonKakuna(), new PokemonPidgeotto()};
+    static Pokemon[] getRarityLev2(int lev){
+        return new Pokemon[]{new PokemonIvysaur(lev), new PokemonWartortle(lev), new PokemonCharmeleon(lev), new PokemonMetapod(lev), new PokemonKakuna(lev), new PokemonPidgeotto(lev)};
     }
 
-    static Pokemon[] getRarityLev3(){
-        return new Pokemon[]{new PokemonVenusaur(), new PokemonBlastoise(), new PokemonCharizard(), new PokemonButterfree(), new PokemonBeedrill(), new PokemonPidgeot()};
+    static Pokemon[] getRarityLev3(int lev){
+        return new Pokemon[]{new PokemonVenusaur(lev), new PokemonBlastoise(lev), new PokemonCharizard(lev), new PokemonButterfree(lev), new PokemonBeedrill(lev), new PokemonPidgeot(lev)};
     }
 
-    static Pokemon[] getStarters(){
-        return new Pokemon[]{new PokemonBulbasaur(), new PokemonSquirtle(), new PokemonCharmander()};
+    static Pokemon[] getStarters(int lev){
+        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev)};
     }
 
 
@@ -117,13 +117,14 @@ public abstract class Pokemon{
         double chance;
         chance = getChance();
         Pokemon p = null;
+        int lev = levelGenerator(user);
 
         if (chance <= 60){
-            p = getRarityLev1()[id];
+            p = getRarityLev1(lev)[id];
         } else if (chance <= 89){
-            p = getRarityLev2()[id];
+            p = getRarityLev2(lev)[id];
         } else {
-            p = getRarityLev3()[id];
+            p = getRarityLev3(lev)[id];
         }
         assert p != null;
             p.changeLevel(levelGenerator(user));
@@ -131,7 +132,8 @@ public abstract class Pokemon{
     }
 
     static public Pokemon beginnerPokemon(int typ){
-        Pokemon p = getStarters()[typ];
+        int lev = 5;
+        Pokemon p = getStarters(lev)[typ];
         p.changeLevel(5);
         return p;
     }

@@ -6,12 +6,12 @@ import type.TypeFire;
 
 public class PokemonCharmander extends Pokemon{
 
-    public PokemonCharmander(){
+    public PokemonCharmander(int lev){
         name = "Charmander";
         iv = ivGenerator();
         //id = 2;
         //pokeNum = 4;
-        evolution = new PokemonCharmeleon();
+        evolution = new PokemonCharmeleon(lev);
         levEv = 16;
         exp = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT)};
