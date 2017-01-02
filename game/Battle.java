@@ -15,7 +15,7 @@ public class Battle{
         Pokemon wild = Pokemon.wildPokemon(user);
         System.out.println("A wild " + wild.getName() + " has appeared!");
 
-        while (user.remainingHealth[currentID] == 0){
+        while (user.party[currentID].getHealth() == 0){
             currentID++;
         }
         System.out.println("Go " + user.party[currentID].getName() + "!");
@@ -27,7 +27,7 @@ public class Battle{
     }
 
     private void battle(Player user, Pokemon wild, Options option, Inventory inventory){
-        if(wildremainingHealth > 0 && user.remainingHealth [currentID] > 0){
+        if(wildremainingHealth > 0 && user.party[currentID].getHealth() > 0){
             if (wildBattleSpeed > userBattleSpeed){
                 wildAttackPhase(user, wild, option, inventory); //needs to be moved, wild can attack before user selects a move
 
@@ -36,7 +36,7 @@ public class Battle{
             }
         } else if (wildremainingHealth <= 0){ //currently only for just incase something goes weird
             wildLose(wild, user, option, inventory);
-        } else if (user.remainingHealth [currentID] <= 0){ //same with this
+        } else if (user.party [currentID].getHealth() <= 0){ //same with this
             System.out.println("You have been defeated!"); // needs to check all party pokemon
             System.exit(0);
         }
@@ -90,7 +90,7 @@ public class Battle{
         System.out.println("LV: " + wild.getLevel() + " " + wild.getName());
         System.out.println("HP: " + wildremainingHealth + "/" + wild.getHealthPoints());
         System.out.println("LV: " + user.party[currentID].getLevel() + " " + user.party[currentID].getName());
-        System.out.println("HP: " + user.remainingHealth [currentID] + "/" + user.party[currentID].getHealthPoints());
+        System.out.println("HP: " + user.party[currentID].getHealth() + "/" + user.party[currentID].getHealthPoints());
     }
 
     public void wildAttackPhase(Player user, Pokemon wild, Options option, Inventory inventory){
@@ -109,13 +109,12 @@ public class Battle{
         }
         damage = Math.round(damage);
         System.out.println("It did " + damage + " damage");
-        user.remainingHealth [currentID] = user.remainingHealth [currentID] - damage;
-        user.remainingHealth [currentID] = Math.round(user.remainingHealth [currentID]);
-        if (user.remainingHealth [currentID] < 0){
-            user.remainingHealth [currentID] = 0;
+        user.party [currentID].setHealth(Math.round(user.party[currentID].getHealth() - damage));
+        if (user.party[currentID].getHealth() < 0){
+            user.party[currentID].setHealth(0);
         }
         displayHealth(wild, user);
-        if (user.remainingHealth [currentID] <= 0){//needs to account for whole team.
+        if (user.party [currentID].getHealth() <= 0){//needs to account for whole team.
             System.out.println("You have been defeated!");
             System.exit(0);
         } else {

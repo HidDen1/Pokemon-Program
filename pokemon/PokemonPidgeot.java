@@ -21,7 +21,7 @@ public class PokemonPidgeot extends Pokemon{
         spAtk = (70 * 2 + iv) * lev / 100 + 5;
         spDef = (70 * 2 + iv) * lev / 100 + 5;
         spd = (101 * 2 + iv) * lev / 100 + 5;
-        hp = (83 * 2 + iv) * lev / 100 + 10;
+        hpMax = (83 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackAirSlash(), new AttackHurricane(), new AttackBraveBird(), new AttackSteelWing()};
     }
 

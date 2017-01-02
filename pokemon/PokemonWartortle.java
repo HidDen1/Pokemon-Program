@@ -20,7 +20,7 @@ public class PokemonWartortle extends Pokemon{
         spAtk = (65 * 2 + iv) * lev / 100 + 5;
         spDef = (80 * 2 + iv) * lev / 100 + 5;
         spd = (58 * 2 + iv) * lev / 100 + 5;
-        hp = (59 * 2 + iv) * lev / 100 + 10;
+        hpMax = (59 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackAquaTail(), new AttackIceBeam(), new AttackBite(), new AttackBrine()};
     }
 

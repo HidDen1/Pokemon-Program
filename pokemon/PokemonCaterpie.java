@@ -23,7 +23,7 @@ public class PokemonCaterpie extends Pokemon{
         spAtk = (20 * 2 + iv) * lev / 100 + 5;
         spDef = (20 * 2 + iv) * lev / 100 + 5;
         spd = (45 * 2 + iv) * lev / 100 + 5;
-        hp = (45 * 2 + iv) * lev / 100 + 10;
+        hpMax = (45 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 

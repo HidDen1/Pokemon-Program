@@ -24,7 +24,7 @@ public class PokemonWeedle extends Pokemon{
         spAtk = (20 * 2 + iv) * lev / 100 + 5;
         spDef = (20 * 2 + iv) * lev / 100 + 5;
         spd = (50 * 2 + iv) * lev / 100 + 5;
-        hp = (40 * 2 + iv) * lev / 100 + 10;
+        hpMax = (40 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPoisonSting(), new AttackBugBite(), new AttackEmpty(),new AttackEmpty()};
     }
 

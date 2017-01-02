@@ -72,7 +72,6 @@ public class Inventory extends Item {
                         user.party[id].setExperience(0);
                         user.storage[id] = wild;
                         //PC.addPokemon(wild);
-                        user.partyAmount++;
                         bat.wildLose(wild, user, option, inventory);
                         break;
                     } else if (caught == -1) {

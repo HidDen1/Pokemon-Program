@@ -20,7 +20,7 @@ public class PokemonCharmander extends Pokemon{
         spAtk = (60 * 2 + iv) * lev / 100 + 5;
         spDef = (50 * 2 + iv) * lev / 100 + 5;
         spd = (65 * 2 + iv) * lev / 100 + 5;
-        hp = (39 * 2 + iv) * lev / 100 + 10;
+        hpMax = (39 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackEmber(), new AttackDragonRage(), new AttackFireFang(), new AttackFlamethrower()};
     }
 

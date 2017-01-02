@@ -20,7 +20,7 @@ public class PokemonSquirtle extends Pokemon{
         spAtk = (50 * 2 + iv) * lev / 100 + 5;
         spDef = (64 * 2 + iv) * lev / 100 + 5;
         spd = (43 * 2 + iv) * lev / 100 + 5;
-        hp = (44 * 2 + iv) * lev / 100 + 10;
+        hpMax = (44 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackWaterGun(), new AttackWaterPulse(), new AttackBite(), new AttackBrine()};
     }
 

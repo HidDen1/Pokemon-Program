@@ -24,7 +24,7 @@ public class PokemonKakuna extends Pokemon{
         spAtk = (25 * 2 + iv) * lev / 100 + 5;
         spDef = (25 * 2 + iv) * lev / 100 + 5;
         spd = (35 * 2 + iv) * lev / 100 + 5;
-        hp = (45 * 2 + iv) * lev / 100 + 10;
+        hpMax = (45 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPoisonSting(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 

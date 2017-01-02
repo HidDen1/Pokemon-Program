@@ -23,7 +23,7 @@ public class PokemonMetapod extends Pokemon{
         spAtk = (25 * 2 + iv) * lev / 100 + 5;
         spDef = (25 * 2 + iv) * lev / 100 + 5;
         spd = (30 * 2 + iv) * lev / 100 + 5;
-        hp = (50 * 2 + iv) * lev / 100 + 10;
+        hpMax = (50 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 

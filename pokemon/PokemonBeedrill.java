@@ -21,7 +21,7 @@ public class PokemonBeedrill extends Pokemon{
         spAtk = (45 * 2 + iv) * lev / 100 + 5;
         spDef = (80 * 2 + iv) * lev / 100 + 5;
         spd = (75 * 2 + iv) * lev / 100 + 5;
-        hp = (65 * 2 + iv) * lev / 100 + 10;
+        hpMax = (65 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPursuit(), new AttackBugBite(), new AttackPoisonJab(), new AttackFellStinger()};
     }
 

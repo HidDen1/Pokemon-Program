@@ -21,7 +21,7 @@ public class PokemonVenusaur extends Pokemon{
         spAtk = (100 * 2 + iv) * lev / 100 + 5;
         spDef = (100 * 2 + iv) * lev / 100 + 5;
         spd = (80 * 2 + iv) * lev / 100 + 5;
-        hp = (80 * 2 + iv) * lev / 100 + 10;
+        hpMax = (80 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPetalDance(), new AttackPetalBlizzard(), new AttackDoubleEdge(), new AttackSolarbeam()};
     }
 

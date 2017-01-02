@@ -58,18 +58,18 @@ public class Item {
                 caught = catchPokemon(2);
                 return caught;
             case 4:
-                user.remainingHealth [0] = user.remainingHealth[0] + 20;
-                healthGain = user.healthCheck();
+                user.party[0].setHealth(user.party[0].getHealth() + 20);
+                healthGain = user.healthCheck(20);
                 System.out.println("You have regained " + healthGain + " HP.");
                 return caught;
             case 5:
-                user.remainingHealth [0] = user.remainingHealth[0] + 50;
-                healthGain = user.healthCheck2();
+                user.party[0].setHealth(user.party[0].getHealth() + 50);
+                healthGain = user.healthCheck(50);
                 System.out.println("You have regained " + healthGain + " HP.");
                 return caught;
             case 6:
-                user.remainingHealth [0] = user.remainingHealth[0] + 200;
-                healthGain = user.healthCheck3();
+                user.party[0].setHealth(user.party[0].getHealth() + 200);
+                healthGain = user.healthCheck(200);
                 System.out.println("You have regained " + healthGain + " HP.");
                 return caught;
         }

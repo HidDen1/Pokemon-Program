@@ -21,7 +21,7 @@ public class PokemonCharizard extends Pokemon{
         spAtk = (109 * 2 + iv) * lev / 100 + 5;
         spDef = (85 * 2 + iv) * lev / 100 + 5;
         spd = (100 * 2 + iv) * lev / 100 + 5;
-        hp = (78 * 2 + iv) * lev / 100 + 10;
+        hpMax = (78 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackFireBlitz(), new AttackFireBlast(), new AttackHeatWave(), new AttackFlamethrower()};
     }
 

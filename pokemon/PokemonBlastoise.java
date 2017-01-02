@@ -20,7 +20,7 @@ public class PokemonBlastoise extends Pokemon{
         spAtk = (85 * 2 + iv) * lev / 100 + 5;
         spDef = (105 * 2 + iv) * lev / 100 + 5;
         spd = (78 * 2 + iv) * lev / 100 + 5;
-        hp = (79 * 2 + iv) * lev / 100 + 10;
+        hpMax = (79 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackAquaTail(), new AttackIceBeam(), new AttackSkullBash(), new AttackHydroPump()};
     }
 

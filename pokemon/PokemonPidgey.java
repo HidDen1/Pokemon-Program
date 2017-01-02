@@ -21,7 +21,7 @@ public class PokemonPidgey extends Pokemon{
         spAtk = (35 * 2 + iv) * lev / 100 + 5;
         spDef = (35 * 2 + iv) * lev / 100 + 5;
         spd = (56 * 2 + iv) * lev / 100 + 5;
-        hp = (40 * 2 + iv) * lev / 100 + 10;
+        hpMax = (40 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackGust(), new AttackQuickAttack(), new AttackTwister(), new AttackWingAttack()};
     }
 

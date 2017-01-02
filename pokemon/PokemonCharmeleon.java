@@ -20,7 +20,7 @@ public class PokemonCharmeleon extends Pokemon{
         spAtk = (80 * 2 + iv) * lev / 100 + 5;
         spDef = (65 * 2 + iv) * lev / 100 + 5;
         spd = (80 * 2 + iv) * lev / 100 + 5;
-        hp = (58 * 2 + iv) * lev / 100 + 10;
+        hpMax = (58 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackSlash(), new AttackDragonRage(), new AttackFlameBurst(), new AttackFlamethrower()};
     }
 

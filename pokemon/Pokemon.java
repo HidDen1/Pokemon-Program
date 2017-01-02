@@ -6,7 +6,7 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, itemName;
-    protected double atk, def, spAtk, spDef, spd, hp, lev, expMax, exp, levEv;
+    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv;
     protected int iv, id, healthRestore;
     public Attack att [] = new Attack[4];
     public Type[] type;
@@ -14,6 +14,14 @@ public abstract class Pokemon{
 
     public String getName(){
         return(name);
+    }
+
+    public double getHealth(){
+        return hp;
+    }
+
+    public void setHealth(double hp){
+        this.hp = hp;
     }
 
     public double getExperience(){ return exp; }
@@ -69,11 +77,11 @@ public abstract class Pokemon{
     }
 
     public double getHealthPoints(){
-        return(hp);
+        return(hpMax);
     }
 
     public void setHP(double hp){
-        this.hp = hp;
+        this.hpMax = hp;
     }
 
     public double getLevel(){
@@ -120,7 +128,7 @@ public abstract class Pokemon{
         int id = idGenerator();
         double chance;
         chance = getChance();
-        Pokemon p = null;
+        Pokemon p;
         int lev = levelGenerator(user);
 
         if (chance <= 60){
