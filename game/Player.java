@@ -6,10 +6,15 @@ import java.util.Scanner;
 
 public class Player{
     private double expTrainer, toLevelUp, toLevelUpPokemon;
-    private int pokedollars, nextID, level = 1;
+    private int pokedollars, level = 1;
     public String name;
     Pokemon party [] = new Pokemon [6];
     Pokemon storage [] = new Pokemon[120];
+    Inventory inventory = new Inventory();
+
+    public Inventory getInventory(){
+        return inventory;
+    }
 
     public Player(String trainerName, int typ){
         name = trainerName;
@@ -18,7 +23,6 @@ public class Player{
         party[0].setExperience(0);
         party[0].setHealth(beginner.getHealthPoints());
         storage [0] = beginner;
-        nextID = 0;
         party [1] = null;
         party [2] = null;
         party [3] = null;
@@ -164,11 +168,6 @@ public class Player{
             viewStats(user);
         }
     }
-
-    int getNextID(){
-        nextID++;
-        return nextID;
-    } //will be used to assign IDs to each pokemon.Pokemon once caught
 
     public Pokemon getPokemonBattling(){
         return(party[0]);

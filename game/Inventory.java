@@ -30,7 +30,7 @@ public class Inventory extends Item {
         }
     }
 
-    public void useItem(Player user, Battle bat, Pokemon wild, Options option, Inventory inventory){ //need methods during and not during battle
+    public void useItem(Player user, Battle bat, Pokemon wild, Options option){ //need methods during and not during battle
         Scanner scan = new Scanner(System.in);
         int position = 0;
         int caught;
@@ -45,7 +45,7 @@ public class Inventory extends Item {
             position = scan.nextInt();
             switch(position){
                 case -1:
-                    bat.playerAttackPhase(user, wild, option, inventory);
+                    bat.playerAttackPhase(user, wild, option);
                     break;
                 case -2:
                     System.out.println("Enter the item number, not the item name!");
@@ -62,7 +62,7 @@ public class Inventory extends Item {
                     position = -1;
                     if (caught == 1){
                         System.out.println("The wild " + wild.getName() + " was caught!");
-                        int id = user.getNextID();
+                        int id = user.party.length + 1;
                         if (id < 6 && id >= 0){
                             user.party[id] = wild;
                         } else {
@@ -72,17 +72,17 @@ public class Inventory extends Item {
                         user.party[id].setExperience(0);
                         user.storage[id] = wild;
                         //PC.addPokemon(wild);
-                        bat.wildLose(wild, user, option, inventory);
+                        bat.wildLose(wild, user, option);
                         break;
                     } else if (caught == -1) {
                         System.out.println(wild.getName() + " escaped the ball!");
-                        bat.wildAttackPhase(user, wild, option, inventory);
+                        bat.wildAttackPhase(user, wild, option);
                     } else {
-                        bat.wildAttackPhase(user, wild, option, inventory);
+                        bat.wildAttackPhase(user, wild, option);
                     }
             }
         }
-        bat.wildAttackPhase(user, wild, option, inventory);
+        bat.wildAttackPhase(user, wild, option);
     }
 
     public void listItemsOutside(){

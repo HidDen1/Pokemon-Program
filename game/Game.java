@@ -21,11 +21,10 @@ public class Game {
         System.out.println("Choose your beginner pokemon.");
         System.out.println("1. Bulbasaur, 2. Charmander, 3. Squirtle");
         typ = scan.nextInt();
-        Inventory inventory = new Inventory();
         Player user = new Player(trainerName, typ);
         Options option = new Options();
         Battle bat = new Battle();
-        option.options(option.optionsMenu(), user, inventory, bat);
+        option.options(option.optionsMenu(), user, bat);
     }
 
     public static void startGUI(){

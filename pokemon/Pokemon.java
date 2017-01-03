@@ -5,9 +5,9 @@ import game.Player;
 import type.Type;
 
 public abstract class Pokemon{
-    protected String name, itemName;
+    protected String name;
     protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv;
-    protected int iv, id, healthRestore;
+    protected int iv, id;
     public Attack att [] = new Attack[4];
     public Type[] type;
     protected Pokemon evolution;
