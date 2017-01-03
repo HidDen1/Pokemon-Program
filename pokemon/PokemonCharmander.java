@@ -13,14 +13,14 @@ public class PokemonCharmander extends Pokemon{
         //pokeNum = 4;
         evolution = new PokemonCharmeleon(lev);
         levEv = 16;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT)};
         atk = (52 * 2 + iv) * lev / 100 + 5;
         def = (43 * 2 + iv) * lev / 100 + 5;
         spAtk = (60 * 2 + iv) * lev / 100 + 5;
         spDef = (50 * 2 + iv) * lev / 100 + 5;
         spd = (65 * 2 + iv) * lev / 100 + 5;
-        hp = (39 * 2 + iv) * lev / 100 + 10;
+        hpMax = (39 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackEmber(), new AttackDragonRage(), new AttackFireFang(), new AttackFlamethrower()};
     }
 

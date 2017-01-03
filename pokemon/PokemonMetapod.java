@@ -16,14 +16,14 @@ public class PokemonMetapod extends Pokemon{
         //pokeNum = 10; //for the pokedex
         evolution = new PokemonButterfree(lev);
         levEv = 10;
-        exp = Math.pow(lev * 10 , 2);
+        expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};
         atk = (20 * 2 + iv) * lev / 100 + 5;
         def = (55 * 2 + iv) * lev / 100 + 5;
         spAtk = (25 * 2 + iv) * lev / 100 + 5;
         spDef = (25 * 2 + iv) * lev / 100 + 5;
         spd = (30 * 2 + iv) * lev / 100 + 5;
-        hp = (50 * 2 + iv) * lev / 100 + 10;
+        hpMax = (50 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }
 
