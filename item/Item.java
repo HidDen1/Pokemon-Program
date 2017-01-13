@@ -1,8 +1,10 @@
-package game;
+package item;
 
-public class Item {
-    int itemID;
-    String itemName;
+import game.Player;
+
+public abstract class Item {
+    private String itemName;
+    private int value;
 
     public void itemNew(int a){
         itemID = a;
@@ -40,7 +42,9 @@ public class Item {
         }
     }
 
-    public int use(Player user){
+    public abstract int use(Player user);
+
+    /*public int use(Player user){
         int caught = 0;
         double healthGain;
 
@@ -74,19 +78,8 @@ public class Item {
                 return caught;
         }
         return caught;
-    }
+    } */
 
-    private int catchPokemon(double ballBonus){
-        double rand = 1 + Math.random() * (50 - 1);
-        double catched = rand * ballBonus;
-        int caught;
-        if (catched > 50){
-            caught = 1;
-        } else {
-            caught = -1;
-        }
-        return caught;
-    }
 
     public String getItemName(){
         return(itemName);

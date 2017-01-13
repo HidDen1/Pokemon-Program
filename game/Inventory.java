@@ -1,13 +1,12 @@
 package game;
 
+import item.Item;
 import pokemon.Pokemon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static com.sun.javafx.css.SizeUnits.PC;
-
-public class Inventory extends Item {
+public class Inventory{
     ArrayList<Item> itemList = new ArrayList<Item>();
     public int currentSlot = 0, empty = 1;
 
@@ -18,13 +17,13 @@ public class Inventory extends Item {
     public void addNewItem(){
         if (currentSlot < 60) {
             empty = -1;
-            Item item = new Item();
-            itemID = idGenerator();
-            item.itemNew(itemID);
-            System.out.println("You found a " + item.getItemName());
-            int space;
-            space = itemList.size();
-            itemList.add(space, item);
+            //Item item = new Item();
+            //itemID = idGenerator();
+            //item.itemNew(itemID); TODO GET A NEW ITEM GENERATOR
+            //System.out.println("You found a " + item.getItemName());
+            //int space;
+            //space = itemList.size();
+            //itemList.add(space, item);
         } else {
             System.out.println("Bag is full");
         }
@@ -193,11 +192,11 @@ public class Inventory extends Item {
 
     public void addNewItemShop(int choice){
         empty = -1;
-        Item item = new Item();
-        item.itemNew(choice);
-        int space;
-        space = itemList.size();
-        itemList.add(space, item);
+        //Item item = new Item();
+        //item.itemNew(choice);
+        //int space; TODO FIX THIS TOO
+        //space = itemList.size();
+        //itemList.add(space, item);
     }
 
     private int idGenerator(){
