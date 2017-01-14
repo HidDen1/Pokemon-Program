@@ -42,7 +42,27 @@ public abstract class Item {
         }
     }
 
+    public static Item[] itemList(){
+        return null;
+    }
+
     public abstract int use(Player user);
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 
     /*public int use(Player user){
         int caught = 0;
@@ -80,8 +100,4 @@ public abstract class Item {
         return caught;
     } */
 
-
-    public String getItemName(){
-        return(itemName);
-    }
 }

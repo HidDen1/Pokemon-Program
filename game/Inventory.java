@@ -115,77 +115,20 @@ public class Inventory{
 
         System.out.println("Welcome to the mart, " + user.getName());
         while(choice != -1){
-            System.out.println("What would you like to buy? \n 1. Pokeball (200 Pokedolars) \n 2. Greatball (500 Pokedollars) \n 3. Ultraball (1500 Pokedollars) \n 4. Potion (100 Pokedollars) \n 5. Super Potion (300 Pokedollars) \n 6. Hyper Potion (1000 Pokedollars) \n-1. Leave the Risky Lunge shop");
+            System.out.println("What would you like to buy? \n 1. Pokeball (200 RiskyLunges) \n 2. Greatball (500 Pokedollars) \n 3. Ultraball (1500 Pokedollars) \n 4. Potion (100 Pokedollars) \n 5. Super Potion (300 Pokedollars) \n 6. Hyper Potion (1000 Pokedollars) \n-1. Leave the Risky Lunge shop");
             System.out.println("You have: " + user.getPokedollars());
             choiceString = input.nextLine();
             try{
                 choice = Integer.parseInt(choiceString);
             } catch (NumberFormatException idk){
-                choice = -2;
+                choice = 0;
             }
-            switch(choice){
-                case 0:
-                    System.out.println("You have " + user.getPokedollars() + " Risky Lunge.");
-                    break;
-                case 1:
-                    if (user.getPokedollars() >= 200){
-                        user.spendPokedollars(200);
-                        System.out.println("You got a Pokeball!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case 2:
-                    if (user.getPokedollars() >= 500){
-                        user.spendPokedollars(500);
-                        System.out.println("You got a Greatball!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case 3:
-                    if (user.getPokedollars() >= 1500){
-                        user.spendPokedollars(1500);
-                        System.out.println("You got an Ultraball!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case 4:
-                    if (user.getPokedollars() >= 100){
-                        user.spendPokedollars(100);
-                        System.out.println("You got a Potion!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case 5:
-                    if (user.getPokedollars() >= 300){
-                        user.spendPokedollars(300);
-                        System.out.println("You got a Super Potion!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case 6:
-                    if (user.getPokedollars() >= 1000){
-                        user.spendPokedollars(1000);
-                        System.out.println("You got a Hyper Potion!");
-                        addNewItemShop(choice);
-                    } else {
-                        System.out.println("Not enough Pokedollars for that.");
-                    }
-                    break;
-                case -1:
-                    System.out.println("Come again soon!");
-                    break;
-                default:
-                    System.out.println("Enter an applicable amount.");
+            if (user.getPokedollars() >= Item.itemList()[choice].getValue()){
+                user.spendPokedollars(Item.itemList()[choice].getValue());
+                System.out.println("You got a " + Item.itemList()[choice].getItemName() + "!");
+                addNewItemShop(choice);
+            } else {
+                System.out.println("Not enough Pokedollars for that.");
             }
         }
     }
