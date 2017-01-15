@@ -3,8 +3,7 @@ package item;
 import game.Player;
 
 public abstract class Pokeball extends Item{
-
-    private int ballBonus;
+    private double ballBonus;
 
     public int use(Player user){
         return catchPokemon(ballBonus);
@@ -22,11 +21,7 @@ public abstract class Pokeball extends Item{
         return caught;
     }
 
-    public int getBallBonus() {
-        return ballBonus;
-    }
-
-    public void setBallBonus(int ballBonus) {
+    protected void setBallBonus(double ballBonus) {
         this.ballBonus = ballBonus;
     }
 }

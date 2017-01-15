@@ -9,26 +9,7 @@ public abstract class Item {
     public void itemNew(int a){
         itemID = a;
         switch(itemID){
-            case 1:
-                itemName = "Pokeball";
-                //ballBonus = 1;
-                itemID = 1;
-                break;
-            case 2:
-                itemName = "Greatball";
-                //ballBonus = 1.5;
-                itemID = 2;
-                break;
-            case 3:
-                itemName = "Ultraball";
-                //ballBonus = 2;
-                itemID = 3;
-                break;
-            case 4:
-                itemName = "Potion";
-                //healthRestore = 20;
-                itemID = 4;
-                break;
+
             case 5:
                 itemName = "Super Potion";
                 //healthRestore = 50;
@@ -43,7 +24,7 @@ public abstract class Item {
     }
 
     public static Item[] itemList(){
-        return null;
+        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal()}; //TODO add the items here
     }
 
     public abstract int use(Player user);
@@ -52,7 +33,7 @@ public abstract class Item {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
+    protected void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
@@ -60,7 +41,7 @@ public abstract class Item {
         return value;
     }
 
-    public void setValue(int value) {
+    protected void setValue(int value) {
         this.value = value;
     }
 
