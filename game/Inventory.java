@@ -8,13 +8,12 @@ import java.util.Scanner;
 
 public class Inventory{
     ArrayList<Item> itemList = new ArrayList<Item>();
-    public int currentSlot = 0, empty = 1;
 
 
     public Inventory() {
     }
 
-    public void addNewItem(){
+    public void addRandomItem(){
         if (currentSlot < 60) {
             empty = -1;
             //Item item = new Item();
@@ -27,6 +26,10 @@ public class Inventory{
         } else {
             System.out.println("Bag is full");
         }
+    }
+
+    public void addNewItem(Item i){
+        itemList.add(i);
     }
 
     public void useItem(Player user, Battle bat, Pokemon wild, Options option){ //need methods during and not during battle
@@ -106,40 +109,6 @@ public class Inventory{
         for(int i = 0; i <= size; i++){
             System.out.println(i + 1 + ". " + itemList.get(i).getItemName());
         }
-    }
-
-    public void shop(Player user){
-        String choiceString;
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Welcome to the mart, " + user.getName());
-        while(choice != -1){
-            System.out.println("What would you like to buy? \n 1. Pokeball (200 RiskyLunges) \n 2. Greatball (500 Pokedollars) \n 3. Ultraball (1500 Pokedollars) \n 4. Potion (100 Pokedollars) \n 5. Super Potion (300 Pokedollars) \n 6. Hyper Potion (1000 Pokedollars) \n-1. Leave the Risky Lunge shop");
-            System.out.println("You have: " + user.getPokedollars());
-            choiceString = input.nextLine();
-            try{
-                choice = Integer.parseInt(choiceString);
-            } catch (NumberFormatException idk){
-                choice = 0;
-            }
-            if (user.getPokedollars() >= Item.itemList()[choice].getValue()){
-                user.spendPokedollars(Item.itemList()[choice].getValue());
-                System.out.println("You got a " + Item.itemList()[choice].getItemName() + "!");
-                addNewItemShop(choice);
-            } else {
-                System.out.println("Not enough Pokedollars for that.");
-            }
-        }
-    }
-
-    public void addNewItemShop(int choice){
-        empty = -1;
-        //Item item = new Item();
-        //item.itemNew(choice);
-        //int space; TODO FIX THIS TOO
-        //space = itemList.size();
-        //itemList.add(space, item);
     }
 
     private int idGenerator(){

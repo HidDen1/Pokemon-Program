@@ -6,25 +6,8 @@ public abstract class Item {
     private String itemName;
     private int value;
 
-    public void itemNew(int a){
-        itemID = a;
-        switch(itemID){
-
-            case 5:
-                itemName = "Super Potion";
-                //healthRestore = 50;
-                itemID = 5;
-                break;
-            case 6:
-                itemName = "Hyper Potion";
-                //healthRestore = 200;
-                itemID = 6;
-                break;
-        }
-    }
-
     public static Item[] itemList(){
-        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal()}; //TODO add the items here
+        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal(), new PotionSuper()}; //TODO add the items here
     }
 
     public abstract int use(Player user);

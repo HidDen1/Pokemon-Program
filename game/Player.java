@@ -86,11 +86,11 @@ public class Player{
         return expTrainer;
     }
 
-    int getPokedollars(){
+    public int getPokedollars(){
         return pokedollars;
     }
 
-    void spendPokedollars(int a){
+    public void spendPokedollars(int a){
         pokedollars = pokedollars - a;
     }
 
