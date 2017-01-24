@@ -16,11 +16,12 @@ public class PokemonCharizard extends Pokemon{
         levEv = 101;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeFire.SPOT), Type.getType(TypeFlying.SPOT)};
-        atk = (84 * 2 + iv) * lev / 100 + 5;
-        def = (78 * 2 + iv) * lev / 100 + 5;
-        spAtk = (109 * 2 + iv) * lev / 100 + 5;
-        spDef = (85 * 2 + iv) * lev / 100 + 5;
-        spd = (100 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((84 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((78 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((109 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((85 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((100 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (78 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackFireBlitz(), new AttackFireBlast(), new AttackHeatWave(), new AttackFlamethrower()};
     }

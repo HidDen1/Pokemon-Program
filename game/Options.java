@@ -21,16 +21,16 @@ public class Options{
 
     }
 
-    public void options(int options, Player user, Battle bat){
+    public void options(int options, Player user, Battle bat, PCSystem cp, Options option){
         switch (options) {
             case 1:
-                adventure(user, this);
-                options(optionsMenu(), user, bat);
+                adventure(user, this, cp);
+                options(optionsMenu(), user, bat, cp, option);
                 break;
             case 2:
                 user.getPartyPokemon();
-                user.viewStats(user);
-                options(optionsMenu(), user, bat);
+                user.viewStats(user, option);
+                options(optionsMenu(), user, bat, cp, option);
                 break;
             case 3:
                 user.getAllStats();
@@ -38,15 +38,15 @@ public class Options{
                 break;
             case 4:
                 user.getInventory().listItemsOutside();
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user, bat, cp, option);
                 break;
             case 5:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user, bat, cp, option);
                 break;
             case 6:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user, bat, cp, option);
                 break;
             case -1:
                 System.out.println("Game Over");
@@ -56,10 +56,10 @@ public class Options{
         }
     }
 
-    public void adventure(Player user, Options option){
+    public void adventure(Player user, Options option, PCSystem cp){
         int event;
         event = (int) getChance();
-        eventOption(event, user, option);
+        eventOption(event, user, option, cp);
     }
 
     public double getChance(){
@@ -70,11 +70,11 @@ public class Options{
         return chance;
     }
 
-    private void eventOption(int event, Player user, Options option){
+    private void eventOption(int event, Player user, Options option, PCSystem cp){
         if (event <= 75){
-            new Battle().startBattle(user, option);
+            new Battle().startBattle(user, option, cp);
         } else if (event >= 76 && event <= 100){
-            getLocation(user);
+            getLocation(user, cp);
         }
     }
 
@@ -94,7 +94,7 @@ public class Options{
         }
     }
 
-    private void getLocation(Player user){
+    private void getLocation(Player user, PCSystem cp){
         double l = 1 + Math.random() * (5 - 1);
         int j = (int) l;
 
@@ -119,12 +119,12 @@ public class Options{
                 System.out.println("You found a pokemon center!");
                 System.out.println("Your party was fully healed");
                 user.healAll();
-                System.out.println("Would you like to acess the PC? Enter 1 for yes, 2 for no");
+                System.out.println("Would you like to access the PC? Enter 1 for yes, 2 for no");
                 Scanner scan = new Scanner(System.in);
                 int pc = scan.nextInt();
                 while (pc == 1 || pc == 2){
                     if (pc == 1){
-
+                        cp.addPokemon();
                     } else {
 
                     }

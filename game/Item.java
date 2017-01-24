@@ -77,7 +77,7 @@ public class Item {
     }
 
     private int catchPokemon(double ballBonus){
-        double rand = 1 + Math.random() * (50 - 1);
+        double rand = 1 + Math.random() * (100 - 1);
         double catched = rand * ballBonus;
         int caught;
         if (catched > 50){

@@ -18,11 +18,12 @@ public class PokemonMetapod extends Pokemon{
         levEv = 10;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};
-        atk = (20 * 2 + iv) * lev / 100 + 5;
-        def = (55 * 2 + iv) * lev / 100 + 5;
-        spAtk = (25 * 2 + iv) * lev / 100 + 5;
-        spDef = (25 * 2 + iv) * lev / 100 + 5;
-        spd = (30 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((20 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((55 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((25 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((25 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((30 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (50 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }

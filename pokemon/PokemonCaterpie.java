@@ -18,11 +18,12 @@ public class PokemonCaterpie extends Pokemon{
         levEv = 7;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT)};
-        atk = (30 * 2 + iv) * lev / 100 + 5;
-        def = (35 * 2 + iv) * lev / 100 + 5;
-        spAtk = (20 * 2 + iv) * lev / 100 + 5;
-        spDef = (20 * 2 + iv) * lev / 100 + 5;
-        spd = (45 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((30 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((35 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((20 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((20 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((45 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (45 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }

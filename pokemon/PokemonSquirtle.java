@@ -15,11 +15,12 @@ public class PokemonSquirtle extends Pokemon{
         levEv = 16;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
-        atk = (48 * 2 + iv) * lev / 100 + 5;
-        def = (65 * 2 + iv) * lev / 100 + 5;
-        spAtk = (50 * 2 + iv) * lev / 100 + 5;
-        spDef = (64 * 2 + iv) * lev / 100 + 5;
-        spd = (43 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((48 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((65 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((50 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((64 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((43 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (44 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackWaterGun(), new AttackWaterPulse(), new AttackBite(), new AttackBrine()};
     }
