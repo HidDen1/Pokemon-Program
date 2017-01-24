@@ -14,15 +14,10 @@ public class Inventory{
     }
 
     public void addRandomItem(){
-        if (currentSlot < 60) {
-            empty = -1;
-            //Item item = new Item();
-            //itemID = idGenerator();
-            //item.itemNew(itemID); TODO GET A NEW ITEM GENERATOR
-            //System.out.println("You found a " + item.getItemName());
-            //int space;
-            //space = itemList.size();
-            //itemList.add(space, item);
+        if (itemList.size() < 60) {
+            Item item = Item.itemList()[idGenerator()];
+            System.out.println("You found a " + item.getItemName());
+            itemList.add(item);
         } else {
             System.out.println("Bag is full");
         }
@@ -98,16 +93,13 @@ public class Inventory{
     }
 
     public void listItems(){
-        int size;
-        if (itemList.size() == 0){
-            empty = 1;
-        }
-        size = itemList.size() - 1;
-        if (empty == 1){
+        if (itemList.isEmpty()){
             System.out.println("The Bag is empty");
             }
-        for(int i = 0; i <= size; i++){
-            System.out.println(i + 1 + ". " + itemList.get(i).getItemName());
+        int num = 1;
+        for(Item i : itemList){
+            System.out.println(num + ". " + i.getItemName());
+            num++;
         }
     }
 

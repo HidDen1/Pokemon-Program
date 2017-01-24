@@ -1,5 +1,8 @@
 package game;
 
+import shop.Shop;
+import shop.ShopMart;
+
 import java.util.Scanner;
 
 public class Options{
@@ -21,16 +24,16 @@ public class Options{
 
     }
 
-    public void options(int options, Player user, Battle bat){
+    public void options(int options, Player user){
         switch (options) {
             case 1:
                 adventure(user, this);
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user);
                 break;
             case 2:
                 user.getPartyPokemon();
                 user.viewStats(user);
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user);
                 break;
             case 3:
                 user.getAllStats();
@@ -38,15 +41,15 @@ public class Options{
                 break;
             case 4:
                 user.getInventory().listItemsOutside();
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user);
                 break;
             case 5:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user);
                 break;
             case 6:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat);
+                options(optionsMenu(), user);
                 break;
             case -1:
                 System.out.println("Game Over");
@@ -101,25 +104,26 @@ public class Options{
         switch (j){
             case 1:
                 System.out.println("You found a town!");
-                user.getInventory().addNewItem();
+                user.getInventory().addRandomItem();
                 break;
             case 2:
                 System.out.println("You found a forest!");
-                user.getInventory().addNewItem();
+                user.getInventory().addRandomItem();
                 break;
             case 3:
                 System.out.println("You found a cave!");
-                user.getInventory().addNewItem();
+                user.getInventory().addRandomItem();
                 break;
             case 4:
                 System.out.println("You found a mart!");
-                user.getInventory().shop(user);
+                Shop shop = new ShopMart();
+                shop.shop(user, this);
                 break;
             case 5:
                 System.out.println("You found a pokemon center!");
                 System.out.println("Your party was fully healed");
                 user.healAll();
-                System.out.println("Would you like to acess the PC? Enter 1 for yes, 2 for no");
+                System.out.println("Would you like to access the PC? Enter 1 for yes, 2 for no");
                 Scanner scan = new Scanner(System.in);
                 int pc = scan.nextInt();
                 while (pc == 1 || pc == 2){
@@ -132,8 +136,17 @@ public class Options{
                 break;
             case 6:
                 System.out.println("You found a lake!");
-                user.getInventory().addNewItem();
+                user.getInventory().addRandomItem();
                 break;
         }
+    }
+
+    public static boolean isNumber(String s){
+        try{
+            Integer.parseInt(s);
+        } catch (NumberFormatException ich){
+            return false;
+        }
+        return true;
     }
 }

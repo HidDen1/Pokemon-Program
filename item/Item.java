@@ -7,7 +7,7 @@ public abstract class Item {
     private int value;
 
     public static Item[] itemList(){
-        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal(), new PotionSuper()}; //TODO add the items here
+        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal(), new PotionSuper(), new PotionHyper()}; //TODO add the items here
     }
 
     public abstract int use(Player user);
