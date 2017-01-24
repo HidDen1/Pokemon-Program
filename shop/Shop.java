@@ -1,6 +1,7 @@
 package shop;
 
 import game.Options;
+import game.PCSystem;
 import game.Player;
 import item.Item;
 
@@ -19,7 +20,7 @@ public abstract class Shop {
         this.shopName = shopName;
     }
 
-    public void shop(Player user, Options o){
+    public void shop(Player user, Options o, PCSystem pc){
         String choiceString;
         int choice = 0;
         Scanner input = new Scanner(System.in);
@@ -32,18 +33,18 @@ public abstract class Shop {
             num++;
         }
         System.out.println("-1. Leave the " + shopName);
-        shopChoice(user, input.nextLine(), o);
+        shopChoice(user, input.nextLine(), o, pc);
     }
 
-    public void shopChoice(Player user, String choice, Options o){
+    public void shopChoice(Player user, String choice, Options o, PCSystem pc){
         byte choiceNum;
         if(!Options.isNumber(choice)){
             System.out.println("Pick a valid choice.");
-            shop(user, o);
+            shop(user, o, pc);
         }
         choiceNum = Byte.parseByte(choice);
         if (choiceNum == -1){
-            o.options(o.optionsMenu(), user);
+            o.options(o.optionsMenu(), user, pc);
         } else if (user.getPokedollars() >= shopList.get(choiceNum - 1).getValue()){
             user.spendPokedollars(shopList.get(choiceNum - 1).getValue());
             System.out.println("You got a " + shopList.get(choiceNum - 1).getItemName() + "!");
@@ -51,7 +52,7 @@ public abstract class Shop {
         } else {
             System.out.println("Not enough Pokedollars for that.");
         }
-        shop(user, o);
+        shop(user, o, pc);
     }
 
 }

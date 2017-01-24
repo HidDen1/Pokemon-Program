@@ -75,7 +75,7 @@ public class Battle{
             run = (int) getChance();
             if (run > 50){
                 System.out.println("Got away safely");
-                option.options(option.optionsMenu(), user, this, cp, option);
+                option.options(option.optionsMenu(), user, cp);
             } else {
                 System.out.println("Could not escape");
                 wildAttackPhase(user, wild, option, cp);
@@ -132,7 +132,7 @@ public class Battle{
         user.gainExperience();
         user.gainPokedollars();
         user.gainExperiencePokemon(currentID);//needs to also send current ID to give the correct Pokemon the EXP
-        option.options(option.optionsMenu(), user, this, cp, option);
+        option.options(option.optionsMenu(), user, cp);
     }
 
     private void checkWildAttack(Pokemon wild, int att){

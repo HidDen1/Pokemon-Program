@@ -25,7 +25,7 @@ public class Game {
         Options option = new Options();
         Battle bat = new Battle();
         PCSystem cp = new PCSystem();
-        option.options(option.optionsMenu(), user, bat, cp, option);
+        option.options(option.optionsMenu(), user, cp);
     }
 
     public static void startGUI(){
