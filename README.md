@@ -48,6 +48,7 @@ TODO: Differentiate all items and create continuous item functioning
     -Added nature generator
     -Added natures to stat view
     -Added nature bonuses to stat calculations
+    -Changed the way items work
     -Fixed stats not being displayed properly
     -Began implementing natures and EVs
 

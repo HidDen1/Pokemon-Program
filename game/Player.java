@@ -147,42 +147,42 @@ public class Player{
     }
 
 
-    void viewStats(Player user, Options option){
+    void viewStats(Player user){
         Scanner scan = new Scanner(System.in);
         System.out.println("Select a pokemon that you want to view. Enter -1 to go back.");
         int c = scan.nextInt();
-        if (c == -1){
-            option.optionsMenu();
-        }
-        if (party[c - 1].getName().equalsIgnoreCase("Empty")){
-            c = -1;
-            System.out.println("That slot is empty!");
-        }
-        while (c > 6 || c == 0 || c <= -1){
-            System.out.println("Please enter a valid slot!");
-            c = scan.nextInt();
-        }
-        if (c > -1){
-            c = c - 1;
-            System.out.println("Name: " + party[c].getName());
-            System.out.println("Level: " + party[c].getLevel());
-            System.out.println(party [c].getGenderB());
-            System.out.println("Nature: " + party[c].nat.getNatureName());
-            System.out.println("Attack: " + party[c].getAttack());
-            System.out.println("Defense: " + party[c].getDefense());
-            System.out.println("Special Attack: " + party[c].getSpecialAttack());
-            System.out.println("Special Deffence: " + party[c].getSpecialDefense());
-            System.out.println("Speed: " + party[c].getSpeed());
-            System.out.println("HP: " + party[c].getHealth() + "/" + party[c].getHealthPoints());
-            System.out.println("EXP: " + party[c].getExperience() + " / " + toLevelUpPokemon);
-            System.out.println("Enter -1 to go back.");
-            int k = scan.nextInt();
-            while (k != -1){
-                System.out.println("Please enter -1 to go back!");
-                k = scan.nextInt();
+
+        if (c != -1){
+            if (party[c - 1].getName().equalsIgnoreCase("Empty")){
+                c = -1;
+                System.out.println("That slot is empty!");
             }
-            user.getPartyPokemon();
-            viewStats(user, option);
+            while (c > 6 || c == 0 || c <= -1){
+                System.out.println("Please enter a valid slot!");
+                c = scan.nextInt();
+            }
+            if (c > -1){
+                c = c - 1;
+                System.out.println("Name: " + party[c].getName());
+                System.out.println("Level: " + party[c].getLevel());
+                System.out.println(party [c].getGenderB());
+                System.out.println("Nature: " + party[c].nat.getNatureName());
+                System.out.println("Attack: " + party[c].getAttack());
+                System.out.println("Defense: " + party[c].getDefense());
+                System.out.println("Special Attack: " + party[c].getSpecialAttack());
+                System.out.println("Special Deffence: " + party[c].getSpecialDefense());
+                System.out.println("Speed: " + party[c].getSpeed());
+                System.out.println("HP: " + party[c].getHealth() + "/" + party[c].getHealthPoints());
+                System.out.println("EXP: " + party[c].getExperience() + " / " + toLevelUpPokemon);
+                System.out.println("Enter -1 to go back.");
+                int k = scan.nextInt();
+                while (k != -1){
+                    System.out.println("Please enter -1 to go back!");
+                    k = scan.nextInt();
+                }
+                user.getPartyPokemon();
+                viewStats(user);
+            }
         }
     }
 

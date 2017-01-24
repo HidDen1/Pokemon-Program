@@ -32,8 +32,8 @@ public class Options{
                 break;
             case 2:
                 user.getPartyPokemon();
-                user.viewStats(user, option);
-                options(optionsMenu(), user, bat, cp, option);
+                user.viewStats(user);
+                options(optionsMenu(), user, cp);
                 break;
             case 3:
                 user.getAllStats();
@@ -41,15 +41,15 @@ public class Options{
                 break;
             case 4:
                 user.getInventory().listItemsOutside();
-                options(optionsMenu(), user, bat, cp, option);
+                options(optionsMenu(), user, cp);
                 break;
             case 5:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat, cp, option);
+                options(optionsMenu(), user, cp);
                 break;
             case 6:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user, bat, cp, option);
+                options(optionsMenu(), user, cp);
                 break;
             case -1:
                 System.out.println("Game Over");
