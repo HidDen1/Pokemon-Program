@@ -127,7 +127,7 @@ public class Battle{
         System.out.println("The " + wild.getName() + " has fainted!");
         System.out.println("You gained 50 exp, 100 pokemon exp, and 100 pokedollars!"); //currently constant,change later to depend of the pokemon
         if (chance < 70){
-            user.getInventory().addNewItem();
+            user.getInventory().addRandomItem();
         }
         user.gainExperience();
         user.gainPokedollars();

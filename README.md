@@ -221,7 +221,7 @@ TODO: Differentiate all items and create continuous item functioning
     -Fixed pokemon.pokemon not fainting
      
     Version 0.02.00 10/26/2016:
-    -Added the Adventure, game.Item, pokemon.pokemon, Option, game.Player, pokemon.Stats,  and game.Battle Classes
+    -Added the Adventure, item.Item, pokemon.pokemon, Option, game.Player, pokemon.Stats,  and game.Battle Classes
     -Added a temporary Charizard to be used by the player until beginner pokemon.pokemon and catching are added
     -Added methods in the player class for gaining experience after a wild pokemon.pokemon is beaten
     -Added methods to the battle class for initializing the battle and the turns for players and wild pokemon

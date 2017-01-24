@@ -17,6 +17,10 @@ public class Player{
         return inventory;
     }
 
+    public Pokemon[] getParty(){
+        return party;
+    }
+
     public Player(String trainerName, int typ){
         name = trainerName;
         Pokemon beginner = Pokemon.beginnerPokemon(typ);
@@ -83,11 +87,11 @@ public class Player{
         return expTrainer;
     }
 
-    int getPokedollars(){
+    public int getPokedollars(){
         return pokedollars;
     }
 
-    void spendPokedollars(int a){
+    public void spendPokedollars(int a){
         pokedollars = pokedollars - a;
     }
 
@@ -186,7 +190,7 @@ public class Player{
         return(party[0]);
     } //will be used to get the pokemon battling
 
-    double healthCheck(double healthGain){
+    public double healthCheck(double healthGain){
         if (party[0].getHealth() > party[0].getHealthPoints()){ //causing a crash
             healthGain = party[0].getHealthPoints() - (party[0].getHealth() - healthGain);
             party[0].setHealth(party[0].getHealthPoints());
