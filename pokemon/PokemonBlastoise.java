@@ -15,11 +15,12 @@ public class PokemonBlastoise extends Pokemon{
         levEv = 101;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
-        atk = (83 * 2 + iv) * lev / 100 + 5;
-        def = (100 * 2 + iv) * lev / 100 + 5;
-        spAtk = (85 * 2 + iv) * lev / 100 + 5;
-        spDef = (105 * 2 + iv) * lev / 100 + 5;
-        spd = (78 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((83 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((100 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((85 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((105 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((78 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (79 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackAquaTail(), new AttackIceBeam(), new AttackSkullBash(), new AttackHydroPump()};
     }

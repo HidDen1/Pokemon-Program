@@ -8,41 +8,41 @@ public class Battle{
     public double userBattleSpeed, wildBattleSpeed, wildremainingHealth;
     public int currentID;
 
-    public void startBattle(Player user, Options option) {
+    public void startBattle(Player user, Options option, PCSystem cp) {
         //int chance;
         currentID = 0;
         //chance = (int) getChance();
         Pokemon wild = Pokemon.wildPokemon(user);
         System.out.println("A wild " + wild.getName() + " has appeared!");
 
-        while (user.party[currentID].getHealth() == 0){
+        while (user.party[currentID].getHealth() == 0 && !user.party[currentID].getName().equalsIgnoreCase("Empty")){
             currentID++;
-        }
+        } //check to make sure slots are not empty
         System.out.println("Go " + user.party[currentID].getName() + "!");
         wildremainingHealth = wild.getHealthPoints();
         userBattleSpeed = user.party[currentID].getSpeed();
         wildBattleSpeed = wild.getSpeed();
         displayHealth(wild, user);
-        battle(user, wild, option);
+        battle(user, wild, option, cp);
     }
 
-    private void battle(Player user, Pokemon wild, Options option){
+    private void battle(Player user, Pokemon wild, Options option, PCSystem cp){
         if(wildremainingHealth > 0 && user.party[currentID].getHealth() > 0){
             if (wildBattleSpeed > userBattleSpeed){
-                wildAttackPhase(user, wild, option); //needs to be moved, wild can attack before user selects a move
+                wildAttackPhase(user, wild, option, cp); //needs to be moved, wild can attack before user selects a move
 
             } else if (userBattleSpeed >= wildBattleSpeed) {
-                playerAttackPhase(user, wild, option);
+                playerAttackPhase(user, wild, option, cp);
             }
         } else if (wildremainingHealth <= 0){ //currently only for just incase something goes weird
-            wildLose(wild, user, option);
+            wildLose(wild, user, option, cp);
         } else if (user.party [currentID].getHealth() <= 0){ //same with this
             System.out.println("You have been defeated!"); // needs to check all party pokemon
             System.exit(0);
         }
     }
 
-    public void playerAttackPhase(Player user, Pokemon wild, Options option){
+    public void playerAttackPhase(Player user, Pokemon wild, Options option, PCSystem cp){
         Scanner scan = new Scanner(System.in);
         String action;
         int run;
@@ -54,35 +54,35 @@ public class Battle{
 
         if (action.equalsIgnoreCase("1")){
             System.out.println("Select a move by entering the corresponding number. Enter -1 to go back");
-            wildremainingHealth = actionFightUser(user, wild, option);
+            wildremainingHealth = actionFightUser(user, wild, option,cp);
             wildremainingHealth = Math.round(wildremainingHealth);
             if (wildremainingHealth < 0){
                 wildremainingHealth = 0;
             }
             displayHealth(wild, user);
             if (wildremainingHealth <= 0){ //this works
-                wildLose(wild, user, option);
+                wildLose(wild, user, option,cp);
             } else {
-                wildAttackPhase(user, wild, option);
+                wildAttackPhase(user, wild, option, cp);
             }
         } else if (action.equalsIgnoreCase("2")){
-            user.getInventory().useItem(user,this, wild, option);
+            user.getInventory().useItem(user,this, wild, option, cp);
         } else if (action.equalsIgnoreCase("3")){
-            user.getPartyPokemon(); //switching pokemon and selecting stats needs added
-            selectPokemon(user,wild,option);
-            playerAttackPhase(user, wild, option);
+            user.getPartyPokemon();
+            selectPokemon(user,wild,option,cp);
+            playerAttackPhase(user, wild, option, cp);
         } else if (action.equalsIgnoreCase("4")){
             run = (int) getChance();
             if (run > 50){
                 System.out.println("Got away safely");
-                option.options(option.optionsMenu(), user);
+                option.options(option.optionsMenu(), user, this, cp, option);
             } else {
                 System.out.println("Could not escape");
-                wildAttackPhase(user, wild, option);
+                wildAttackPhase(user, wild, option, cp);
             }
         } else {
             System.out.print("Please enter an applicable number! ");
-            playerAttackPhase(user, wild, option);
+            playerAttackPhase(user, wild, option, cp);
         }
     }
 
@@ -93,7 +93,7 @@ public class Battle{
         System.out.println("HP: " + user.party[currentID].getHealth() + "/" + user.party[currentID].getHealthPoints());
     }
 
-    public void wildAttackPhase(Player user, Pokemon wild, Options option){
+    public void wildAttackPhase(Player user, Pokemon wild, Options option, PCSystem cp){
         double a = Math.random() * 3, multiplier;
         int att = (int) a;
         checkWildAttack(wild, att);
@@ -118,11 +118,11 @@ public class Battle{
             System.out.println("You have been defeated!");
             System.exit(0);
         } else {
-            playerAttackPhase(user, wild, option);
+            playerAttackPhase(user, wild, option, cp);
         }
     }
 
-    public void wildLose(Pokemon wild, Player user, Options option){
+    public void wildLose(Pokemon wild, Player user, Options option, PCSystem cp){
         double chance = getChance();
         System.out.println("The " + wild.getName() + " has fainted!");
         System.out.println("You gained 50 exp, 100 pokemon exp, and 100 pokedollars!"); //currently constant,change later to depend of the pokemon
@@ -132,7 +132,7 @@ public class Battle{
         user.gainExperience();
         user.gainPokedollars();
         user.gainExperiencePokemon(currentID);//needs to also send current ID to give the correct Pokemon the EXP
-        option.options(option.optionsMenu(), user);
+        option.options(option.optionsMenu(), user, this, cp, option);
     }
 
     private void checkWildAttack(Pokemon wild, int att){
@@ -143,7 +143,7 @@ public class Battle{
         }
     }
 
-    private double actionFightUser(Player user, Pokemon wild, Options option){
+    private double actionFightUser(Player user, Pokemon wild, Options option, PCSystem cp){
         Scanner scan = new Scanner(System.in);
         double damage;
 
@@ -152,12 +152,12 @@ public class Battle{
         //System.out.println("Enter -1 to go back");
         int attack = scan.nextInt();
         if (attack == -1){
-            playerAttackPhase(user, wild, option);
+            playerAttackPhase(user, wild, option, cp);
         } else if (attack != 1 && attack != 2 && attack != 3 && attack != 4) {
             System.out.print("Please enter an applicable number!");
-            actionFightUser(user, wild, option);
+            actionFightUser(user, wild, option, cp);
         }
-        damage = damageCalculatorUser(attack, wild, option, user);
+        damage = damageCalculatorUser(attack, wild, option, user, cp);
         damage = Math.round(damage);
         System.out.println("It did " + damage + " damage");
         wildremainingHealth = wildremainingHealth - damage;
@@ -165,7 +165,7 @@ public class Battle{
         return wildremainingHealth;
     }
 
-    private int damageCalculatorUser(int attack, Pokemon wild, Options option, Player user){
+    private int damageCalculatorUser(int attack, Pokemon wild, Options option, Player user, PCSystem cp){
         int att = attack - 1, d = 0;
         double damage, multiplier;
 
@@ -173,7 +173,7 @@ public class Battle{
 
         if (user.party[currentID].att[att].getName().equalsIgnoreCase("-----")) { //not working
             System.out.println("Invalid Move");
-            actionFightUser(user, wild, option);
+            actionFightUser(user, wild, option, cp);
         }
 
         if (user.party[currentID].att[att].isPhysical()){
@@ -187,18 +187,18 @@ public class Battle{
         return d;
     }
 
-    public void selectPokemon(Player user, Pokemon wild, Options option){ //will need exceptions for sending out if fainted
+    public void selectPokemon(Player user, Pokemon wild, Options option, PCSystem cp){ //will need exceptions for sending out if fainted
         Scanner scan = new Scanner(System.in);
         System.out.println("Select a pokemon by entering its slot number");
         int s = scan.nextInt();
-        while (s > 6 || s < 1){
+        while (s > 6 || s < 1 && user.party[s - 1].getName().equalsIgnoreCase("Empty")){ //not working
             System.out.println("Please enter a valid slot!");
             s = scan.nextInt();
         }
-        optionPokemon(s,user,wild,option);
+        optionPokemon(s,user,wild,option,cp);
     }
 
-    public void optionPokemon(int s, Player user, Pokemon wild, Options option){
+    public void optionPokemon(int s, Player user, Pokemon wild, Options option, PCSystem cp){
         Scanner scan = new Scanner(System.in);
         System.out.println("What would you like to do with " + user.party[s - 1].getName() + " ?");
         System.out.println("1. Switch\n2.Summary\n3.Check Moves\n-1. Go Back");
@@ -207,12 +207,12 @@ public class Battle{
             case 1:
                 if (s == currentID + 1){
                     System.out.println("That Pokemon is already in battle!");
-                    optionPokemon(s,user,wild,option);
+                    optionPokemon(s,user,wild,option,cp);
                 } else {
                     System.out.println("That's enough " + user.party[currentID].getName() + "!");
                     currentID = s - 1;
                     System.out.println("Go " + user.party[currentID].getName() + "!");
-                    wildAttackPhase(user,wild,option);
+                    wildAttackPhase(user,wild,option,cp);
                 }
                 break;
             case 2:
@@ -233,13 +233,13 @@ public class Battle{
                     k = scan.nextInt();
                 }
                 s++;
-                optionPokemon(s,user,wild,option);
+                optionPokemon(s,user,wild,option,cp);
                 break;
             case 3:
                 System.out.println("Coming soon!");
                 break;
             case -1:
-                selectPokemon(user,wild,option);
+                selectPokemon(user,wild,option,cp);
                 break;
         }
     }
@@ -282,18 +282,18 @@ public class Battle{
         return r;
     }
 
-    private void getGoBack(Player user, Options option, Pokemon wild){
+    private void getGoBack(Player user, Options option, Pokemon wild, PCSystem cp){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter -1 to go back");
         int one = scan.nextInt();
         if (one == -1){
-            playerAttackPhase(user, wild, option);
+            playerAttackPhase(user, wild, option,cp);
         }
         while (one != -1){
             System.out.println("Invalid number entered. Please Enter -1 to go back");
             one = scan.nextInt();
             if (one == -1){
-                playerAttackPhase(user, wild, option);
+                playerAttackPhase(user, wild, option,cp);
             }
         }
     }

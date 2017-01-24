@@ -16,11 +16,12 @@ public class PokemonButterfree extends Pokemon{
         levEv = 101;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypeFlying.SPOT)};
-        atk = (45 * 2 + iv) * lev / 100 + 5;
-        def = (50 * 2 + iv) * lev / 100 + 5;
-        spAtk = (90 * 2 + iv) * lev / 100 + 5;
-        spDef = (80 * 2 + iv) * lev / 100 + 5;
-        spd = (70 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((45 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((50 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((90 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((80 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((70 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (60 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPsybeam(), new AttackBugBite(), new AttackSilverWind(), new AttackBugBuzz()};
     }

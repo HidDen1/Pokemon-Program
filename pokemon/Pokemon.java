@@ -2,12 +2,14 @@ package pokemon;
 
 import attack.Attack;
 import game.Player;
+import nature.*;
 import type.Type;
 
 public abstract class Pokemon{
-    protected String name;
-    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv;
+    protected String name, gender;
+    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG, hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV;
     protected int iv, id;
+    public Nature nat;
     public Attack att [] = new Attack[4];
     public Type[] type;
     protected Pokemon evolution;
@@ -92,8 +94,16 @@ public abstract class Pokemon{
         lev = l;
     }
 
+    public String getGenderB(){
+        return gender;
+    }
+
     public int getIV(){
         return(iv);
+    }
+
+    public double getAtkEVG(){
+        return (getAtkEVG());
     }
 
 
@@ -123,6 +133,9 @@ public abstract class Pokemon{
         return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev)};
     }
 
+    static Nature[] getNatures(){
+        return new Nature[]{new NatureAdamant(), new NatureBashful(), new NatureBold(), new NatureBrave(), new NatureCalm(), new NatureCareful(), new NatureDocile(), new NatureGentle(), new NatureHardy(), new NatureHasty(), new NatureImpish(), new NatureJolly(), new NatureLax(), new NatureLonely(), new NatureMild(), new NatureModest(), new NatureNaive(), new NatureNaughty(), new NatureQuiet(), new NatureQuirky(), new NatureRash(), new NatureRelaxed(), new NatureSassy(), new NatureSerious(), new NatureTimid()};
+    }
 
     static public Pokemon wildPokemon(Player user){
         int id = idGenerator();
@@ -150,6 +163,23 @@ public abstract class Pokemon{
         return p;
     }
 
+    static public Pokemon emptySlot(){
+        Pokemon p = new PokemonEmpty();
+        return p;
+    }
+
+    protected Nature natureAssigner(){
+        double g;
+        int id;
+        Nature nate;
+
+        g = Math.random();
+        id = (int) Math.round(g) * 24;
+        nate = getNatures()[id];
+
+        return nate;
+    }
+
     protected static int levelGenerator(Player user){
         double l;
         int e;
@@ -163,6 +193,26 @@ public abstract class Pokemon{
         e = 1; //for testing
 
         return e;
+    }
+
+    protected String setGender(){
+        int g = genderGenerator();
+        if (g == 0){
+            gender = "Male";
+        } else {
+            gender = "Female";
+        }
+        return gender;
+    }
+
+    protected int genderGenerator(){
+        double g;
+        int v;
+
+        g = Math.random();
+        v = (int) Math.round(g);
+
+        return v;
     }
 
     protected int ivGenerator(){

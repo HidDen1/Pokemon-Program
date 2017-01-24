@@ -19,11 +19,12 @@ public class PokemonKakuna extends Pokemon{
         levEv = 10;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
-        atk = (25 * 2 + iv) * lev / 100 + 5;
-        def = (50 * 2 + iv) * lev / 100 + 5;
-        spAtk = (25 * 2 + iv) * lev / 100 + 5;
-        spDef = (25 * 2 + iv) * lev / 100 + 5;
-        spd = (35 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((25 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((50 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((25 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((25 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((35 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (45 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPoisonSting(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};
     }

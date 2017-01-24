@@ -27,7 +27,7 @@ public class Inventory{
         itemList.add(i);
     }
 
-    public void useItem(Player user, Battle bat, Pokemon wild, Options option){ //need methods during and not during battle
+    public void useItem(Player user, Battle bat, Pokemon wild, Options option, PCSystem cp){ //need methods during and not during battle
         Scanner scan = new Scanner(System.in);
         int position = 0;
         int caught;
@@ -42,7 +42,7 @@ public class Inventory{
             position = scan.nextInt();
             switch(position){
                 case -1:
-                    bat.playerAttackPhase(user, wild, option);
+                    bat.playerAttackPhase(user, wild, option, cp);
                     break;
                 case -2:
                     System.out.println("Enter the item number, not the item name!");
@@ -69,17 +69,17 @@ public class Inventory{
                         user.party[id].setExperience(0);
                         user.storage[id] = wild;
                         //PC.addPokemon(wild);
-                        bat.wildLose(wild, user, option);
+                        bat.wildLose(wild, user, option, cp);
                         break;
                     } else if (caught == -1) {
                         System.out.println(wild.getName() + " escaped the ball!");
-                        bat.wildAttackPhase(user, wild, option);
+                        bat.wildAttackPhase(user, wild, option, cp);
                     } else {
-                        bat.wildAttackPhase(user, wild, option);
+                        bat.wildAttackPhase(user, wild, option, cp);
                     }
             }
         }
-        bat.wildAttackPhase(user, wild, option);
+        bat.wildAttackPhase(user, wild, option, cp);
     }
 
     public void listItemsOutside(){

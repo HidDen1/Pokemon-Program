@@ -1,6 +1,7 @@
 package game;
 
 import pokemon.Pokemon;
+import pokemon.PokemonEmpty;
 
 import java.util.Scanner;
 
@@ -27,14 +28,14 @@ public class Player{
         party[0].setExperience(0);
         party[0].setHealth(beginner.getHealthPoints());
         storage [0] = beginner;
-        party [1] = null;
-        party [2] = null;
-        party [3] = null;
-        party [4] = null;
-        party [5] = null;
+        Pokemon empty = Pokemon.emptySlot();
+        party [1] = empty;
+        party [2] = empty;
+        party [3] = empty;
+        party [4] = empty;
+        party [5] = empty;
         expToLevelUp();
         expToLevelUpPokemon(0);
-        //PCSystem PC = new PCSystem();
     }
 
     void getAllStats(){
@@ -46,9 +47,9 @@ public class Player{
         //System.out.println("Name: " + party[0].getName());
         //System.out.println("Level: " + party[0].getLevel());
         //System.out.println("Attack: " + party[0].getAttack());
-        //System.out.println("Deffense: " + party[0].getDeffense());
+        //System.out.println("Defense: " + party[0].getDefense());
         //System.out.println("Special Attack: " + party[0].getSpecialAttack());
-        //System.out.println("Special Deffence: " + party[0].getSpecialDeffense());
+        //System.out.println("Special Defence: " + party[0].getSpecialDefense());
         //System.out.println("Speed: " + party[0].getSpeed());
         //System.out.println("HP: " + remainingHealth[0] + "/" + party[0].getHealthPoints());
         //System.out.println("EXP: " + pokemonExp[0] + " / " + toLevelUpPokemon);
@@ -135,26 +136,38 @@ public class Player{
     }
 
     void getPartyPokemon(){ //will have an option to check their stats
-        int a = 0;
-        while (a <= party.length - 1){
-            a++;
-            System.out.println(a + ". " + party[a - 1].getName());
+        //int a = 0;
+        for (int i = 1; i <= 6; i++){
+            System.out.println(i + ". " + party[i - 1].getName());
         }
+        //while (a <= party.length - 1){
+            //a++;
+
+        //}
     }
 
 
-    void viewStats(Player user){
+    void viewStats(Player user, Options option){
         Scanner scan = new Scanner(System.in);
         System.out.println("Select a pokemon that you want to view. Enter -1 to go back.");
         int c = scan.nextInt();
-        while (c > 6 || c == 0 || c < -1){
+        if (c == -1){
+            option.optionsMenu();
+        }
+        if (party[c - 1].getName().equalsIgnoreCase("Empty")){
+            c = -1;
+            System.out.println("That slot is empty!");
+        }
+        while (c > 6 || c == 0 || c <= -1){
             System.out.println("Please enter a valid slot!");
             c = scan.nextInt();
         }
-        if (c != -1){
+        if (c > -1){
             c = c - 1;
             System.out.println("Name: " + party[c].getName());
             System.out.println("Level: " + party[c].getLevel());
+            System.out.println(party [c].getGenderB());
+            System.out.println("Nature: " + party[c].nat.getNatureName());
             System.out.println("Attack: " + party[c].getAttack());
             System.out.println("Defense: " + party[c].getDefense());
             System.out.println("Special Attack: " + party[c].getSpecialAttack());
@@ -169,7 +182,7 @@ public class Player{
                 k = scan.nextInt();
             }
             user.getPartyPokemon();
-            viewStats(user);
+            viewStats(user, option);
         }
     }
 

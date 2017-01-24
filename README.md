@@ -15,15 +15,20 @@ TODO: Differentiate all items and create continuous item functioning
     Bug List:
     -Wild pokemon using non existent moves
     -Stats after evolving broken/not correct
+    -Index out of bounds error when using ultra ball/when something reached 7
+    -Empty slots can be used in battle
+    -Stats are not accurate to games
+    -Crash on shutdown
      
     Battle mechanics that still need to be added:
+    -PP
+    -Accuracy and Evasivness
     -Not losing till all available pokemon faint
     -Switching pokemon into the party from the pc
-    -Evolution
-    -Typing
-    -EVs
+    -Evolution (needs work)
+    -Typing (implemented?)
+    -EVs (each pokemon will need ev and iv values for each stat, iv random, ev set value, if no ev then it will = 0, also need values for pokemons current evs)
     -Proper IVs
-    -Natures
     -Proper Exp calculations
     -Abilities
     -Switching pokemon around in the party
@@ -31,10 +36,33 @@ TODO: Differentiate all items and create continuous item functioning
     -Proper id assigning when catching pokemon and in all of the methods that currently have party[0] as placeholders
     -Status effects
     -Having less then 6 pokemon after more then 6 are caught
+    -Double, Triple, Trainer battles
      
      
     Version History:
-     
+
+    Version 0.29.00 1/22/2017-1/23/2017
+    -Added a main nature class and classes for each nature
+    -Added genders to all pokemon
+    -Added gender to stats display
+    -Added nature generator
+    -Added natures to stat view
+    -Added nature bonuses to stat calculations
+    -Fixed stats not being displayed properly
+    -Began implementing natures and EVs
+
+    Version 0.28.00 1/13/2017
+    -Added exception so that the stats of an empty slot cannot be viewed
+    -Fixed crashes when checking party pokemon
+    -Catch rate increased temporarily
+
+    Version 0.27.00 1/11/2017
+    -Further implementation of PC system
+    -Crashes when trying to catch Pokemon found
+
+    Version 0.26.00 1/2/2017
+    -Mis reference fixes
+
     Version 0.25.00 12/14/2016
     -Began implementing PC System
      

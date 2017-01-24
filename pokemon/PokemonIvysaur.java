@@ -16,11 +16,12 @@ public class PokemonIvysaur extends Pokemon{
         levEv = 32;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT), Type.getType(TypePoison.SPOT)};
-        atk = (62 * 2 + iv) * lev / 100 + 5;
-        def = (63 * 2 + iv) * lev / 100 + 5;
-        spAtk = (80 * 2 + iv) * lev / 100 + 5;
-        spDef = (80 * 2 + iv) * lev / 100 + 5;
-        spd = (60 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((62 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((63 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((80 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((80 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((60 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (60 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackVineWhip(), new AttackRazorLeaf(), new AttackDoubleEdge(), new AttackSolarbeam()};
     }

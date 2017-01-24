@@ -15,11 +15,12 @@ public class PokemonBulbasaur extends Pokemon{
         levEv = 16;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeGrass.SPOT)};
-        atk = (49 * 2 + iv) * lev / 100 + 5;
-        def = (49 * 2 + iv) * lev / 100 + 5;
-        spAtk = (65 * 2 + iv) * lev / 100 + 5;
-        spDef = (65 * 2 + iv) * lev / 100 + 5;
-        spd = (45 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((49 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((49 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((65 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((65 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((45 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (45 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackVineWhip(), new AttackRazorLeaf(), new AttackSeedBomb(), new AttackSolarbeam()};
     }

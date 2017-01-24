@@ -19,11 +19,12 @@ public class PokemonWeedle extends Pokemon{
         levEv = 7;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeBug.SPOT), Type.getType(TypePoison.SPOT)};
-        atk = (35 * 2 + iv) * lev / 100 + 5;
-        def = (30 * 2 + iv) * lev / 100 + 5;
-        spAtk = (20 * 2 + iv) * lev / 100 + 5;
-        spDef = (20 * 2 + iv) * lev / 100 + 5;
-        spd = (50 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((35 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((30 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((20 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((20 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((50 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (40 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackPoisonSting(), new AttackBugBite(), new AttackEmpty(),new AttackEmpty()};
     }

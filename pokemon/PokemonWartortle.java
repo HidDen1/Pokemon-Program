@@ -15,11 +15,12 @@ public class PokemonWartortle extends Pokemon{
         levEv = 36;
         expMax = Math.pow(lev * 10 , 2);
         type = new Type[]{Type.getType(TypeWater.SPOT)};
-        atk = (63 * 2 + iv) * lev / 100 + 5;
-        def = (80 * 2 + iv) * lev / 100 + 5;
-        spAtk = (65 * 2 + iv) * lev / 100 + 5;
-        spDef = (80 * 2 + iv) * lev / 100 + 5;
-        spd = (58 * 2 + iv) * lev / 100 + 5;
+        gender = setGender();
+        atk = ((63 * 2 + iv) * lev / 100 + 5) * nat.getAtkBonus();
+        def = ((80 * 2 + iv) * lev / 100 + 5) * nat.getDefBonus();
+        spAtk = ((65 * 2 + iv) * lev / 100 + 5) * nat.getSpAtkBonus();
+        spDef = ((80 * 2 + iv) * lev / 100 + 5) * nat.getSpDefBonus();
+        spd = ((58 * 2 + iv) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (59 * 2 + iv) * lev / 100 + 10;
         att = new Attack[]{new AttackAquaTail(), new AttackIceBeam(), new AttackBite(), new AttackBrine()};
     }
