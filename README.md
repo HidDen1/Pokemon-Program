@@ -14,21 +14,19 @@ TODO: Differentiate all items and create continuous item functioning
 ##Changelog
     Bug List:
     -Wild pokemon using non existent moves
-    -Stats after evolving broken/not correct
     -Index out of bounds error when using ultra ball/when something reached 7
     -Empty slots can be used in battle
     -Stats are not accurate to games
     -Crash on shutdown
+    -Checking bag shuts down the game
+    -Catching Pokemon is very broken
      
     Battle mechanics that still need to be added:
     -PP
     -Accuracy and Evasivness
     -Not losing till all available pokemon faint
     -Switching pokemon into the party from the pc
-    -Evolution (needs work)
     -Typing (implemented?)
-    -EVs (each pokemon will need ev and iv values for each stat, iv random, ev set value, if no ev then it will = 0, also need values for pokemons current evs)
-    -Proper IVs
     -Proper Exp calculations
     -Abilities
     -Switching pokemon around in the party
@@ -41,6 +39,32 @@ TODO: Differentiate all items and create continuous item functioning
      
     Version History:
 
+    Version 0.33.00 2/1/2017
+    -Fixed beginner pokemon choice being broken
+    -Fixed crash when checking stats in battle
+    -Temporarily removed check for empty slots as it was broken anyways
+
+    Version 0.32.00 1/27/2017 - 1/31/2017
+    -Added methods for getting additional values from pokemon including evs, ivs, and base stats
+    -Added separate variables for base stats to make calculations easier
+    -Added better evolution by making a new pokemon and setting the old pokemon values equal to
+    -Added new calculations for leveling up (same as new ones in evolution)
+    -Added the gaining of EVs whenever a Pokemon is defeated
+    -Fixed evolved Pokemon having lower stats than its previous evolution
+    -Misc cleaning of code
+
+    Version 0.31.00 1/25/2017 - 1/26/2017
+    -Added variables for base stats
+    -Added ivs for each individual stat
+    -Added final stat calculations in pokemon classes that include correct evs and ivs
+    -Temporarily disabled all pc system features
+
+    Version 0.30.00 1/24/2017
+    -Added natures to level up calculations
+    -Added natures to pokemon
+    -Added evs given from defeating a pokemon
+    -Added values to store a Pokemon's evs
+
     Version 0.29.00 1/22/2017-1/23/2017
     -Added a main nature class and classes for each nature
     -Added genders to all pokemon
@@ -48,6 +72,7 @@ TODO: Differentiate all items and create continuous item functioning
     -Added nature generator
     -Added natures to stat view
     -Added nature bonuses to stat calculations
+    -Changed the way items work
     -Fixed stats not being displayed properly
     -Began implementing natures and EVs
 

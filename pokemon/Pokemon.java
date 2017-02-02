@@ -7,8 +7,9 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, gender;
-    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG, hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV;
-    protected int iv, id;
+    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG,
+            hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV, totalEV, atkIV, defIV, spDefIV, spAtkIV, spdIV, hpIV, baseAtk,
+            baseDef, baseSpAtk, baseSpDef, baseSpd, baseHp, pokeNum, captureRate;
     public Nature nat;
     public Attack att [] = new Attack[4];
     public Type[] type;
@@ -16,6 +17,26 @@ public abstract class Pokemon{
 
     public String getName(){
         return(name);
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public double getPokeNum(){
+        return pokeNum;
+    }
+
+    public void setPokeNum(double pokeNum){
+        this.pokeNum = pokeNum;
+    }
+
+    public void setEvolution(Pokemon evolution){
+        this.evolution = evolution;
+    }
+
+    public void setLevEv(double levEv){
+        this.levEv = levEv;
     }
 
     public double getHealth(){
@@ -94,27 +115,173 @@ public abstract class Pokemon{
         lev = l;
     }
 
+    public double getBaseAtk(){
+        return baseAtk;
+    }
+
+    public void setBaseAtk(double baseAtk){
+        this.baseAtk = baseAtk;
+    }
+
+    public double getBaseDef(){
+        return baseDef;
+    }
+
+    public void setBaseDef(double baseDef){
+        this.baseDef = baseDef;
+    }
+
+    public double getBaseSpAtk(){
+        return baseSpAtk;
+    }
+
+    public void setBaseSpAtk(double baseSpAtk){
+        this.baseSpAtk = baseSpAtk;
+    }
+
+    public double getBaseSpDef(){
+        return baseSpDef;
+    }
+
+    public void setBaseSpDef(double baseSpDef){
+        this.baseSpDef = baseSpDef;
+    }
+
+    public double getBaseSpd(){
+        return baseSpd;
+    }
+
+    public void setBaseSpd(double baseSpd){
+        this.baseSpd = baseSpd;
+    }
+
+    public double getBaseHp(){
+        return baseHp;
+    }
+
+    public void setBaseHp(double baseHp){
+        this.baseHp = baseHp;
+    }
+
+    public double getAtkIV(){
+        return atkIV;
+    }
+
+    public double getAtkEV(){
+        return atkEV;
+    }
+
+    public double getDefIV(){
+        return defIV;
+    }
+
+    public double getDefEV(){
+        return defEV;
+    }
+
+    public double getSpAtkIV(){
+        return spAtkIV;
+    }
+
+    public double getSpAtkEV(){
+        return spAtkEV;
+    }
+
+    public double getSpDefIV(){
+        return spDefIV;
+    }
+
+    public double getSpDefEV(){
+        return spDefEV;
+    }
+
+    public double getSpdIV(){
+        return spdIV;
+    }
+
+    public double getSpdEV(){
+        return spdEV;
+    }
+
+    public double getHpIV(){
+        return hpIV;
+    }
+
+    public double getHpEV(){
+        return hpEV;
+    }
+
+    public double getTotalEV(){
+        return totalEV;
+    }
+
+    public void setAtkEv(double atk){
+        this.atkEV = atk;
+    }
+
+    public void setDefEv(double def){
+        this.defEV = def;
+    }
+
+    public void setSpAtkEv(double spAtk){
+        this.spAtkEV = spAtk;
+    }
+
+    public void setSpDefEv(double spDef){
+        this.spDefEV = spDef;
+    }
+
+    public void setSpdEv(double spd){
+        this.spdEV = spd;
+    }
+
+    public void setHpEv(double hp){
+        this.hpEV = hp;
+    }
+
+    public void setTotalEv(double total){
+        this.totalEV = total;
+    }
+
     public String getGenderB(){
         return gender;
     }
 
-    public int getIV(){
-        return(iv);
-    }
+    //public int getIV(){
+        //return(iv);
+    //}
 
     public double getAtkEVG(){
-        return (getAtkEVG());
+        return (atkEVG);
     }
 
+    public double getDefEVG(){
+        return (defEVG);
+    }
 
+    public double getSpAtkEVG(){
+        return (spAtkEVG);
+    }
+
+    public double getSpDefEVG(){
+        return (spDefEVG);
+    }
+
+    public double getSpdEVG(){
+        return (spdEVG);
+    }
+
+    public double getHpEVG(){
+        return (hpEVG);
+    }
 
     public Type[] getElementType(){
         return(type);
     }
 
-    public int getID(){
-        return (id);
-    }
+    //public int getID(){
+        //return (id);
+    //}
 
 
     static Pokemon[] getRarityLev1(int lev){
@@ -130,7 +297,7 @@ public abstract class Pokemon{
     }
 
     static Pokemon[] getStarters(int lev){
-        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev)};
+        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonCharmander(lev), new PokemonSquirtle(lev)};
     }
 
     static Nature[] getNatures(){
