@@ -10,6 +10,7 @@ public abstract class Pokeball extends Item{
         setStackable(true);
     }
     public int use(Player user){
+        setStack(getStack() - 1);
         return catchPokemon(ballBonus);
     }
 

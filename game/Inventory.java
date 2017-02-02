@@ -4,6 +4,7 @@ import item.Item;
 import pokemon.Pokemon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Inventory{
@@ -21,10 +22,12 @@ public class Inventory{
         } else {
             System.out.println("Bag is full");
         }
+        stackItem();
     }
 
     public void addNewItem(Item i){
         itemList.add(i);
+        stackItem();
     }
 
     public void useItem(Player user, Battle bat, Pokemon wild, Options option){ //need methods during and not during battle
@@ -55,7 +58,7 @@ public class Inventory{
                         System.out.println("No item in that slot");
                         break;
                     }
-                    itemList.remove(position);
+                    removeItems();
                     position = -1;
                     if (caught == 1){
                         System.out.println("The wild " + wild.getName() + " was caught!");
@@ -89,7 +92,7 @@ public class Inventory{
         } else {
             int num = 1;
             for(Item i : itemList){
-                System.out.println(num + ". " + i.getItemName());
+                System.out.println(num + ". " + i.getItemName() + " (x" + i.getStack() + ")");
                 num++;
             }
             //useItem(); items outside of battle need to be added
@@ -109,14 +112,30 @@ public class Inventory{
     }
 
     private void stackItem(){
-        byte num = Byte.valueOf(Integer.toString(itemList.size() - 1)), num1 = 0;
-        for(Item i : itemList){
-            for(byte j = num; j > num1; j--){
-                if(i.isStackable() && itemList.get(j).isStackable() && i.getItemName().equals(itemList.get(j).getItemName())){
-                    i.setStack(i.getStack() + 1);
-                    itemList.remove(j);
+        Item[] stacking = itemList.toArray(new Item[itemList.size()]);
+        byte num = Byte.valueOf(Integer.toString(stacking.length - 1)), num1 = 0;
+        if(stacking.length > 1) {
+            for (Item i : stacking) {
+                for (byte j = num; j > num1; j--) {
+                    System.out.println(i.getItemName() + " | " + stacking[j].getItemName() + " | " + j);
+                    if (i.isStackable() && stacking[j].isStackable() && stacking[j].getStack() > 0 && i.getItemName().equals(stacking[j].getItemName())) {
+                        i.setStack(i.getStack() + 1);
+                        stacking[j].setStack(0);
+                    }
                 }
+                num1++;
             }
+            itemList.clear();
+            itemList = new ArrayList<>(Arrays.asList(stacking));
+            removeItems();
+        }
+
+    }
+
+    private void removeItems(){
+        for(byte i = 0; i < itemList.size(); i++){
+            if(itemList.get(i).getStack() == 0)
+                itemList.remove(i);
         }
     }
 

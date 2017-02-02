@@ -45,6 +45,8 @@ public abstract class Pokemon{
 
     public void setHealth(double hp){
         this.hp = hp;
+        if(this.hp > hpMax)
+            this.hp = hpMax;
     }
 
     public double getExperience(){ return exp; }

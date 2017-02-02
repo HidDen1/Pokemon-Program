@@ -11,9 +11,11 @@ public abstract class Potion extends Item{
     }
 
     public int use(Player user){
+        double h = user.getParty()[0].getHealth(), hM;
         user.getParty()[0].setHealth(user.getParty()[0].getHealth() + healthRestore);
-        healthRestore = user.healthCheck(healthRestore);
-        System.out.println("You have regained " + healthRestore + " HP.");
+        hM = user.getParty()[0].getHealth();
+        System.out.println("You have regained " + (hM - h) + " HP.");
+        setStack(getStack() - 1);
         return 0;
     }
 
