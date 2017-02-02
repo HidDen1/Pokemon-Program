@@ -98,8 +98,20 @@ public class Inventory{
             }
         int num = 1;
         for(Item i : itemList){
-            System.out.println(num + ". " + i.getItemName());
+            System.out.println(num + ". " + i.getItemName() + " (x" + i.getStack() + ")");
             num++;
+        }
+    }
+
+    private void stackItem(){
+        byte num = Byte.valueOf(Integer.toString(itemList.size() - 1)), num1 = 0;
+        for(Item i : itemList){
+            for(byte j = num; j > num1; j--){
+                if(i.isStackable() && itemList.get(j).isStackable() && i.getItemName().equals(itemList.get(j).getItemName())){
+                    i.setStack(i.getStack() + 1);
+                    itemList.remove(j);
+                }
+            }
         }
     }
 

@@ -5,6 +5,10 @@ import game.Player;
 public abstract class Pokeball extends Item{
     private double ballBonus;
 
+    public Pokeball(int num){
+        super(num);
+        setStackable(true);
+    }
     public int use(Player user){
         return catchPokemon(ballBonus);
     }

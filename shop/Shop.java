@@ -21,8 +21,6 @@ public abstract class Shop {
     }
 
     public void shop(Player user, Options o, PCSystem pc){
-        String choiceString;
-        int choice = 0;
         Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to the " + shopName + ", " + user.getName());

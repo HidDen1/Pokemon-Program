@@ -5,9 +5,15 @@ import game.Player;
 public abstract class Item {
     private String itemName;
     private int value;
+    private boolean stackable;
+    private int stack;
+
+    public Item(int num){
+        stack = num;
+    }
 
     public static Item[] itemList(){
-        return new Item[]{new ItemEmpty(), new PokeballNormal(), new PokeballGreat(), new PokeballUltra(), new PotionNormal(), new PotionSuper(), new PotionHyper()}; //TODO add the items here
+        return new Item[]{new ItemEmpty(1), new PokeballNormal(1), new PokeballGreat(1), new PokeballUltra(1), new PotionNormal(1), new PotionSuper(1), new PotionHyper(1)}; //TODO add the items here
     }
 
     public abstract int use(Player user);
@@ -28,40 +34,19 @@ public abstract class Item {
         this.value = value;
     }
 
-    /*public int use(Player user){
-        int caught = 0;
-        double healthGain;
+    public boolean isStackable() {
+        return stackable;
+    }
 
-        switch(itemID){
-            case 1:
-                System.out.println("Go Pokeball!");
-                caught = catchPokemon(1);
-                return caught;
-            case 2:
-                System.out.println("Go Greatball!");
-                caught = catchPokemon(1.5);
-                return caught;
-            case 3:
-                System.out.println("Go Ultraball!");
-                caught = catchPokemon(2);
-                return caught;
-            case 4:
-                user.party[0].setHealth(user.party[0].getHealth() + 20);
-                healthGain = user.healthCheck(20);
-                System.out.println("You have regained " + healthGain + " HP.");
-                return caught;
-            case 5:
-                user.party[0].setHealth(user.party[0].getHealth() + 50);
-                healthGain = user.healthCheck(50);
-                System.out.println("You have regained " + healthGain + " HP.");
-                return caught;
-            case 6:
-                user.party[0].setHealth(user.party[0].getHealth() + 200);
-                healthGain = user.healthCheck(200);
-                System.out.println("You have regained " + healthGain + " HP.");
-                return caught;
-        }
-        return caught;
-    } */
+    protected void setStackable(boolean stackable) {
+        this.stackable = stackable;
+    }
 
+    public int getStack() {
+        return stack;
+    }
+
+    public void setStack(int stack) {
+        this.stack = stack;
+    }
 }

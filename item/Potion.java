@@ -5,6 +5,11 @@ import game.Player;
 public abstract class Potion extends Item{
     private double healthRestore;
 
+    public Potion(int num){
+        super(num);
+        setStackable(true);
+    }
+
     public int use(Player user){
         user.getParty()[0].setHealth(user.getParty()[0].getHealth() + healthRestore);
         healthRestore = user.healthCheck(healthRestore);
