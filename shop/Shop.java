@@ -1,6 +1,7 @@
 package shop;
 
 import game.Options;
+import game.PCSystem;
 import game.Player;
 import item.Item;
 
@@ -20,8 +21,6 @@ public abstract class Shop {
     }
 
     public void shop(Player user, Options o){
-        String choiceString;
-        int choice = 0;
         Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to the " + shopName + ", " + user.getName());
