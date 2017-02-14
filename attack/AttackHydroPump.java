@@ -10,6 +10,9 @@ public class AttackHydroPump extends Attack{
         type = Type.getType(TypeWater.SPOT);
         physical = false;
         power = 110;
+        description = "The target is blasted by a huge volume of water launched under great pressure.";
+        accuracy = 80;
+        powerpoints = 5;
     }
 
 }

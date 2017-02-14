@@ -10,6 +10,9 @@ public class AttackRazorLeaf extends Attack{
         type = Type.getType(TypeGrass.SPOT);
         physical = true;
         power = 55;
+        description = "Sharp-edged leaves are launched to slash at the opposing Pokémon. Critical hits land more easily.";
+        accuracy = 95;
+        powerpoints = 25;
     }
 
 }

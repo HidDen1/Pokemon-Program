@@ -10,6 +10,9 @@ public class AttackFireFang extends Attack{
         type = Type.getType(TypeFire.SPOT);
         physical = true;
         power = 65;
+        description = "The user bites with flame-cloaked fangs. This may also make the target flinch or leave it with a burn.";
+        accuracy = 95;
+        powerpoints = 15;
     }
 
 }

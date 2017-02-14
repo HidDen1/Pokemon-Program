@@ -10,6 +10,9 @@ public class AttackPoisonSting extends Attack{
         type = Type.getType(TypePoison.SPOT);
         physical = true;
         power = 15;
+        description = "The user stabs the target with a poisonous stinger. This may also poison the target.";
+        accuracy = 100;
+        powerpoints = 35;
     }
 
 }

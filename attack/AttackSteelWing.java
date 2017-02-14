@@ -10,6 +10,9 @@ public class AttackSteelWing extends Attack{
         type = Type.getType(TypeSteel.SPOT);
         physical = true;
         power = 70;
+        description = "The target is hit with wings of steel. This may also raise the user's Defense stat.";
+        accuracy = 90;
+        powerpoints = 25;
     }
 
 }

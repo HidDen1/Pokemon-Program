@@ -9,7 +9,10 @@ public class AttackIceBeam extends Attack{
         name = "Ice Beam";
         type = Type.getType(TypeIce.SPOT);
         physical = true;
-        power = 60;
+        power = 90;
+        description = "The target is struck with an icy-cold beam of energy. This may also leave the target frozen.";
+        accuracy = 100;
+        powerpoints = 10;
     }
 
 }

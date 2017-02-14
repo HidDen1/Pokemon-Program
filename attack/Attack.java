@@ -3,10 +3,10 @@ package attack;
 import type.Type;
 
 public abstract class Attack {
-    protected String name;
+    protected String name, description;
     protected Type type;
     protected boolean physical;
-    protected int power;
+    protected int power, accuracy, powerpoints;
 
     public String getName(){
         return name;
@@ -26,5 +26,17 @@ public abstract class Attack {
 
     public String toString(){
         return(name);
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public int getAccuracy(){
+        return accuracy;
+    }
+
+    public int getPowerPoints(){
+        return powerpoints;
     }
 }

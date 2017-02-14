@@ -21,11 +21,16 @@ public class Game {
         System.out.println("Choose your beginner pokemon.");
         System.out.println("1. Bulbasaur, 2. Charmander, 3. Squirtle");
         typ = scan.nextInt();
-        Player user = new Player(trainerName, typ);
+        while (typ > 4 || typ < 1){
+            System.out.print("Please enter a valid beginner Pokemon choice");
+            typ = scan.nextInt();
+        }
+        Pokedex pokedex = new Pokedex();
+        Player user = new Player(trainerName, typ, pokedex);
         Options option = new Options();
-        Battle bat = new Battle();
+        //Battle bat = new Battle();
         //PCSystem cp = new PCSystem();
-        option.options(option.optionsMenu(), user);
+        option.options(option.optionsMenu(), user, pokedex);
     }
 
     public static void startGUI(){

@@ -10,6 +10,9 @@ public class AttackHeatWave extends Attack{
         type = Type.getType(TypeFire.SPOT);
         physical = false;
         power = 90;
+        description = "The user attacks by exhaling hot breath on the opposing Pokémon. This may also leave those Pokémon with a burn.";
+        accuracy = 90;
+        powerpoints = 10;
     }
 
 }

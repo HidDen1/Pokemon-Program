@@ -10,6 +10,9 @@ public class AttackPetalBlizzard extends Attack{
         type = Type.getType(TypeGrass.SPOT);
         physical = true;
         power = 90;
+        description = "The user stirs up a violent petal blizzard and attacks everything around it.";
+        accuracy = 100;
+        powerpoints = 15;
     }
 
 }

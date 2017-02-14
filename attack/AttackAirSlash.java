@@ -10,6 +10,9 @@ public class AttackAirSlash extends Attack{
         type = Type.getType(TypeFlying.SPOT);
         physical = false;
         power = 75;
+        description = "The user attacks with a blade of air that slices even the sky. This may also make the target flinch.";
+        accuracy = 95;
+        powerpoints = 15;
     }
 
 }

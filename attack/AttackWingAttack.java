@@ -10,6 +10,9 @@ public class AttackWingAttack extends Attack{
         type = Type.getType(TypeFlying.SPOT);
         physical = true;
         power = 60;
+        description = "The target is struck with large, imposing wings spread wide to inflict damage.";
+        accuracy = 100;
+        powerpoints = 35;
     }
 
 }

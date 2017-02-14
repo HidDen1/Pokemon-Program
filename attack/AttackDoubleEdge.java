@@ -10,6 +10,9 @@ public class AttackDoubleEdge extends Attack{
         type = Type.getType(TypeNormal.SPOT);
         physical = true;
         power = 120;
+        description = "A reckless, life-risking tackle. This also damages the user quite a lot.";
+        accuracy = 100;
+        powerpoints = 15;
     }
 
 }

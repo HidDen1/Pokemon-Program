@@ -21,10 +21,11 @@ public class Player{
         return party;
     }
 
-    public Player(String trainerName, int typ){
+    public Player(String trainerName, int typ, Pokedex pokedex){
         name = trainerName;
         Pokemon beginner = Pokemon.beginnerPokemon(typ - 1);
         party [0] = beginner;
+        pokedex.addPokemon(party[0].getPokeNum());
         party[0].setExperience(0);
         party[0].setHealth(beginner.getHealthPoints());
         storage [0] = beginner;
@@ -177,7 +178,7 @@ public class Player{
 
     }
 
-    public void gainExperiencePokemon(int currentID){ //needs actual expMax calculations, needs changed in the event of multiple level ups at once, wont happen now cause set exp
+    public void gainExperiencePokemon(int currentID, Pokedex pokedex){ //needs actual expMax calculations, needs changed in the event of multiple level ups at once, wont happen now cause set exp
         if (party[currentID].getLevel() < 100){
             party[currentID].setExperience(party[currentID].getExperience() + 100);
             if (party[currentID].getExperience() >= toLevelUpPokemon){
@@ -198,6 +199,7 @@ public class Player{
                 Pokemon evolution = party[0].getEvolution();
                 party[currentID].setName(evolution.getName());
                 party[currentID].setPokeNum(evolution.getPokeNum());
+                pokedex.addPokemon(party[currentID].getPokeNum());
                 party[currentID].setEvolution(evolution.getEvolution());
                 party[currentID].setLevEv(evolution.getLevEv());
                 party[currentID].type = evolution.getElementType();
@@ -220,19 +222,14 @@ public class Player{
         }
     }
 
-    private void expToLevelUpPokemon(int currentID){ //caluclates expMax needed to level up beginner pokemon, needs updated for all pokemon, actual expMax calculation needed
+    private void expToLevelUpPokemon(int currentID){ //actual expMax calculation needed
         toLevelUpPokemon = Math.pow(party[currentID].getLevel() * 2 , 2);
     }
 
-    void getPartyPokemon(){ //will have an option to check their stats
-        //int a = 0;
+    void getPartyPokemon(){
         for (int i = 1; i <= 6; i++){
             System.out.println(i + ". " + party[i - 1].getName());
         }
-        //while (a <= party.length - 1){
-            //a++;
-
-        //}
     }
 
 

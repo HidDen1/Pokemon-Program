@@ -24,16 +24,16 @@ public class Options{
 
     }
 
-    public void options(int options, Player user){
+    public void options(int options, Player user, Pokedex pokedex){
         switch (options) {
             case 1:
-                adventure(user, this);
-                options(optionsMenu(), user);
+                adventure(user, this, pokedex);
+                options(optionsMenu(), user, pokedex);
                 break;
             case 2:
                 user.getPartyPokemon();
                 user.viewStats(user);
-                options(optionsMenu(), user);
+                options(optionsMenu(), user, pokedex);
                 break;
             case 3:
                 user.getAllStats();
@@ -41,15 +41,15 @@ public class Options{
                 break;
             case 4:
                 user.getInventory().listItemsOutside();
-                options(optionsMenu(), user);
+                options(optionsMenu(), user, pokedex);
                 break;
             case 5:
-                System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user);
+                pokedex.displayPokedex();
+                options(optionsMenu(), user, pokedex);
                 break;
             case 6:
                 System.out.println("This feature is coming soon!");
-                options(optionsMenu(), user);
+                options(optionsMenu(), user, pokedex);
                 break;
             case -1:
                 System.out.println("Game Over");
@@ -59,10 +59,10 @@ public class Options{
         }
     }
 
-    public void adventure(Player user, Options option){
+    public void adventure(Player user, Options option, Pokedex pokedex){
         int event;
         event = (int) getChance();
-        eventOption(event, user, option);
+        eventOption(event, user, option, pokedex);
     }
 
     public double getChance(){
@@ -73,11 +73,11 @@ public class Options{
         return chance;
     }
 
-    private void eventOption(int event, Player user, Options option){
+    private void eventOption(int event, Player user, Options option, Pokedex pokedex){
         if (event <= 75){
-            new Battle().startBattle(user, option);
+            new Battle().startBattle(user, option, pokedex);
         } else if (event >= 76 && event <= 100){
-            getLocation(user);
+            getLocation(user, pokedex);
         }
     }
 
@@ -97,7 +97,7 @@ public class Options{
         }
     }
 
-    private void getLocation(Player user){
+    private void getLocation(Player user, Pokedex pokedex){
         double l = 1 + Math.random() * (5 - 1);
         int j = (int) l;
 
@@ -117,7 +117,7 @@ public class Options{
             case 4:
                 System.out.println("You found a mart!");
                 Shop shop = new ShopMart();
-                shop.shop(user, this);
+                shop.shop(user, this, pokedex);
                 break;
             case 5:
                 System.out.println("You found a pokemon center!");

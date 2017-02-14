@@ -9,7 +9,8 @@ public abstract class Pokemon{
     protected String name, gender;
     protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG,
             hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV, totalEV, atkIV, defIV, spDefIV, spAtkIV, spdIV, hpIV, baseAtk,
-            baseDef, baseSpAtk, baseSpDef, baseSpd, baseHp, pokeNum, captureRate;
+            baseDef, baseSpAtk, baseSpDef, baseSpd, baseHp, captureRate;
+    protected int pokeNum;
     public Nature nat;
     public Attack att [] = new Attack[4];
     public Type[] type;
@@ -23,11 +24,11 @@ public abstract class Pokemon{
         this.name = name;
     }
 
-    public double getPokeNum(){
+    public int getPokeNum(){
         return pokeNum;
     }
 
-    public void setPokeNum(double pokeNum){
+    public void setPokeNum(int pokeNum){
         this.pokeNum = pokeNum;
     }
 
@@ -287,19 +288,19 @@ public abstract class Pokemon{
 
 
     static Pokemon[] getRarityLev1(int lev){
-        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev), new PokemonCaterpie(lev), new PokemonWeedle(lev), new PokemonPidgey(lev)};
+        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonSquirtle(lev), new PokemonCharmander(lev), new PokemonCaterpie(lev), new PokemonWeedle(lev), new PokemonPidgey(lev), new PokemonRattata(lev), new PokemonSpearow(lev), new PokemonEkans(lev), new PokemonPikachu(lev)};
     }
 
     static Pokemon[] getRarityLev2(int lev){
-        return new Pokemon[]{new PokemonIvysaur(lev), new PokemonWartortle(lev), new PokemonCharmeleon(lev), new PokemonMetapod(lev), new PokemonKakuna(lev), new PokemonPidgeotto(lev)};
+        return new Pokemon[]{new PokemonIvysaur(lev), new PokemonWartortle(lev), new PokemonCharmeleon(lev), new PokemonMetapod(lev), new PokemonKakuna(lev), new PokemonPidgeotto(lev), new PokemonRaticate(lev), new PokemonFearow(lev), new PokemonArbok(lev)};
     }
 
     static Pokemon[] getRarityLev3(int lev){
-        return new Pokemon[]{new PokemonVenusaur(lev), new PokemonBlastoise(lev), new PokemonCharizard(lev), new PokemonButterfree(lev), new PokemonBeedrill(lev), new PokemonPidgeot(lev)};
+        return new Pokemon[]{new PokemonVenusaur(lev), new PokemonBlastoise(lev), new PokemonCharizard(lev), new PokemonButterfree(lev), new PokemonBeedrill(lev), new PokemonPidgeot(lev), new PokemonRaichu(lev)};
     }
 
     static Pokemon[] getStarters(int lev){
-        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonCharmander(lev), new PokemonSquirtle(lev)};
+        return new Pokemon[]{new PokemonBulbasaur(lev), new PokemonCharmander(lev), new PokemonSquirtle(lev), new PokemonPikachu(lev)};
     }
 
     static Nature[] getNatures(){
@@ -307,17 +308,23 @@ public abstract class Pokemon{
     }
 
     static public Pokemon wildPokemon(Player user){
-        int id = idGenerator();
+        int id, amount;
         double chance;
         chance = getChance();
         Pokemon p;
         int lev = levelGenerator(user);
 
         if (chance <= 60){
+            amount = 9;
+            id = idGenerator(amount);
             p = getRarityLev1(lev)[id];
         } else if (chance <= 89){
+            amount = 8;
+            id = idGenerator(amount);
             p = getRarityLev2(lev)[id];
         } else {
+            amount = 6;
+            id = idGenerator(amount);
             p = getRarityLev3(lev)[id];
         }
         assert p != null;
@@ -402,11 +409,11 @@ public abstract class Pokemon{
         return chance;
     }
 
-    private static int idGenerator(){
+    private static int idGenerator(int amount){
         double a;
         int b;
 
-        a = Math.random() * (5);
+        a = Math.random() * (amount);
         b = (int) Math.round(a);
 
         return b;

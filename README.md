@@ -17,29 +17,78 @@ TODO: Differentiate all items and create continuous item functioning
     -Index out of bounds error when using ultra ball/when something reached 7
     -Empty slots can be used in battle
     -Stats are not accurate to games
-    -Crash on shutdown
     -Checking bag shuts down the game
     -Catching Pokemon is very broken
+    -The misc empty exceptions will mostly likley be dealt with when gui is created
+    -Types not being displayed correctly
      
     Battle mechanics that still need to be added:
     -PP
     -Accuracy and Evasivness
+    -Attack and other misc descriptions
     -Not losing till all available pokemon faint
-    -Switching pokemon into the party from the pc
+    -Switching pokemon into the party from the pc (pc temporarily disabled)
     -Typing (implemented?)
     -Proper Exp calculations
     -Abilities
     -Switching pokemon around in the party
-    -Proper movesets
-    -Proper id assigning when catching pokemon and in all of the methods that currently have party[0] as placeholders
+    -Proper movesets (similar to evolution)
+    -Proper id assigning when catching pokemon and in all of the methods that currently have party[0] as placeholders (once items are fixed)
     -Status effects
-    -Having less then 6 pokemon after more then 6 are caught
+    -Having less then 6 pokemon after more then 6 are caught (once items are fixed)
     -Double, Triple, Trainer battles
      
      
     Version History:
 
+    Version 0.40.00 2/13/2017
+    -Added Pokedex entries for Bulbasaur, Charmander, and Squirtle evolution lines
+    -Added ability to view attack info during battle
+    -Added descriptions, powerpoint values, and accuracy values to all attacks (currently do not function)
+    -Misc code fixes and improvements
+
+    Version 0.39.00 2/12/2017
+    -Added exceptions for choosing beginner Pokemon
+    -Added Pikachu as a secret fourth starter
+    -Added placeholder description for all current Pokemon in Pokedex
+    -Began adding ability to check a Pokemon's moves during battle
+    -Fixed pokedex array sizes for new Pokemon
+    -Misc cleaning of code
+    -Misc improvements to the battle class
+
+    Version 0.38.00 2/9/2017
+    -Added the Pokemon Ekans, Arbok, Pikachu (termorarily evolves at level 30), and Raichu
+    -Added correct base stats for the previous versions new Pokemon
+    -Added the attacks Drill Run, Drill Peck, Acid, Acid Spray, Mud Bomb, Gunk Shot, Thunderbolt, Iron Tail, Volt Tackle, Discharge,
+    and Thunder
+    -Added amount variable for the amount of Pokemon in each rarity so it can vary
+    -Added ability to find Rattata, Raticate, Spearow, and Fearow in the wild
+
+    Version 0.37.00 2/8/2017
+    -Added the Pokemon Rattata, Raticate, Spearow, and Fearow
+    -Added the attacks Hyper Fang, Crunch, Assurance, Fury Attack (only hits once with 3x damage), and Aerial Ace
+
+    Version 0.36.00 2/7/2017
+    -Added Pokedex description for Charmander
+    -Fixed Pokedex not displaying descriptions correctly
+    -Fixed crash when going back in pokedex
+
+    Version 0.35.00 2/3/2017
+    -Added placeholders for beginner descriptions
+    -Added description array to pokedex
+
+    Version 0.34.00 2/2/2017
+    -Added ability to check Pokedex in options menu
+    -Added beginner evolved forms to Pokedex
+    -Added Pokedex parameters to misc methods
+    -Fixed amount of pokemon in Pokedex
+    -Temporarily removed empty slot exception from Pokedex
+    -Misc code improvements
+
     Version 0.33.00 2/1/2017
+    -Added beginner being registered to the Pokedex
+    -Added basic description functionality to Pokedex
+    -Changed the Pokenum variable to an int
     -Fixed beginner pokemon choice being broken
     -Fixed crash when checking stats in battle
     -Temporarily removed check for empty slots as it was broken anyways

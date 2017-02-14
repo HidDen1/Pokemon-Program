@@ -10,6 +10,9 @@ public class AttackSlash extends Attack{
         type = Type.getType(TypeNormal.SPOT);
         physical = true;
         power = 70;
+        description = "The target is attacked with a slash of claws or blades. Critical hits land more easily.";
+        accuracy = 100;
+        powerpoints = 20;
     }
 
 }

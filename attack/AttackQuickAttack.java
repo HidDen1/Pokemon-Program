@@ -10,6 +10,9 @@ public class AttackQuickAttack extends Attack{
         type = Type.getType(TypeNormal.SPOT);
         physical = true;
         power = 40;
+        description = "The user lunges at the target at a speed that makes it almost invisible. This move always goes first.";
+        accuracy = 100;
+        powerpoints = 30;
     }
 
 }
