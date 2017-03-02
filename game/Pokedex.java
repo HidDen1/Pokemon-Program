@@ -69,18 +69,24 @@ public class Pokedex {
     public void displayPokedex(){
         Scanner scan = new Scanner(System.in);
         int num = 0;
+        int remainder;
         while (num < currentPokemon){
             num++;
             System.out.print(num + ". ");
             num--;
             if (caught [num] == 1){
-                System.out.print(name [num] + "\n");
+                System.out.print(name [num] + " ");
             } else {
-                System.out.print("-----\n");
-            } //add so that if num is divisible by 10 then make a new line
+                System.out.print("----- ");
+            }
             num++;
+            remainder = num % 15;
+            if (remainder == 0){
+                System.out.print("\n");
+            }
         }
-        System.out.println("Select a Pokemon you want to view\nEnter -1 to go back.");
+
+        System.out.println("\nSelect a Pokemon you want to view\nEnter -1 to go back.");
         num = scan.nextInt();
         while (num == 0 || num > currentPokemon || num <= -2){ //add exception for empty slots
             System.out.println("Please enter a valid number");

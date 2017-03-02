@@ -92,4 +92,7 @@ public abstract class Type {
         return typeNulls.length;
     }
 
+    public String toString(){
+        return name;
+    }
 }

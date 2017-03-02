@@ -31,7 +31,6 @@ public class Options{
                 options(optionsMenu(), user, pokedex);
                 break;
             case 2:
-                user.getPartyPokemon();
                 user.viewStats(user);
                 options(optionsMenu(), user, pokedex);
                 break;

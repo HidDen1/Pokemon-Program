@@ -17,6 +17,7 @@ public class PokemonCharmander extends Pokemon{
         gender = setGender();
         captureRate = 45;
         nat = natureAssigner();
+        held = null;
 
         atkIV = ivGenerator();
         defIV = ivGenerator();
@@ -53,7 +54,11 @@ public class PokemonCharmander extends Pokemon{
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (baseHp * 2 + hpIV + hpEV  / 4) * lev / 100 + 10;
-        att = new Attack[]{new AttackEmber(), new AttackDragonRage(), new AttackFireFang(), new AttackFlamethrower()};
+
+        attLevel = new int[]{0, 0, 7, 10, 16, 19, 25, 28, 34, 37, 43, 46};
+        atts = new Attack[]{new AttackScratch(), new AttackGrowl(), new AttackEmber(), new AttackSmokescreen(), new AttackDragonRage(), new AttackScaryFace(), new AttackFireFang(), new AttackFlameBurst(), new AttackSlash(), new AttackFlamethrower(), new AttackFireSpin(), new AttackInferno()};
+        att = new Attack[]{new AttackEmpty(), new AttackEmpty(), new AttackEmpty(), new AttackEmpty()};
+        getInitialAttacks();
     }
 
 }

@@ -8,7 +8,7 @@ public abstract class Attack {
     protected boolean physical;
     protected int power, accuracy, powerpoints;
 
-    public String getName(){
+    public String getAttackName(){
         return name;
     }
 

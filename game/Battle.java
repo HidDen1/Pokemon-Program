@@ -109,7 +109,7 @@ public class Battle{
 
         multiplier = getModifier();
 
-        if (user.party[currentID].att[att].getName().equalsIgnoreCase("-----")) { //not working
+        if (user.party[currentID].att[att].getAttackName().equalsIgnoreCase("-----")) { //not working
             System.out.println("Invalid Move");
             playerAttack(user, wild, option, pokedex);
         }
@@ -257,7 +257,7 @@ public class Battle{
         if (attack == -1){
             optionPokemon(s,user,wild,option,pokedex);
         } else {
-            System.out.println(user.party[currentID].att[attack - 1] + "\nPower: " + user.party[currentID].att[attack - 1].getPower() + "\nType: " + user.party[currentID].att[attack - 1].getType());
+            System.out.println(user.party[currentID].att[attack - 1] + "\n" + user.party[currentID].att[attack - 1].getDescription() + "\nPower: " + user.party[currentID].att[attack - 1].getPower() + "\nType: " + user.party[currentID].att[attack - 1].getType());
             if (user.party[currentID].att[attack - 1].isPhysical()){
                 System.out.println("Physical");
             } else {

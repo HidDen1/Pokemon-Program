@@ -20,7 +20,8 @@ TODO: Differentiate all items and create continuous item functioning
     -Checking bag shuts down the game
     -Catching Pokemon is very broken
     -The misc empty exceptions will mostly likley be dealt with when gui is created
-    -Types not being displayed correctly
+    -Trainer info doesnt want me to display my party
+    -User being prompted to replace a new attack on the third attack learned
      
     Battle mechanics that still need to be added:
     -PP
@@ -40,6 +41,34 @@ TODO: Differentiate all items and create continuous item functioning
      
      
     Version History:
+
+    Version 0.46.00 2/28/2017
+    -Added a method that lets you teach Pokemon new moves and lets them automatically learn them if they do not have 4 attacks
+
+    Version 0.45.00 2/27/2017
+    -Added array to get initial Pokemon attacks to Pokemon class
+
+    Version 0.44.00 2/22/2017
+    -Began adding held items
+    -Began adding proper move learning on level up
+    -Added held item value in Pokemon class
+    -Added arrays for levels that attacks are learned and all of the possible attacks that can be learned
+    -Added the attacks Scratch, Growl (doesn't do anything), Smokescreen (doesn't do anything), Scary Face (doesn't do anything),
+    Fire Spin, Inferno
+
+    Version 0.43.00 2/17/2017
+    -Improved Pokedex formatting
+    -Fixed party being displayed twice sometimes outside of battle
+    -Fixed types not being displayed correctly
+
+    Version 0.42.00 2/16/2017
+    -Fixed crash when displaying attack info outside of battle
+    -Fixed attack names not being displayed outside of battle
+
+    Version 0.41.00 2/15/2017
+    -Added descriptions to attacks when viewed in battle
+    -Added Pokemon viewing choice outside of battle to allow choice between viewing moves and summary
+    -Fixed error when going back in the menus after checking Pokemon outside of battle
 
     Version 0.40.00 2/13/2017
     -Added Pokedex entries for Bulbasaur, Charmander, and Squirtle evolution lines

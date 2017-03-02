@@ -193,6 +193,7 @@ public class Player{
                 expToLevelUpPokemon(currentID);
                 System.out.println(party[currentID].getName() + " leveled up to level " + party[currentID].getLevel());
                 party[currentID].setExperience(0);
+                getNewMoves(currentID);
             }
             if (party[currentID].getLevEv() == party[currentID].getLevel()){
                 System.out.print("Congratulations, your " + party[0].getName());
@@ -218,6 +219,30 @@ public class Player{
                 party[currentID].setHealth(((party[currentID].getBaseHp() * 2 + party[currentID].getHpIV() + party[currentID].getHpEV() / 4) * party[currentID].getLevel() / 100 + 5));
                 party[currentID].setHP(party[currentID].getHealth());
                 System.out.println(" has evolved into a " + party[currentID].getName());
+                getNewMoves(currentID);
+            }
+        }
+    }
+
+    private void getNewMoves(int currentID){
+        int levelCount;
+        Scanner scan = new Scanner(System.in);
+        levelCount = party[currentID].attLevel[party[currentID].getCurrentAtt()];
+        while(levelCount <= party[currentID].getLevel()){
+            if (party[currentID].getAttCount() >= 4){ //need an option to not learn move at all
+                System.out.println(party[currentID].getName() + " would like to learn " + party[currentID].atts[party[currentID].getCurrentAtt()].getAttackName() + ". Select a move to replace with " + party[currentID].atts[party[currentID].getCurrentAtt()].getAttackName());
+                int choice = scan.nextInt();
+                party[currentID].att[choice - 1] =  party[currentID].atts[party[currentID].getCurrentAtt()];
+                party[currentID].setCurrentAtt(party[currentID].getCurrentAtt() + 1);
+                levelCount = party[currentID].attLevel[party[currentID].getCurrentAtt()];
+                party[currentID].setAttCount(4);
+            } else {
+                System.out.println(party[currentID].getName() + " learned " + party[currentID].atts[party[currentID].getCurrentAtt()].getAttackName());
+                party[currentID].att[party[currentID].getAttCount()] = party[currentID].atts[party[currentID].getCurrentAtt()];
+                party[currentID].setAttCount(party[currentID].getAttCount() + 1);
+                party[currentID].setCurrentAtt(party[currentID].getCurrentAtt() + 1);
+                party[currentID].setAttCount(party[currentID].getAttCount() + 1);
+                levelCount = party[currentID].attLevel[party[currentID].getCurrentAtt()];
             }
         }
     }
@@ -235,40 +260,89 @@ public class Player{
 
     void viewStats(Player user){
         Scanner scan = new Scanner(System.in);
+        user.getPartyPokemon();
         System.out.println("Select a pokemon that you want to view. Enter -1 to go back.");
         int c = scan.nextInt();
 
         if (c != -1){
-            if (party[c - 1].getName().equalsIgnoreCase("Empty")){
-                c = -1;
-                System.out.println("That slot is empty!");
-            }
-            while (c > 6 || c == 0 || c <= -1){
-                System.out.println("Please enter a valid slot!");
-                c = scan.nextInt();
+            int a = 0;
+            while (a != 1 && c != -1) {
+                if (c > 6 || c == 0 || c <= -2){
+                        System.out.println("Please enter a valid slot!");
+                        c = scan.nextInt();
+                } else if (party[c - 1].getName().equalsIgnoreCase("Empty")){
+                    System.out.println("That slot is empty. Please enter a valid slot!");
+                    c = scan.nextInt();
+                } else {
+                    a = 1;
+                }
             }
             if (c > -1){
-                c = c - 1;
-                System.out.println("Name: " + party[c].getName());
-                System.out.println("Level: " + party[c].getLevel());
-                System.out.println(party [c].getGenderB());
-                System.out.println("Nature: " + party[c].nat.getNatureName());
-                System.out.println("Attack: " + party[c].getAttack());
-                System.out.println("Defense: " + party[c].getDefense());
-                System.out.println("Special Attack: " + party[c].getSpecialAttack());
-                System.out.println("Special Deffence: " + party[c].getSpecialDefense());
-                System.out.println("Speed: " + party[c].getSpeed());
-                System.out.println("HP: " + party[c].getHealth() + "/" + party[c].getHealthPoints());
-                System.out.println("EXP: " + party[c].getExperience() + " / " + toLevelUpPokemon);
-                System.out.println("Enter -1 to go back.");
-                int k = scan.nextInt();
-                while (k != -1){
-                    System.out.println("Please enter -1 to go back!");
-                    k = scan.nextInt();
+                System.out.println("What would you like to do with " + user.party[c - 1].getName() + " ?");
+                System.out.println("1.Summary\n2.Check Moves\n-1. Go Back");
+                int b = scan.nextInt();
+                switch (b){
+                    case 1:
+                        c = c - 1;
+                        System.out.println("Name: " + party[c].getName());
+                        System.out.println("Level: " + party[c].getLevel());
+                        System.out.println(party [c].getGenderB());
+                        System.out.println("Nature: " + party[c].nat.getNatureName());
+                        System.out.println("Attack: " + party[c].getAttack());
+                        System.out.println("Defense: " + party[c].getDefense());
+                        System.out.println("Special Attack: " + party[c].getSpecialAttack());
+                        System.out.println("Special Defense: " + party[c].getSpecialDefense());
+                        System.out.println("Speed: " + party[c].getSpeed());
+                        System.out.println("HP: " + party[c].getHealth() + "/" + party[c].getHealthPoints());
+                        System.out.println("EXP: " + party[c].getExperience() + " / " + toLevelUpPokemon);
+                        System.out.println("Enter -1 to go back.");
+                        int k = scan.nextInt();
+                        while (k != -1){
+                            System.out.println("Please enter -1 to go back!");
+                            k = scan.nextInt();
+                        }
+                        viewStats(user);
+                        break;
+                    case 2:
+                        c = c - 1;
+                        displayAttackB(c,user);
+                        break;
+                    case -1:
+                        user.getPartyPokemon();
+                        viewStats(user);
+                        break;
                 }
-                user.getPartyPokemon();
-                viewStats(user);
             }
+        }
+    }
+
+    public void displayAttackB(int c, Player user){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Select a move you would like to view");
+        System.out.println(c);
+        System.out.println("1. " + user.party[c].att[0] + "  2. " + user.party[c].att[1] + "\n3. " + user.party[c].att[2] + "  4. " + user.party[c].att[3]);
+        System.out.println("Enter -1 to go back");
+        int attack = scan.nextInt();
+        while (attack < 1 && attack > 4 && attack != -1) {
+            System.out.print("Please enter an applicable number!");
+            attack = scan.nextInt();
+        }
+        if (attack == -1){
+            viewStats(user);
+        } else {
+            System.out.println(user.party[c].att[attack - 1] + "\n" + user.party[c].att[attack - 1].getDescription() + "\nPower: " + user.party[c].att[attack - 1].getPower() + "\nType: " + user.party[c].att[attack - 1].getType());
+            if (user.party[c].att[attack - 1].isPhysical()){
+                System.out.println("Physical");
+            } else {
+                System.out.println("Special");
+            }
+            System.out.println("Enter -1 to go back");
+            attack = scan.nextInt();
+            while (attack != -1) {
+                System.out.print("Please enter an applicable number!");
+                attack = scan.nextInt();
+            }
+            displayAttackB(c,user);
         }
     }
 

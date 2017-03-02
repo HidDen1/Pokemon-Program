@@ -2,6 +2,7 @@ package pokemon;
 
 import attack.Attack;
 import game.Player;
+import item.Item;
 import nature.*;
 import type.Type;
 
@@ -10,11 +11,14 @@ public abstract class Pokemon{
     protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG,
             hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV, totalEV, atkIV, defIV, spDefIV, spAtkIV, spdIV, hpIV, baseAtk,
             baseDef, baseSpAtk, baseSpDef, baseSpd, baseHp, captureRate;
-    protected int pokeNum;
+    protected int pokeNum, levelCount, attCount, currentAtt;
     public Nature nat;
     public Attack att [] = new Attack[4];
     public Type[] type;
     protected Pokemon evolution;
+    public Item held;
+    public int attLevel [];
+    public Attack atts [];
 
     public String getName(){
         return(name);
@@ -280,6 +284,37 @@ public abstract class Pokemon{
 
     public Type[] getElementType(){
         return(type);
+    }
+
+    public void getInitialAttacks(){
+        attCount = 0;
+        currentAtt = 0;
+        levelCount = attLevel[currentAtt];
+        while(levelCount <= lev){
+            att [attCount] = atts[currentAtt];
+            attCount++;
+            currentAtt++;
+            if (attCount == 4){
+                attCount = 0;
+            }
+            levelCount = attLevel[currentAtt];
+        }
+    }
+
+    public int getCurrentAtt(){
+        return currentAtt;
+    }
+
+    public int getAttCount(){
+        return attCount;
+    }
+
+    public void setAttCount(int ACount){
+        this.attCount = ACount;
+    }
+
+    public void setCurrentAtt(int curAtt){
+        this.currentAtt = curAtt;
     }
 
     //public int getID(){
