@@ -21,7 +21,8 @@ public class PokemonMetapod extends Pokemon{
         captureRate = 120;
         nat = natureAssigner();
 
-        atkIV = ivGenerator();
+        double temp = ivGenerator();
+        getAtk().setAll(20, 0, 0, temp, ((40 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         defIV = ivGenerator();
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
@@ -29,28 +30,24 @@ public class PokemonMetapod extends Pokemon{
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        atkEVG = 0;
         defEVG = 2;
         spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        atkEV = 0;
         defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseAtk = 20;
         baseDef = 55;
         baseSpAtk = 25;
         baseSpDef = 25;
         baseSpd = 30;
         baseHp = 50;
 
-        atk = ((baseAtk * 2 + atkIV + atkEV / 4) * lev / 100 + 5) * nat.getAtkBonus();
         def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();

@@ -18,7 +18,8 @@ public class PokemonWartortle extends Pokemon{
         captureRate = 45;
         nat = natureAssigner();
 
-        atkIV = ivGenerator();
+        double temp = ivGenerator();
+        getAtk().setAll(63, 0, 0, temp, ((126 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         defIV = ivGenerator();
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
@@ -26,28 +27,24 @@ public class PokemonWartortle extends Pokemon{
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        atkEVG = 0;
         defEVG = 1;
         spAtkEVG = 0;
         spDefEVG = 1;
         spdEVG = 1;
 
         hpEV = 0;
-        atkEV = 0;
         defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseAtk = 63;
         baseDef = 80;
         baseSpAtk = 65;
         baseSpDef = 80;
         baseSpd = 58;
         baseHp = 59;
 
-        atk = ((baseAtk * 2 + atkIV + atkEV / 4) * lev / 100 + 5) * nat.getAtkBonus();
         def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();

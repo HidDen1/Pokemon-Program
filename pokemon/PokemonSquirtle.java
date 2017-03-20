@@ -18,7 +18,8 @@ public class PokemonSquirtle extends Pokemon{
         captureRate = 45;
         nat = natureAssigner();
 
-        atkIV = ivGenerator();
+        double temp = ivGenerator();
+        getAtk().setAll(48, 0, 0, temp, ((96 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         defIV = ivGenerator();
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
@@ -26,28 +27,24 @@ public class PokemonSquirtle extends Pokemon{
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        atkEVG = 0;
         defEVG = 1;
         spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        atkEV = 0;
         defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseAtk = 48;
         baseDef = 65;
         baseSpAtk = 50;
         baseSpDef = 64;
         baseSpd = 43;
         baseHp = 44;
 
-        atk = ((baseAtk * 2 + atkIV + atkEV / 4) * lev / 100 + 5) * nat.getAtkBonus();
         def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();

@@ -18,7 +18,8 @@ public class PokemonBlastoise extends Pokemon{
         captureRate = 45;
         nat = natureAssigner();
 
-        atkIV = ivGenerator();
+        double temp = ivGenerator();
+        getAtk().setAll(83, 0, 0, temp, ((166 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         defIV = ivGenerator();
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
@@ -26,28 +27,24 @@ public class PokemonBlastoise extends Pokemon{
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        atkEVG = 0;
         defEVG = 0;
         spAtkEVG = 0;
         spDefEVG = 3;
         spdEVG = 1;
 
         hpEV = 0;
-        atkEV = 0;
         defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseAtk = 83;
         baseDef = 100;
         baseSpAtk = 85;
         baseSpDef = 105;
         baseSpd = 78;
         baseHp = 79;
 
-        atk = ((baseAtk * 2 + atkIV + atkEV / 4) * lev / 100 + 5) * nat.getAtkBonus();
         def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();

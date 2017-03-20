@@ -4,13 +4,15 @@ import attack.Attack;
 import game.Player;
 import item.Item;
 import nature.*;
+import stat.Stat;
 import type.Type;
 
 public abstract class Pokemon{
     protected String name, gender;
-    protected double atk, def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, atkEVG, defEVG, spAtkEVG, spDefEVG, spdEVG,
-            hpEVG, atkEV, defEV, spAtkEV, spDefEV, spdEV, hpEV, totalEV, atkIV, defIV, spDefIV, spAtkIV, spdIV, hpIV, baseAtk,
-            baseDef, baseSpAtk, baseSpDef, baseSpd, baseHp, captureRate;
+    protected double def, spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, defEVG, spAtkEVG, spDefEVG, spdEVG,
+            hpEVG, defEV, spAtkEV, spDefEV, spdEV, hpEV, totalEV, defIV, spDefIV, spAtkIV, spdIV, hpIV, baseDef, baseSpAtk,
+            baseSpDef, baseSpd, baseHp, captureRate;
+    private Stat atk = new Stat("Attack");
     protected int pokeNum, levelCount, attCount, currentAtt;
     public Nature nat;
     public Attack att [] = new Attack[4];
@@ -66,11 +68,11 @@ public abstract class Pokemon{
         return evolution;
     }
 
-    public double getAttack(){
+    public Stat getAtk(){
         return(atk);
     }
 
-    public void setAttack(double a){
+    public void setAtk(Stat a){
         atk = a;
     }
 
@@ -122,14 +124,6 @@ public abstract class Pokemon{
         lev = l;
     }
 
-    public double getBaseAtk(){
-        return baseAtk;
-    }
-
-    public void setBaseAtk(double baseAtk){
-        this.baseAtk = baseAtk;
-    }
-
     public double getBaseDef(){
         return baseDef;
     }
@@ -168,14 +162,6 @@ public abstract class Pokemon{
 
     public void setBaseHp(double baseHp){
         this.baseHp = baseHp;
-    }
-
-    public double getAtkIV(){
-        return atkIV;
-    }
-
-    public double getAtkEV(){
-        return atkEV;
     }
 
     public double getDefIV(){
@@ -222,10 +208,6 @@ public abstract class Pokemon{
         return totalEV;
     }
 
-    public void setAtkEv(double atk){
-        this.atkEV = atk;
-    }
-
     public void setDefEv(double def){
         this.defEV = def;
     }
@@ -257,10 +239,6 @@ public abstract class Pokemon{
     //public int getIV(){
         //return(iv);
     //}
-
-    public double getAtkEVG(){
-        return (atkEVG);
-    }
 
     public double getDefEVG(){
         return (defEVG);

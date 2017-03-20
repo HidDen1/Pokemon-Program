@@ -91,17 +91,17 @@ public class Player{
     }
 
     public void gainEVs(int currentID, double atk, double def, double spAtk, double spDef, double spd, double hp){
-        if (party[currentID].getTotalEV() < 512 && party[currentID].getAtkEV() < 252){
-            party[currentID].setAtkEv(party[currentID].getAtkEV() + atk);
+        if (party[currentID].getTotalEV() < 512 && party[currentID].getAtk().getEV() < 252){
+            party[currentID].getAtk().setEV(party[currentID].getAtk().getEV() + atk);
             party[currentID].setTotalEv(party[currentID].getTotalEV() + atk);
             if (party[currentID].getTotalEV() > 512){
                 atk = party[currentID].getTotalEV() - 512;
                 party[currentID].setTotalEv(512);
-                party[currentID].setAtkEv(party[currentID].getAtkEV() - atk);
+                party[currentID].getAtk().setEV(party[currentID].getAtk().getEV() - atk);
             }
-            if (party[currentID].getAtkEV() > 252){
-                atk = party[currentID].getAtkEV() - 252;
-                party[currentID].setAtkEv(252);
+            if (party[currentID].getAtk().getEV() > 252){
+                atk = party[currentID].getAtk().getEV() - 252;
+                party[currentID].getAtk().setEV(252);
                 party[currentID].setTotalEv(party[currentID].getTotalEV() - atk);
             }
         }
@@ -183,7 +183,7 @@ public class Player{
             party[currentID].setExperience(party[currentID].getExperience() + 100);
             if (party[currentID].getExperience() >= toLevelUpPokemon){
                 party[currentID].setLevel(party[currentID].getLevel() + 1);
-                party[currentID].setAttack(((party[currentID].getBaseAtk() * 2 + party[currentID].getAtkIV() + party[currentID].getAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
+                party[currentID].getAtk().setNum(((party[currentID].getAtk().getBase() * 2 + party[currentID].getAtk().getIV() + party[currentID].getAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
                 party[currentID].setDefense(((party[currentID].getBaseDef() * 2 + party[currentID].getDefIV() + party[currentID].getDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getDefBonus());
                 party[currentID].setSpecialAttack(((party[currentID].getBaseSpAtk() * 2 + party[currentID].getSpAtkIV() + party[currentID].getSpAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
                 party[currentID].setSpecialDefense(((party[currentID].getBaseSpDef() * 2 + party[currentID].getSpDefIV() + party[currentID].getSpDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpDefBonus());
@@ -204,14 +204,14 @@ public class Player{
                 party[currentID].setEvolution(evolution.getEvolution());
                 party[currentID].setLevEv(evolution.getLevEv());
                 party[currentID].type = evolution.getElementType();
-                party[currentID].setBaseAtk(evolution.getBaseAtk());
+                party[currentID].getAtk().setBase(evolution.getAtk().getBase());
                 party[currentID].setBaseDef(evolution.getBaseDef());
                 party[currentID].setBaseSpAtk(evolution.getBaseSpAtk());
                 party[currentID].setBaseSpDef(evolution.getBaseSpDef());
                 party[currentID].setBaseSpd(evolution.getBaseSpd());
                 party[currentID].setBaseHp(evolution.getBaseHp());
                 party[currentID].setLevel(party[currentID].getLevel() + 1);
-                party[currentID].setAttack(((party[currentID].getBaseAtk() * 2 + party[currentID].getAtkIV() + party[currentID].getAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
+                party[currentID].getAtk().setNum(((party[currentID].getAtk().getBase() * 2 + party[currentID].getAtk().getIV() + party[currentID].getAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
                 party[currentID].setDefense(((party[currentID].getBaseDef() * 2 + party[currentID].getDefIV() + party[currentID].getDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getDefBonus());
                 party[currentID].setSpecialAttack(((party[currentID].getBaseSpAtk() * 2 + party[currentID].getSpAtkIV() + party[currentID].getSpAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
                 party[currentID].setSpecialDefense(((party[currentID].getBaseSpDef() * 2 + party[currentID].getSpDefIV() + party[currentID].getSpDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpDefBonus());
@@ -288,7 +288,7 @@ public class Player{
                         System.out.println("Level: " + party[c].getLevel());
                         System.out.println(party [c].getGenderB());
                         System.out.println("Nature: " + party[c].nat.getNatureName());
-                        System.out.println("Attack: " + party[c].getAttack());
+                        System.out.println("Attack: " + party[c].getAtk().getNum());
                         System.out.println("Defense: " + party[c].getDefense());
                         System.out.println("Special Attack: " + party[c].getSpecialAttack());
                         System.out.println("Special Defense: " + party[c].getSpecialDefense());

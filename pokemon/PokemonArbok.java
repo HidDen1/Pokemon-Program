@@ -17,7 +17,8 @@ public class PokemonArbok extends Pokemon{
         captureRate = 90;
         nat = natureAssigner();
 
-        atkIV = ivGenerator();
+        double temp = ivGenerator();
+        getAtk().setAll(95, 0, 2, temp, ((190 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         defIV = ivGenerator();
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
@@ -25,28 +26,24 @@ public class PokemonArbok extends Pokemon{
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        atkEVG = 2;
         defEVG = 0;
         spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        atkEV = 0;
         defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseAtk = 95;
         baseDef = 69;
         baseSpAtk = 65;
         baseSpDef = 79;
         baseSpd = 80;
         baseHp = 60;
 
-        atk = ((baseAtk * 2 + atkIV + atkEV / 4) * lev / 100 + 5) * nat.getAtkBonus();
         def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();

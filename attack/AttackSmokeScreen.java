@@ -3,9 +3,9 @@ package attack;
 import type.Type;
 import type.TypeNormal;
 
-public class AttackSmokescreen extends Attack{
+public class AttackSmokeScreen extends Attack{
 
-    public AttackSmokescreen(){
+    public AttackSmokeScreen(){
         name = "Smokescreen";
         type = Type.getType(TypeNormal.SPOT);
         physical = false;
