@@ -21,32 +21,29 @@ public class PokemonVenusaur extends Pokemon{
 
         double temp = ivGenerator();
         getAtk().setAll(82, 0, 0, temp, ((164 + temp) * lev / 100 + 5) * nat.getAtkBonus());
-        defIV = ivGenerator();
+        temp = ivGenerator();
+        getDef().setAll(83, 0, 0, temp, ((166 + temp) * lev / 100 + 5) * nat.getDefBonus());
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        defEVG = 0;
         spAtkEVG = 2;
         spDefEVG = 1;
         spdEVG = 1;
 
         hpEV = 0;
-        defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseDef = 83;
         baseSpAtk = 100;
         baseSpDef = 100;
         baseSpd = 80;
         baseHp = 80;
 
-        def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();

@@ -19,33 +19,29 @@ public class PokemonRaichu extends Pokemon{
 
         double temp = ivGenerator();
         getAtk().setAll(90, 0, 0, temp, ((180 + temp) * lev / 100 + 5) * nat.getAtkBonus());
-
-        defIV = ivGenerator();
+        temp = ivGenerator();
+        getDef().setAll(55, 0, 0, temp, ((110 + temp) * lev / 100 + 5) * nat.getDefBonus());
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        defEVG = 0;
         spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 4;
 
         hpEV = 0;
-        defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseDef = 55;
         baseSpAtk = 90;
         baseSpDef = 80;
         baseSpd = 110;
         baseHp = 60;
 
-        def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();

@@ -38,7 +38,7 @@ public abstract class Shop {
 
     public void shopChoice(Player user, String choice, Options o, Pokedex pokedex){
         byte choiceNum;
-        if(!Options.isNumber(choice)){
+        if(!Options.isNumber(choice) || Integer.parseInt(choice) > shopList.size() - 1 || Integer.parseInt(choice) < -1){
             System.out.println("Pick a valid choice.");
             shop(user, o, pokedex);
         }

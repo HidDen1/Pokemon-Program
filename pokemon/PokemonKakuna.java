@@ -24,32 +24,29 @@ public class PokemonKakuna extends Pokemon{
 
         double temp = ivGenerator();
         getAtk().setAll(25, 0, 0, temp, ((50 + temp) * lev / 100 + 5) * nat.getAtkBonus());
-        defIV = ivGenerator();
+        temp = ivGenerator();
+        getDef().setAll(50, 0, 2, temp, ((100 + temp) * lev / 100 + 5) * nat.getDefBonus());
         spAtkIV = ivGenerator();
         spDefIV = ivGenerator();
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        defEVG = 2;
         spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        defEV = 0;
         spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseDef = 50;
         baseSpAtk = 25;
         baseSpDef = 25;
         baseSpd = 35;
         baseHp = 45;
 
-        def = ((baseDef * 2 + defIV + defEV / 4) * lev / 100 + 5) * nat.getDefBonus();
         spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();

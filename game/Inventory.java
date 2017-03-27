@@ -117,7 +117,7 @@ public class Inventory{
         if(stacking.length > 1) {
             for (Item i : stacking) {
                 for (byte j = num; j > num1; j--) {
-                    System.out.println(i.getItemName() + " | " + stacking[j].getItemName() + " | " + j);
+                    System.out.println("THIS IS STACK DEBUG: "+ i.getItemName() + " | " + stacking[j].getItemName() + " | " + j);
                     if (i.isStackable() && stacking[j].isStackable() && stacking[j].getStack() > 0 && i.getItemName().equals(stacking[j].getItemName())) {
                         i.setStack(i.getStack() + 1);
                         stacking[j].setStack(0);

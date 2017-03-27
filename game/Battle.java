@@ -115,7 +115,7 @@ public class Battle{
         }
 
         if (user.party[currentID].att[att].isPhysical()){
-            damage = (2 * user.party[currentID].getLevel() + 10) / 250 * (user.party[currentID].getAtk().getNum() / wild.getDefense()) * (user.party[currentID].att[att].getPower() + 2) * multiplier;
+            damage = (2 * user.party[currentID].getLevel() + 10) / 250 * (user.party[currentID].getAtk().getNum() / wild.getDef().getNum()) * (user.party[currentID].att[att].getPower() + 2) * multiplier;
             d = (int) damage;
         } else {
             damage = ((2 * user.party[currentID].getLevel() + 10) / 250) * (user.party[currentID].getSpecialAttack() / wild.getSpecialDefense()) * (user.party[currentID].att[att].getPower() + 2) * multiplier;
@@ -142,7 +142,7 @@ public class Battle{
         multiplier = getModifier();
 
         if (wild.att[att].isPhysical()){
-            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAtk().getNum() / user.party[0].getDefense()) * (wild.att[att].getPower() + 2) * multiplier;
+            damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getAtk().getNum() / user.party[0].getDef().getNum()) * (wild.att[att].getPower() + 2) * multiplier;
         } else {
             damage = ((2 * wild.getLevel() + 10) / 250) * (wild.getSpecialAttack() / user.party[0].getSpecialDefense()) * (wild.att[att].getPower() + 2) * multiplier;
         }
@@ -170,7 +170,7 @@ public class Battle{
         }
         user.gainExperience();
         user.gainPokedollars();
-        user.gainEVs(currentID, wild.getAtk().getEVG(), wild.getDefEVG(), wild.getSpAtkEVG(), wild.getSpDefEVG(), wild.getSpdEVG(), wild.getHpEVG());
+        user.gainEVs(currentID, wild.getAtk().getEVG(), wild.getDef().getEVG(), wild.getSpAtkEVG(), wild.getSpDefEVG(), wild.getSpdEVG(), wild.getHpEVG());
         user.gainExperiencePokemon(currentID, pokedex);
         option.options(option.optionsMenu(), user, pokedex);
     }
@@ -220,7 +220,7 @@ public class Battle{
                 System.out.println("Name: " + user.party[s].getName());
                 System.out.println("Level: " + user.party[s].getLevel());
                 System.out.println("Attack: " + user.party[s].getAtk().getNum());
-                System.out.println("Defense: " + user.party[s].getDefense());
+                System.out.println("Defense: " + user.party[s].getDef().getNum());
                 System.out.println("Special Attack: " + user.party[s].getSpecialAttack());
                 System.out.println("Special Defense: " + user.party[s].getSpecialDefense());
                 System.out.println("Speed: " + user.party[s].getSpeed());
