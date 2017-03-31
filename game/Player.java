@@ -119,17 +119,17 @@ public class Player{
                 party[currentID].setTotalEv(party[currentID].getTotalEV() - def);
             }
         }
-        if (party[currentID].getTotalEV() < 512 && party[currentID].getSpAtkEV() < 252){
-            party[currentID].setSpAtkEv(party[currentID].getSpAtkEV() + spAtk);
+        if (party[currentID].getTotalEV() < 512 && party[currentID].getSpAtk().getEV() < 252){
+            party[currentID].getSpAtk().setEV(party[currentID].getSpAtk().getEV() + spAtk);
             party[currentID].setTotalEv(party[currentID].getTotalEV() + spAtk);
             if (party[currentID].getTotalEV() > 512){
                 spAtk = party[currentID].getTotalEV() - 512;
                 party[currentID].setTotalEv(512);
-                party[currentID].setSpAtkEv(party[currentID].getSpAtkEV() - spAtk);
+                party[currentID].getSpAtk().setEV(party[currentID].getSpAtk().getEV() - spAtk);
             }
-            if (party[currentID].getSpAtkEV() > 252){
-                spAtk = party[currentID].getSpAtkEV() - 252;
-                party[currentID].setSpAtkEv(252);
+            if (party[currentID].getSpAtk().getEV() > 252){
+                spAtk = party[currentID].getSpAtk().getEV() - 252;
+                party[currentID].getSpAtk().setEV(252);
                 party[currentID].setTotalEv(party[currentID].getTotalEV() - spAtk);
             }
         }
@@ -185,7 +185,7 @@ public class Player{
                 party[currentID].setLevel(party[currentID].getLevel() + 1);
                 party[currentID].getAtk().setNum(((party[currentID].getAtk().getBase() * 2 + party[currentID].getAtk().getIV() + party[currentID].getAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
                 party[currentID].getDef().setNum(((party[currentID].getDef().getBase() * 2 + party[currentID].getDef().getIV() + party[currentID].getDef().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getDefBonus());
-                party[currentID].setSpecialAttack(((party[currentID].getBaseSpAtk() * 2 + party[currentID].getSpAtkIV() + party[currentID].getSpAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
+                party[currentID].getSpAtk().setNum(((party[currentID].getSpAtk().getBase() * 2 + party[currentID].getSpAtk().getIV() + party[currentID].getSpAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
                 party[currentID].setSpecialDefense(((party[currentID].getBaseSpDef() * 2 + party[currentID].getSpDefIV() + party[currentID].getSpDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpDefBonus());
                 party[currentID].setSpeed(((party[currentID].getBaseSpd() * 2 + party[currentID].getSpdIV() + party[currentID].getSpdEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpdBonus());
                 party[currentID].setHealth(((party[currentID].getBaseHp() * 2 + party[currentID].getHpIV() + party[currentID].getHpEV() / 4) * party[currentID].getLevel() / 100 + 5));
@@ -206,14 +206,14 @@ public class Player{
                 party[currentID].type = evolution.getElementType();
                 party[currentID].getAtk().setBase(evolution.getAtk().getBase());
                 party[currentID].getDef().setBase(evolution.getDef().getBase());
-                party[currentID].setBaseSpAtk(evolution.getBaseSpAtk());
+                party[currentID].getSpAtk().setBase(evolution.getSpAtk().getBase());
                 party[currentID].setBaseSpDef(evolution.getBaseSpDef());
                 party[currentID].setBaseSpd(evolution.getBaseSpd());
                 party[currentID].setBaseHp(evolution.getBaseHp());
                 party[currentID].setLevel(party[currentID].getLevel() + 1);
                 party[currentID].getAtk().setNum(((party[currentID].getAtk().getBase() * 2 + party[currentID].getAtk().getIV() + party[currentID].getAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getAtkBonus());
                 party[currentID].getDef().setNum(((party[currentID].getDef().getBase() * 2 + party[currentID].getDef().getIV() + party[currentID].getDef().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getDefBonus());
-                party[currentID].setSpecialAttack(((party[currentID].getBaseSpAtk() * 2 + party[currentID].getSpAtkIV() + party[currentID].getSpAtkEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
+                party[currentID].getSpAtk().setNum(((party[currentID].getSpAtk().getBase() * 2 + party[currentID].getSpAtk().getIV() + party[currentID].getSpAtk().getEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpAtkBonus());
                 party[currentID].setSpecialDefense(((party[currentID].getBaseSpDef() * 2 + party[currentID].getSpDefIV() + party[currentID].getSpDefEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpDefBonus());
                 party[currentID].setSpeed(((party[currentID].getBaseSpd() * 2 + party[currentID].getSpdIV() + party[currentID].getSpdEV() / 4) * party[currentID].getLevel() / 100 + 5) * party[currentID].nat.getSpdBonus());
                 party[currentID].setHealth(((party[currentID].getBaseHp() * 2 + party[currentID].getHpIV() + party[currentID].getHpEV() / 4) * party[currentID].getLevel() / 100 + 5));
@@ -290,7 +290,7 @@ public class Player{
                         System.out.println("Nature: " + party[c].nat.getNatureName());
                         System.out.println("Attack: " + party[c].getAtk().getNum());
                         System.out.println("Defense: " + party[c].getDef().getNum());
-                        System.out.println("Special Attack: " + party[c].getSpecialAttack());
+                        System.out.println("Special Attack: " + party[c].getSpAtk().getNum());
                         System.out.println("Special Defense: " + party[c].getSpecialDefense());
                         System.out.println("Speed: " + party[c].getSpeed());
                         System.out.println("HP: " + party[c].getHealth() + "/" + party[c].getHealthPoints());

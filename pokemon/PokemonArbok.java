@@ -21,28 +21,25 @@ public class PokemonArbok extends Pokemon{
         getAtk().setAll(95, 0, 2, temp, ((190 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         temp = ivGenerator();
         getDef().setAll(69, 0, 0, temp, ((138 + temp) * lev / 100 + 5) * nat.getDefBonus());
-        spAtkIV = ivGenerator();
+        temp = ivGenerator();
+        getSpAtk().setAll(65, 0, 0, temp, ((130 + temp) * lev/100 + 5) * nat.getSpAtkBonus());
         spDefIV = ivGenerator();
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        spAtkEVG = 0;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseSpAtk = 65;
         baseSpDef = 79;
         baseSpd = 80;
         baseHp = 60;
 
-        spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (baseHp * 2 + hpIV + hpEV  / 4) * lev / 100 + 10;

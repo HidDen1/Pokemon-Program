@@ -9,10 +9,10 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, gender;
-    protected double spAtk, spDef, spd, hpMax, hp, lev, expMax, exp, levEv, spAtkEVG, spDefEVG, spdEVG,
-            hpEVG, spAtkEV, spDefEV, spdEV, hpEV, totalEV, spDefIV, spAtkIV, spdIV, hpIV, baseSpAtk,
+    protected double spDef, spd, hpMax, hp, lev, expMax, exp, levEv, spDefEVG, spdEVG,
+            hpEVG, spDefEV, spdEV, hpEV, totalEV, spDefIV, spdIV, hpIV,
             baseSpDef, baseSpd, baseHp, captureRate;
-    private Stat atk = new Stat("Attack"), def = new Stat("Defense");
+    private Stat atk = new Stat("Attack"), def = new Stat("Defense"), spAtk = new Stat("Special Attack");
     protected int pokeNum, levelCount, attCount, currentAtt;
     public Nature nat;
     public Attack att [] = new Attack[4];
@@ -76,12 +76,8 @@ public abstract class Pokemon{
         return(def);
     }
 
-    public double getSpecialAttack(){
+    public Stat getSpAtk(){
         return(spAtk);
-    }
-
-    public void setSpecialAttack(double a){
-        spAtk = a;
     }
 
     public double getSpecialDefense(){
@@ -116,14 +112,6 @@ public abstract class Pokemon{
         lev = l;
     }
 
-    public double getBaseSpAtk(){
-        return baseSpAtk;
-    }
-
-    public void setBaseSpAtk(double baseSpAtk){
-        this.baseSpAtk = baseSpAtk;
-    }
-
     public double getBaseSpDef(){
         return baseSpDef;
     }
@@ -146,14 +134,6 @@ public abstract class Pokemon{
 
     public void setBaseHp(double baseHp){
         this.baseHp = baseHp;
-    }
-
-    public double getSpAtkIV(){
-        return spAtkIV;
-    }
-
-    public double getSpAtkEV(){
-        return spAtkEV;
     }
 
     public double getSpDefIV(){
@@ -184,10 +164,6 @@ public abstract class Pokemon{
         return totalEV;
     }
 
-    public void setSpAtkEv(double spAtk){
-        this.spAtkEV = spAtk;
-    }
-
     public void setSpDefEv(double spDef){
         this.spDefEV = spDef;
     }
@@ -211,10 +187,6 @@ public abstract class Pokemon{
     //public int getIV(){
         //return(iv);
     //}
-
-    public double getSpAtkEVG(){
-        return (spAtkEVG);
-    }
 
     public double getSpDefEVG(){
         return (spDefEVG);

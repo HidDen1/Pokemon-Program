@@ -23,28 +23,25 @@ public class PokemonCharizard extends Pokemon{
         getAtk().setAll(84, 0, 0, temp, ((168 + temp) * lev / 100 + 5) * nat.getAtkBonus());
         temp = ivGenerator();
         getDef().setAll(78, 0, 0, temp, ((156 + temp) * lev / 100 + 5) * nat.getDefBonus());
-        spAtkIV = ivGenerator();
+        temp = ivGenerator();
+        getSpAtk().setAll(109, 0, 3, temp, ((218 + temp) * lev/100 + 5) * nat.getSpAtkBonus());
         spDefIV = ivGenerator();
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 0;
-        spAtkEVG = 3;
         spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        spAtkEV = 0;
         spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseSpAtk = 109;
         baseSpDef = 85;
         baseSpd = 100;
         baseHp = 78;
 
-        spAtk = ((baseSpAtk * 2 + spAtkIV + spAtkEV / 4) * lev / 100 + 5) * nat.getSpAtkBonus();
         spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (baseHp * 2 + hpIV + hpEV  / 4) * lev / 100 + 10;
