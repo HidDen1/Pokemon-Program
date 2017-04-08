@@ -27,24 +27,21 @@ public class PokemonCaterpie extends Pokemon{
         getDef().setAll(35, 0, 0, temp, ((70 + temp) * lev / 100 + 5) * nat.getDefBonus());
         temp = ivGenerator();
         getSpAtk().setAll(20, 0, 0, temp, ((40 + temp) * lev/100 + 5) * nat.getSpAtkBonus());
-        spDefIV = ivGenerator();
+        temp = ivGenerator();
+        getSpDef().setAll(20, 0, 0, temp, ((40 + temp) * lev/100 + 5) * nat.getSpAtkBonus());
         spdIV = ivGenerator();
         hpIV = ivGenerator();
 
         hpEVG = 1;
-        spDefEVG = 0;
         spdEVG = 1;
 
         hpEV = 0;
-        spDefEV = 0;
         spdEV = 0;
         totalEV = 0;
 
-        baseSpDef = 20;
         baseSpd = 45;
         baseHp = 45;
 
-        spDef = ((baseSpDef * 2 + spDefIV + spDefEV / 4) * lev / 100 + 5) * nat.getSpDefBonus();
         spd = ((baseSpd * 2 + spdIV + spdEV / 4) * lev / 100 + 5) * nat.getSpdBonus();
         hpMax = (baseHp * 2 + hpIV + hpEV  / 4) * lev / 100 + 10;
         att = new Attack[]{new AttackTackle(), new AttackBugBite(), new AttackEmpty(), new AttackEmpty()};

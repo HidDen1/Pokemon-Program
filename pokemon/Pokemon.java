@@ -9,10 +9,10 @@ import type.Type;
 
 public abstract class Pokemon{
     protected String name, gender;
-    protected double spDef, spd, hpMax, hp, lev, expMax, exp, levEv, spDefEVG, spdEVG,
-            hpEVG, spDefEV, spdEV, hpEV, totalEV, spDefIV, spdIV, hpIV,
-            baseSpDef, baseSpd, baseHp, captureRate;
-    private Stat atk = new Stat("Attack"), def = new Stat("Defense"), spAtk = new Stat("Special Attack");
+    protected double spd, hpMax, hp, lev, expMax, exp, levEv, spdEVG,
+            hpEVG, spdEV, hpEV, totalEV, spdIV, hpIV,
+            baseSpd, baseHp, captureRate;
+    private Stat atk = new Stat("Attack"), def = new Stat("Defense"), spAtk = new Stat("Special Attack"), spDef = new Stat("Special Defense");
     protected int pokeNum, levelCount, attCount, currentAtt;
     public Nature nat;
     public Attack att [] = new Attack[4];
@@ -80,12 +80,8 @@ public abstract class Pokemon{
         return(spAtk);
     }
 
-    public double getSpecialDefense(){
+    public Stat getSpDef(){
         return(spDef);
-    }
-
-    public void setSpecialDefense(double d /*hehe double D*/){
-        spDef = d;
     }
 
     public double getSpeed(){
@@ -112,14 +108,6 @@ public abstract class Pokemon{
         lev = l;
     }
 
-    public double getBaseSpDef(){
-        return baseSpDef;
-    }
-
-    public void setBaseSpDef(double baseSpDef){
-        this.baseSpDef = baseSpDef;
-    }
-
     public double getBaseSpd(){
         return baseSpd;
     }
@@ -134,14 +122,6 @@ public abstract class Pokemon{
 
     public void setBaseHp(double baseHp){
         this.baseHp = baseHp;
-    }
-
-    public double getSpDefIV(){
-        return spDefIV;
-    }
-
-    public double getSpDefEV(){
-        return spDefEV;
     }
 
     public double getSpdIV(){
@@ -164,10 +144,6 @@ public abstract class Pokemon{
         return totalEV;
     }
 
-    public void setSpDefEv(double spDef){
-        this.spDefEV = spDef;
-    }
-
     public void setSpdEv(double spd){
         this.spdEV = spd;
     }
@@ -187,10 +163,6 @@ public abstract class Pokemon{
     //public int getIV(){
         //return(iv);
     //}
-
-    public double getSpDefEVG(){
-        return (spDefEVG);
-    }
 
     public double getSpdEVG(){
         return (spdEVG);
