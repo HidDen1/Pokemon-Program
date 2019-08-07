@@ -13,8 +13,10 @@ public class Game {
         String trainerName;
 
         Type.initializeTypes();
-        //javax.swing.SwingUtilities.invokeLater(game.Game::startGUI);
+        javax.swing.SwingUtilities.invokeLater(Game::startGUI);
 
+
+        /*
         System.out.println("Welcome to Patrick's pokemon game!");
         System.out.println("Enter your name.");
         trainerName = scan.nextLine();
@@ -30,11 +32,12 @@ public class Game {
         Options option = new Options();
         //Battle bat = new Battle();
         //PCSystem cp = new PCSystem();
-        option.options(option.optionsMenu(), user, pokedex);
+        option.options(option.optionsMenu(), user, pokedex);*/
     }
 
     public static void startGUI(){
         JFrame.setDefaultLookAndFeelDecorated(false);
-        Game g = new Game();
+
+        GUI g = new GUI();
     }
 }
